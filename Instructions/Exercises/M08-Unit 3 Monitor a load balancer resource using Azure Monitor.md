@@ -11,7 +11,7 @@ Neste exercício, você vai criar um balanceador de carga interno para a organiz
 
 O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 
-![Diagrama que ilustra a arquitetura do balanceador de carga que será criada no exercício. Inclui balanceador de carga, VNet, sub-rede, Bastionsubnet e VMs](../media/exercise-internal-standard-load-balancer-environment-diagram.png)
+![Diagrama que ilustra a arquitetura do balanceador de carga que será criada no exercício. Inclui balanceador de carga, VNet, sub-rede, Bastionsubnet e VMs](../media/3-exercise-monitor-load-balancer-resource-using-azure-monitor.png)
 
  Neste exercício, você vai:
 
@@ -55,7 +55,7 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
    | **Configuração**    | **Valor**                                           |
    | -------------- | --------------------------------------------------- |
-   | Subscription   | Selecione sua assinatura                            |
+   | Subscription   | Selecionar sua assinatura                            |
    | Resource group | Selecione **Criar**<br /><br />Nome: **IntLB-RG** |
    | Nome           | **IntLB-VNet**                                      |
    | Região         | **(EUA) Oeste dos EUA**                                    |
@@ -96,7 +96,7 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
    | **Configuração**           | **Valor**                |
    | --------------------- | ------------------------ |
    | Guia Básico            |                          | 
-   | Assinatura          | Selecione sua assinatura |
+   | Assinatura          | Selecionar sua assinatura |
    | Resource group        | **IntLB-RG**             |
    | Nome                  | **myIntLoadBalancer**    |
    | Região                | **(EUA) Oeste dos EUA**         |
@@ -179,7 +179,7 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
    | Investigação de integridade           | **myHealthProbe**        |
    | Persistência de sessão    | **Nenhuma**                 |
    | Tempo limite de ociosidade (minutos) | **15**                   |
-   | IP flutuante            | **Desabilitada**             |
+   | IP flutuante            | **Desabilitado**             |
 
 1. Selecione **Adicionar**.
 
@@ -239,7 +239,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**          | **Valor**                                    |
    | -------------------- | -------------------------------------------- |
-   | Subscription         | Selecione sua assinatura                     |
+   | Subscription         | Selecionar sua assinatura                     |
    | Resource group       | **IntLB-RG**                                 |
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Oeste dos EUA**                             |
@@ -312,7 +312,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**    | **Valor**                |
    | -------------- | ------------------------ |
-   | Subscription   | Selecione sua assinatura |
+   | Subscription   | Selecionar sua assinatura |
    | Resource group | **IntLB-RG**             |
    | Nome           | **myLAworkspace**        |
    | Região         | **Oeste dos EUA**              |

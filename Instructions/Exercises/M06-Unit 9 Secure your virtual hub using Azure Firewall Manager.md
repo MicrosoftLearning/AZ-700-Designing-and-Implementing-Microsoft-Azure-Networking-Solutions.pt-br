@@ -9,7 +9,10 @@ Exercise:
 
 Neste exercício, você criará a rede virtual spoke, criará um hub virtual seguro, conectará as redes virtuais hub e spoke e roteará o tráfego para seu hub. Agora, você implantará os servidores de carga de trabalho, criará uma política de firewall, protegerá seu hub e, por fim, testará o firewall.
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Secure%20your%20virtual%20hub%20using%20Azure%20Firewall%20Manager)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+![Diagrama da arquitetura de rede virtual com um hub seguro.](../media/9-exercise-secure-your-virtual-hub-using-azure-firewall-manager.png)
+
+
+**Observação:** uma **[simulação de laboratório interativa](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Secure%20your%20virtual%20hub%20using%20Azure%20Firewall%20Manager)** está disponível e permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ## Criar uma arquitetura de hub e spoke
 

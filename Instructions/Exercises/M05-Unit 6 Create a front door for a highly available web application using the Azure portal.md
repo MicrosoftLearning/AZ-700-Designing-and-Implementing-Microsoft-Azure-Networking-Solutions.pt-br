@@ -12,7 +12,7 @@ Exercise:
 
 Neste exercício, você definirá uma configuração do Azure Front Door que agrupa duas instâncias de um aplicativo Web que é executado em diferentes regiões do Azure. Essa configuração direciona o tráfego para o site mais próximo que executa o aplicativo. O Azure Front Door monitora o aplicativo Web continuamente. Você demonstrará o failover automático para o próximo site disponível quando o site mais próximo estiver não disponível. A configuração de rede é mostrada no seguinte diagrama:
 
-![Configuração de rede para o Azure Front Door.](../media/front-door-environment-diagram.png)
+![Configuração de rede para o Azure Front Door.](../media/6-exercise-create-front-door-for-highly-available.png)
 
 Neste exercício, você vai:
 

@@ -8,6 +8,8 @@ Exercise:
 ## Cenário do exercício 
 Nesta unidade, você configurará a conectividade entre a CoreServicesVnet e a ManufacturingVnet adicionando emparelhamentos a fim de permitir o fluxo de tráfego. 
 
+![Diagrama do emparelhamento de rede virtual.](../media/8-exercise-connect-two-azure-virtual-networks-global.png)
+
 Nesta unidade, você vai:
 
 + Tarefa 1: criar uma máquina virtual para testar a configuração
@@ -119,7 +121,7 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
 |                                      | Nome do link de emparelhamento                             | ManufacturingVnet-to-CoreServicesVnet |
 |                                      | Modelo de implantação de rede virtual              | Gerenciador de recursos                      |
 |                                      | Conheço minha ID do recurso                         | Não selecionado                          |
-|                                      | Subscription                                  | Selecione a assinatura fornecida      |
+|                                      | Assinatura                                  | Selecione a assinatura fornecida      |
 |                                      | Rede virtual                               | ManufacturingVnet                     |
 |                                      | Tráfego para a rede virtual remota             | Permitir (padrão)                       |
 |                                      | Tráfego encaminhado da rede virtual remota | Permitir (padrão)                       |

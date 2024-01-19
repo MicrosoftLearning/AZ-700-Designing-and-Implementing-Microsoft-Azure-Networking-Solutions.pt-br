@@ -8,6 +8,8 @@ Exercise:
 
 Sendo parte da equipe de Segurança de Rede na Contoso, sua próxima tarefa é criar regras de firewall para permitir/negar o acesso a determinados sites. As etapas a seguir explicam como criar um grupo de recursos, uma rede virtual, sub-redes e uma máquina virtual como tarefas de preparação do ambiente e implantar o firewall e a política de firewall, configurar rotas padrão e de aplicativo, regras de rede e DNAT e, por fim, testar o firewall.
 
+![Diagrama da rede virtual com a arquitetura do Firewall do Azure.](../media/7-exercise-deploy-configure-azure-firewall-using-azure-portal.png)
+
 Neste exercício, você vai:
 
 + Tarefa 1: criar um grupo de recursos
@@ -129,11 +131,11 @@ Nesta tarefa, você implantará o firewall na rede virtual com uma política de 
 
    | **Configuração**          | **Valor**                                                    |
    | -------------------- | ------------------------------------------------------------ |
-   | Subscription         | Selecione sua assinatura                                     |
+   | Subscription         | Selecionar sua assinatura                                     |
    | Grupo de recursos       | **Test-FW-RG**                                               |
    | Nome do firewall        | **Test-FW01**                                                |
    | Region               | Sua região                                                  |
-   | SKU do Firewall        | **Padrão**                                                 |
+   | SKU do Firewall        | **Standard**                                                 |
    | Gerenciamento do firewall  | **Usar uma política de firewall para gerenciar este firewall**            |
    | Política de firewall      | Selecione **Adicionar nova**<br />Nome: **fw-test-pol**<br />Região: **sua região** |
 
@@ -177,7 +179,7 @@ Para esta tarefa, na sub-rede Workload-SN, configure a rota de saída padrão pa
 
    | **Configuração**              | **Valor**                |
    | ------------------------ | ------------------------ |
-   | Subscription             | Selecione sua assinatura |
+   | Subscription             | Selecionar sua assinatura |
    | Grupo de recursos           | **Test-FW-RG**           |
    | Region                   | Sua região              |
    | Nome                     | **Firewall-route**       |

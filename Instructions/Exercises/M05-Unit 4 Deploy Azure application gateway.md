@@ -9,7 +9,10 @@ Exercise:
 
 Neste exercício, você usará o portal do Azure para criar um gateway de aplicativo. Em seguida, você o testará para verificar se ele funciona corretamente.
 
->**Observação**: há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+![Diagrama da arquitetura do gateway de aplicativo.](../media/4-exercise-deploy-azure-application-gateway.png)
+
+
+>**Observação:** uma **[simulação de laboratório interativa](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway)** está disponível e permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 #### Tempo estimado: 25 minutos
 

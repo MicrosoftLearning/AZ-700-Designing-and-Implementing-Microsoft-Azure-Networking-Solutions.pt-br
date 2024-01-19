@@ -9,6 +9,8 @@ Exercise:
 
 Neste exercício, você vai configurar um gateway de rede virtual para conectar a VNet do Contoso Core Services e a VNet de Fabricação. 
 
+![Diagrama de gateway de rede virtual.](../media/3-exercise-create-configure-local-network-gateway.png)
+
 Neste exercício, você vai:
 
 + Tarefa 1: criar CoreServicesVnet e ManufacturingVnet
@@ -141,8 +143,8 @@ Neste exercício, você vai:
    |                 |                   | Generation                                  | Geração1                  |
    |                 |                   | Rede virtual                             | CoreServicesVnet             |
    |                 |                   | Sub-rede                                      | GatewaySubnet (10.20.0.0/27) |
-   |                 |                   | Tipo de endereço IP público                      | Padrão                     |
-   |                 | Endereço IP público | Endereço IP público                           | Criar                   |
+   |                 |                   | Tipo de endereço IP público                      | Standard                     |
+   |                 | Endereço IP público | Endereço IP público                           | Criar novo                   |
    |                 |                   | Nome do endereço IP público                      | CoreServicesVnetGateway-ip   |
    |                 |                   | Habilitar o modo ativo-ativo                   | Desabilitado                     |
    |                 |                   | Configurar BGP                               | Desabilitado                     |
@@ -172,8 +174,8 @@ Neste exercício, você vai:
    |                 |                   | Generation                                  | Geração1                  |
    |                 |                   | Rede virtual                             | ManufacturingVnet            |
    |                 |                   | Sub-rede                                      | GatewaySubnet (10.30.0.0/27) |
-   |                 |                   | Tipo de Endereço IP Público                      | Padrão                     |
-   |                 | Endereço IP público | Endereço IP público                           | Criar                   |
+   |                 |                   | Tipo de Endereço IP Público                      | Standard                     |
+   |                 | Endereço IP público | Endereço IP público                           | Criar novo                   |
    |                 |                   | Nome do endereço IP público                      | ManufacturingVnetGateway-ip  |
    |                 |                   | Habilitar o modo ativo-ativo                   | Desabilitado                     |
    |                 |                   | Configurar BGP                               | Desabilitado                     |

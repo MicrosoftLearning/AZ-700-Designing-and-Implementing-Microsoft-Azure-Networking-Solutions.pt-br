@@ -11,7 +11,7 @@ Neste exercício, você criará um circuito do ExpressRoute usando o portal do A
 
 #### Tempo estimado: 15 minutos
 
-![Diagrama do layout do circuito do ExpressRoute para exercício](../media/environment-diagram.png)
+![Diagrama do layout do circuito do ExpressRoute para exercício](../media/5-exercise-provision-expressroute-circuit.png)
 
 
 

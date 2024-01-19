@@ -8,6 +8,9 @@ Exercise:
 
 Sendo responsável pela equipe de Segurança de Rede da Contoso, você executará um DDoS simulado na rede virtual. As etapas a seguir explicam como criar uma rede virtual, configurar a Proteção contra DDoS e criar um ataque que você pode observar e monitorar com a ajuda de telemetria e métricas.
 
+![Diagrama da arquitetura de DDoS.](../media/4-exercise-configure-ddos-protection-virtual-network-using-azure-portal.png)
+
+
 Neste exercício, você vai:
 
 + Tarefa 1: criar um grupo de recursos
@@ -156,7 +159,7 @@ Nesta etapa, você criará uma máquina virtual, atribuirá um endereço IP púb
 
    | **Configuração**           | **Valor**                                                    |
    | --------------------- | ------------------------------------------------------------ |
-   | Subscription          | Selecione sua assinatura                                     |
+   | Subscription          | Selecionar sua assinatura                                     |
    | Grupo de recursos        | **MyResourceGroup**                                          |
    | Nome da máquina virtual  | **MyVirtualMachine**                                         |
    | Region                | Sua região                                                  |
