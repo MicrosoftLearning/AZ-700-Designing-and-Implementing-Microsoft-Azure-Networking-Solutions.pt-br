@@ -15,9 +15,8 @@ Neste exercício, você vai criar um balanceador de carga interno para a organiz
 
 As etapas para criar um balanceador de carga interno são muito semelhantes às que você já aprendeu neste módulo para criar um balanceador de carga público. A principal diferença é que, com um balanceador de carga público, o front-end é acessado por meio de um endereço IP público e você testa a conectividade a partir de um host que está localizado fora de sua rede virtual; ao passo que, com um balanceador de carga interno, o front-end é um endereço IP privado dentro de sua rede virtual e você testa a conectividade a partir de um host dentro da mesma rede.
 
-O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 
-![diagrama do balanceador de carga padrão interno](../media/exercise-internal-standard-load-balancer-environment-diagram.png)
+![diagrama do balanceador de carga padrão interno](../media/4-exercise-create-configure-azure-load-balancer.png)
 
  
 Neste exercício, você vai:
@@ -42,7 +41,7 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
    | **Configuração**    | **Valor**                                  |
    | -------------- | ------------------------------------------ |
-   | Subscription   | Selecione sua assinatura                   |
+   | Subscription   | Selecionar sua assinatura                   |
    | Resource group | Selecione **Criar novo**  Nome: **IntLB-RG** |
    | Nome           | **IntLB-VNet**                             |
    | Região         | **(EUA) Leste dos EUA**                           |
@@ -81,7 +80,7 @@ Nesta seção, você criará três VMs, que estarão no mesmo conjunto de dispon
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
  > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
-2. Na barra de ferramentas do painel de Cloud Shell, selecione o ícone **Carregar/Baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os arquivos azuredeploy.json, azuredeploy.parameters.vm1.json, azuredeploy.parameters.vm2.json e azuredeploy.parameters.vm3.json para diretório base do Cloud Shell, um por um.
+2. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/Baixar arquivos**. No menu suspenso, selecione **Carregar** e carregue os arquivos azuredeploy.json e azuredeploy.parameters.json no diretório inicial do Cloud Shell um a um.
 
 3. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
@@ -90,9 +89,7 @@ Nesta seção, você criará três VMs, que estarão no mesmo conjunto de dispon
    ```powershell
    $RGName = "IntLB-RG"
    
-   New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.vm1.json
-   New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.vm2.json
-   New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.vm3.json
+   New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
    ```
 
 Pode levar de 5 a 10 minutos para criar essas três VMs. Você não precisa esperar até que o trabalho seja concluído, você já pode continuar com a próxima tarefa.
@@ -113,12 +110,13 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
 
    | **Configuração**           | **Valor**                |
    | --------------------- | ------------------------ |
-   | Subscription          | Selecione sua assinatura |
+   | Subscription          | Selecionar sua assinatura |
    | Resource group        | **IntLB-RG**             |
    | Nome                  | **myIntLoadBalancer**    |
    | Região                | **(EUA) Leste dos EUA**         |
-   | Tipo                  | **Interna**             |
    | SKU                   | **Standard**             |
+   | Tipo                  | **Interna**             |
+   | Camada                  | **Regional**             |
 
 
 1. Selecione **Próximo: Configurações do IP de front-end**.
@@ -161,7 +159,7 @@ O pool de endereços de back-end contém os endereços IP de NICs virtuais conec
 
 1. Marque as caixas de seleção para todas as três VMs (**myVM1**, **myVM2** e **myVM3**) e selecione **Adicionar**.
 
-1. Selecione **Adicionar**.
+1. Selecione **Salvar**.
    ![Imagem 7](../media/add-vms-backendpool.png)
    
 
@@ -180,7 +178,6 @@ O balanceador de carga monitora o status do seu aplicativo com uma investigaçã
    | Porta                | **80**            |
    | Caminho                | **/**             |
    | Intervalo            | **15**            |
-   | Limite não íntegro | **2**             |
 
 
 1. Selecione **Adicionar**.
@@ -192,7 +189,7 @@ O balanceador de carga monitora o status do seu aplicativo com uma investigaçã
 
 Uma regra de balanceador de carga é usada para definir como o tráfego é distribuído para as VMs. Você define a configuração de IP de front-end para o tráfego de entrada e o pool de IPs de back-end para receber o tráfego. A porta de origem e de destino são definidas na regra. Aqui, você vai criar uma regra de balanceador de carga.
 
-1. Na página **Pools de back-end** do balanceador de carga, em **Configurações**, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
+1. Em **Configurações**, selecione **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
 
 1. Na página **Adicionar regra de balanceamento de carga**, insira as informações da tabela a seguir.
 
@@ -201,17 +198,17 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
    | Nome                   | **myHTTPRule**           |
    | Versão IP             | **IPv4**                 |
    | Endereço IP de front-end    | **LoadBalancerFrontEnd** |
+   | Pool de back-end           | **myBackendPool**        |
    | Protocolo               | **TCP**                  |
    | Porta                   | **80**                   |
    | Porta de back-end           | **80**                   |
-   | Pool de back-end           | **myBackendPool**        |
    | Investigação de integridade           | **myHealthProbe**        |
    | Persistência de sessão    | **Nenhuma**                 |
    | Tempo limite de ociosidade (minutos) | **15**                   |
-   | IP flutuante            | **Desabilitada**             |
+   | IP flutuante            | **Desabilitado**             |
 
 
-1. Selecione **Adicionar**.
+1. Selecione **Salvar**.
    ![Imagem 6](../media/create-loadbalancerrule.png)
 
  
@@ -233,7 +230,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**          | **Valor**                                    |
    | -------------------- | -------------------------------------------- |
-   | Subscription         | Selecione sua assinatura                     |
+   | Subscription         | Selecionar sua assinatura                     |
    | Resource group       | **IntLB-RG**                                 |
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Leste dos EUA**                             |
@@ -297,7 +294,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
 ## Limpar os recursos
 
-   >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+   >**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
