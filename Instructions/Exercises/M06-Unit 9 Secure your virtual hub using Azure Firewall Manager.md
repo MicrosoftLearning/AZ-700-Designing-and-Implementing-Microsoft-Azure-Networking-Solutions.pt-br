@@ -7,6 +7,8 @@ Exercise:
 
 # M06-Unidade 9 Proteger seu hub virtual usando o Gerenciador de Firewall do Azure
 
+## Cenário do exercício
+
 Neste exercício, você criará a rede virtual spoke, criará um hub virtual seguro, conectará as redes virtuais hub e spoke e roteará o tráfego para seu hub. Agora, você implantará os servidores de carga de trabalho, criará uma política de firewall, protegerá seu hub e, por fim, testará o firewall.
 
 ![Diagrama da arquitetura de rede virtual com um hub seguro.](../media/9-exercise-secure-your-virtual-hub-using-azure-firewall-manager.png)
@@ -31,11 +33,11 @@ Neste exercício, você vai:
 + Tarefa 9: Testar a regra de rede
 + Tarefa 10: Limpar os recursos
 
-#### Tempo estimado: 35 minutos
+### Tempo estimado: 35 minutos
 
 ## Tarefa 1: Criar duas redes virtuais spoke e sub-redes
 
-Nesta tarefa, você criará as duas redes virtuais spoke, cada uma contendo uma sub-rede que hospedará seus servidores de carga de trabalho. 
+Nesta tarefa, você criará as duas redes virtuais spoke, cada uma contendo uma sub-rede que hospedará seus servidores de carga de trabalho.
 
 1. Na página inicial do portal do Azure, na caixa de pesquisa, insira **rede virtual** e selecione **Rede Virtual** quando ela aparecer.
 2. Selecione **Criar**.
@@ -43,7 +45,7 @@ Nesta tarefa, você criará as duas redes virtuais spoke, cada uma contendo uma 
 4. Em **Nome**, insira **Spoke-01**.
 5. Em **Região**, selecione sua região.
 6. Selecione **Avançar: Endereços IP**.
-7. Em **Espaço de endereço IPv4**, insira **10.0.0.0/16**. 
+7. Em **Espaço de endereço IPv4**, insira **10.0.0.0/16**.
 8. **Exclua** quaisquer outros espaços de endereço listados aqui, como **10.1.0.0/16**.
 9. Em **Nome da sub-rede**, selecione a palavra **padrão**.
 10. Na caixa de diálogo **Editar sub-rede**, altere o nome para **Workload-01-SN**.
@@ -54,11 +56,11 @@ Nesta tarefa, você criará as duas redes virtuais spoke, cada uma contendo uma 
 
 Repita as etapas de 1 a 14 acima para criar outra rede virtual e sub-rede semelhantes, mas usando as seguintes informações:
 
-- Grupo de Recursos: **fw-manager-rg** (selecionar existente)
-- Nome: **Spoke-02**
-- Espaço de endereço: **10.1.0.0/16** – (excluir quaisquer outros espaços de endereço listados)
-- Nome da sub-rede: **Workload-02-SN**
-- Intervalo de endereços da sub-rede: **10.1.1.0/24**
++ Grupo de Recursos: **fw-manager-rg** (selecionar existente)
++ Nome: **Spoke-02**
++ Espaço de endereço: **10.1.0.0/16** – (excluir quaisquer outros espaços de endereço listados)
++ Nome da sub-rede: **Workload-02-SN**
++ Intervalo de endereços da sub-rede: **10.1.1.0/24**
 
 ## Tarefa 2: Criar o hub virtual seguro
 
@@ -93,7 +95,7 @@ Nesta tarefa, você criará seu hub virtual seguro usando o Gerenciador de Firew
 
 14. Selecione **Criar**.
 
-    > **[!NOTE]** 
+    > **[!NOTE]**
     >
     > Pode levar até 30 minutos para implantar.
 
@@ -131,8 +133,6 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
 
 ![Adicionar conexão hub e spoke à WAN virtual – Spoke 2](../media/connect-hub-spoke-vnet-2.png)
 
- 
-
 ## Tarefa 4: Implantar os servidores
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
@@ -155,13 +155,12 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
 
 1. Na página **Visão geral** do **Srv-workload-02**, no painel à direita, na seção **Rede**, anote o **Endereço IP privado** (por exemplo, **10.1.1.4**).
 
-
 ## Tarefa 5: Criar uma política de firewall e proteger seu hub
 
 Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma política de firewall define coleções de regras para direcionar o tráfego em um ou mais Hubs virtuais seguros.
 
 1. Na página inicial do portal do Azure, selecione **Gerenciador de Firewall**.
-   - Se o ícone do Gerenciador de Firewall não aparecer na página inicial, selecione**Todos os serviços**. Em seguida, na caixa de pesquisa, insira **gerenciador de firewall** e selecione **Gerenciador de Firewall** quando for exibido.
+   + Se o ícone do Gerenciador de Firewall não aparecer na página inicial, selecione**Todos os serviços**. Em seguida, na caixa de pesquisa, insira **gerenciador de firewall** e selecione **Gerenciador de Firewall** quando for exibido.
 
 1. No **Gerenciador de Firewall**, a partir da página Visão Geral, selecione **Exibir políticas de Firewall do Azure**.
 
@@ -274,7 +273,7 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 Nesta tarefa, você associará a política de firewall ao hub virtual.
 
 1. Na página inicial do portal do Azure, selecione **Gerenciador de Firewall**.
-   - Se o ícone do Gerenciador de Firewall não aparecer na página inicial, selecione**Todos os serviços**. Em seguida, na caixa de pesquisa, insira **gerenciador de firewall** e selecione **Gerenciador de Firewall** quando for exibido.
+   + Se o ícone do Gerenciador de Firewall não aparecer na página inicial, selecione**Todos os serviços**. Em seguida, na caixa de pesquisa, insira **gerenciador de firewall** e selecione **Gerenciador de Firewall** quando for exibido.
 1. No **Gerenciador de Firewall**, em **Segurança**, selecione **Políticas de Firewall do Azure**.
 1. Marque a caixa de seleção para **Política-01**.
 1. Selecione **Gerenciar associações&gt;Associar hubs**.
@@ -283,8 +282,6 @@ Nesta tarefa, você associará a política de firewall ao hub virtual.
 1. Quando a política tiver sido anexada, selecione **Atualizar**. A associação deve ser exibida.
 
 ![Mostrar política de firewall associada no hub](../media/associate-firewall-policy-with-hub-end.png)
-
- 
 
 ## Tarefa 7: Rotear o tráfego para o hub
 
@@ -295,10 +292,9 @@ Nesta tarefa, você deverá garantir que o tráfego de rede seja roteado por mei
 1. Em **Configurações**, escolha **Configuração de segurança**.
 1. Em **Tráfego da Internet**, selecione **Firewall do Azure**.
 1. Em **Tráfego privado**, selecione **Enviar por meio do Firewall do Azure**.
-1. Selecione **Salvar**. 
+1. Selecione **Salvar**.
 1. Essa ação levará alguns minutos para ser concluída.
 1. Após a conclusão da configuração, garanta que **TRÁFEGO DE INTERNET** e **TRÁFEGO PRIVADO** indica **Protegido pelo Firewall do Azure** para conexões hub-spoke.
-
 
 ## Tarefa 8: Testar a regra do aplicativo
 
@@ -326,7 +322,7 @@ Nesta tarefa, você testará a regra de aplicativo para confirmar que ela funcio
 
 1. Abra o Internet Explorer e selecione **OK** na caixa de diálogo **Configurar Internet Explorer 11**.
 
-1. Navegue até **https://****www.microsoft.com**.
+1. Navegue para **https://** **<www.microsoft.com>**.
 
 1. Na caixa de diálogo **Alerta de Segurança**, selecione **OK**.
 
@@ -336,7 +332,7 @@ Nesta tarefa, você testará a regra de aplicativo para confirmar que ela funcio
 
     ![Sessão RDP navegando em microsoft.com](../media/microsoft-home-page.png)
 
-1. Navegue até **https://****www.google.com**.
+1. Navegue para **https://** **<www.google.com>**.
 
 1. Você deve ser bloqueado pelo firewall.
 
@@ -364,8 +360,7 @@ Nesta tarefa, você testará a regra de rede para confirmar que ela funciona con
 
 1. Feche as duas sessões RDP para desconectá-las.
 
-
-## Tarefa 10: Limpar os recursos 
+## Tarefa 10: Limpar os recursos
 
 >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
