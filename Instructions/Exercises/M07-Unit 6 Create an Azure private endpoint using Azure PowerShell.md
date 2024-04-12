@@ -6,14 +6,16 @@ Exercise:
 
 # M07-Unidade 6 Criar um ponto de extremidade privado do Azure usando o Azure PowerShell
 
-Introdução ao Link Privado do Azure usando um Ponto de Extremidade Privado para se conectar com segurança a um aplicativo Web do Azure. Há muitas maneiras de criar pontos de extremidade, incluindo o Portal, a CLI, o PowerShell etc. 
+## Cenário do exercício
+
+Introdução ao Link Privado do Azure usando um Ponto de Extremidade Privado para se conectar com segurança a um aplicativo Web do Azure. Há muitas maneiras de criar pontos de extremidade, incluindo o Portal, a CLI, o PowerShell etc.
 
 ![Diagrama de arquitetura de ponto de extremidade privado.](../media/6-exercise-create-azure-private-endpoint-using-azure-powershell.png)
 
 
 **Observação:** uma **[simulação de laboratório interativa](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20an%20Azure%20private%20endpoint%20using%20Azure%20PowerShell)** está disponível e permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-#### Tempo estimado: 45 minutos
+### Tempo estimado: 45 minutos
 
 Você criará um ponto de extremidade privado para um aplicativo Web do Azure e implantará uma máquina virtual para testar a conexão privada.
 
@@ -35,13 +37,13 @@ Se você optar por instalar e usar o PowerShell localmente, este exemplo exigir�
 
 Neste exercício, você vai:
 
-+ Tarefa 1: criar um grupo de recursos
-+ Tarefa 2: criar uma rede virtual e um bastion host
-+ Tarefa 3: criar uma máquina virtual de teste
-+ Tarefa 4: criar um ponto de extremidade privado
-+ Tarefa 5: configurar a zona DNS privada
-+ Tarefa 6: testar a conectividade com o ponto de extremidade privado
-+ Tarefa 7: limpar os recursos
+- Tarefa 1: criar um grupo de recursos
+- Tarefa 2: criar uma rede virtual e um bastion host
+- Tarefa 3: criar uma máquina virtual de teste
+- Tarefa 4: criar um ponto de extremidade privado
+- Tarefa 5: configurar a zona DNS privada
+- Tarefa 6: testar a conectividade com o ponto de extremidade privado
+- Tarefa 7: limpar os recursos
 
 ## Tarefa 1: criar um grupo de recursos e implantar o aplicativo Web de pré-requisito
 
@@ -52,6 +54,7 @@ Crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/e
 ```PowerShell
 New-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg' -Location 'eastus'
 ```
+
 Implante os seguintes modelos do ARM para criar o aplicativo web PremiumV2-tier Azure necessário para este exercício:
 
    ```powershell
@@ -59,6 +62,7 @@ Implante os seguintes modelos do ARM para criar o aplicativo web PremiumV2-tier 
    
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile template.json -TemplateParameterFile parameters.json
    ```
+
 Se você receber um erro (por exemplo, ao examinar o status de implantação no Portal) como "O site com o nome GEN-UNIQUE já existe". certifique-se de acessar os pré-requisitos mencionados acima sobre a edição do modelo.
 
 ## Tarefa 2: criar uma rede virtual e um bastion host
@@ -74,8 +78,6 @@ Criar uma rede virtual e um bastion host com:
 - New-AzPublicIpAddress
 
 - New-AzBastion
-
- 
 
 ```PowerShell
 ## Create backend subnet config. ##
@@ -138,9 +140,6 @@ $parameters3 = @{
 
 New-AzBastion @parameters3
 ```
-
-
-
 
 ## Tarefa 3: criar uma máquina virtual de teste
 
@@ -226,9 +225,6 @@ New-AzVM -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Location 'eastus' -VM 
 
 ```
 
-
-
-
 O Azure fornece um IP efêmero para Máquinas Virtuais do Azure que não receberam um endereço IP público ou que estão no pool de back-end de um Azure Load Balancer Básico interno. O mecanismo de IP efêmero fornece um endereço IP de saída que não é configurável.
 
 O IP efêmero é desabilitado quando um endereço IP público é atribuído à máquina virtual ou quando a máquina virtual é colocada no pool de back-end de um Standard Load Balancer com ou sem regras de saída. Se um recurso de gateway da NAT da Rede Virtual do Azure for atribuído à sub-rede da máquina virtual, o IP efêmero será desabilitado.
@@ -242,8 +238,6 @@ Nesta seção, você criará o ponto de extremidade privado e a conexão usando:
 - New-AzPrivateLinkServiceConnection
 
 - New-AzPrivateEndpoint
-
- 
 
 ```PowerShell
 ## Place web app into variable. This assumes that only one web app exists in the resource group. ##
@@ -292,9 +286,6 @@ $parameters2 = @{
 
 New-AzPrivateEndpoint @parameters2 
 ```
-
-
-
 
 ## Tarefa 5: configurar a zona DNS privada
 
@@ -370,7 +361,6 @@ $parameters4 = @{
 New-AzPrivateDnsZoneGroup @parameters4 
 ```
 
-
 ## Tarefa 6: testar a conectividade com o ponto de extremidade privado
 
 Nesta seção, você usará a máquina virtual criada na etapa anterior para se conectar ao aplicativo Web no ponto de extremidade privado.
@@ -407,13 +397,12 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
   Aliases: mywebapp8675.azurewebsites.net 
   ```  
 
-
 O endereço IP privado **10.0.0.5** é retornado para o nome do aplicativo Web. Esse endereço está na sub-rede da rede virtual criada anteriormente.
 
 1. Na conexão do bastion com **myVM**, abra o Internet Explorer.
 1. Insira a URL do aplicativo Web,**https://&lt;your-webapp-name&gt;.azurewebsites.net**
 1. Você receberá a página de aplicativo Web padrão se seu aplicativo não tiver sido implantado: ![captura de tela da página no Azure indicando que um serviço de aplicativo está ativo e em execução](../media/web-app-default-page.png)
-1. Feche a conexão com **myVM**. 
+1. Feche a conexão com **myVM**.
 
 ## Tarefa 7: limpar os recursos
 
@@ -422,8 +411,3 @@ Quando terminar de usar o ponto de extremidade privado e a VM, use [Remove-AzRes
 ```PowerShell
 Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force -AsJob
 ```
-
-
-
-
-

@@ -5,15 +5,15 @@ Exercise:
 ---
 # M03-Unidade 4 Configurar um Gateway do ExpressRoute
 
-## Implantar gateways do ExpressRoute
+## Cenário do exercício
 
 ![Diagrama de gateway de rede virtual.](../media/4-exercise-configure-expressroute-gateway.png)
 
-Para conectar sua rede virtual do Azure e sua rede local por ExpressRoute, você deve primeiro criar um gateway de rede virtual. Um gateway de rede virtual tem duas finalidades: trocar rotas de IP entre as redes e rotear o tráfego da rede. 
+Para conectar sua rede virtual do Azure e sua rede local por ExpressRoute, você deve primeiro criar um gateway de rede virtual. Um gateway de rede virtual tem duas finalidades: trocar rotas de IP entre as redes e rotear o tráfego da rede.
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20an%20ExpressRoute%20gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-#### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
+### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
 
 **Tipos de gateway**
 
@@ -24,13 +24,10 @@ Quando você cria um gateway de rede virtual, precisa especificar várias config
 
 Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway. Por exemplo, você pode ter um gateway de rede virtual que usa -GatewayType VPN e outro que usa -GatewayType ExpressRoute.
 
-
 Neste exercício, você vai:
 
-+ Tarefa 1: criar a VNet e a sub-rede de gateway
-+ Tarefa 2: criar o gateway de rede virtual
-
-
+- Tarefa 1: criar a VNet e a sub-rede de gateway
+- Tarefa 2: criar o gateway de rede virtual
 
 ## Tarefa 1: criar a VNet e a sub-rede de gateway
 
@@ -48,7 +45,7 @@ Neste exercício, você vai:
 
 1. Selecione **Avançar: endereços IP**.
 
-1. Na guia **Endereços IP**, no **Espaço de endereço IPv4**, insira 10.20.0.0/16 e selecione **+ Adicionar sub-rede**. 
+1. Na guia **Endereços IP**, no **Espaço de endereço IPv4**, insira 10.20.0.0/16 e selecione **+ Adicionar sub-rede**.
 
 1. No painel Adicionar sub-rede, use as informações na seguinte tabela para criar a sub-rede:
 
@@ -57,7 +54,7 @@ Neste exercício, você vai:
    | Nome da sub-rede do gateway          | GatewaySubnet |
    | Espaço de endereço da sub-rede do gateway | 10.20.0.0/27  |
 
-1. Então selecione **Adicionar**. 
+1. Então selecione **Adicionar**.
 
 1. Na página Criar rede virtual, selecione **Examinar + Criar**.
 
@@ -92,16 +89,15 @@ Neste exercício, você vai:
    | Nome do endereço IP público    | CoreServicesVnetGateway-IP |
    | SKU do endereço IP público     | Basic                      |
    | Atribuição                | Não configurável           |
-   
+
 1. Selecione **Examinar + criar**.
 
 1. Confirme se a configuração do Gateway é aprovada na validação e selecione **Criar**.
 
 1. Depois que a implantação estiver concluída, selecione **Ir para o recurso**.
 
-> [!Note] 
+> [!Note]
 >
 > pode levar até 45 minutos para implantar um Gateway.
 
 Parabéns! Você criou com êxito uma rede virtual, uma sub-rede de gateway e um Gateway do ExpressRoute.
-

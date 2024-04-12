@@ -7,7 +7,9 @@ Exercise:
 
 # M02-Unidade 3 Criar e configurar um gateway de rede virtual
 
-Neste exercício, você vai configurar um gateway de rede virtual para conectar a VNet do Contoso Core Services e a VNet de Fabricação. 
+## Cenário do exercício
+
+Neste exercício, você vai configurar um gateway de rede virtual para conectar a VNet do Contoso Core Services e a VNet de Fabricação.
 
 ![Diagrama de gateway de rede virtual.](../media/3-exercise-create-configure-local-network-gateway.png)
 
@@ -20,19 +22,21 @@ Neste exercício, você vai:
 + Tarefa 5: testar a conexão entre as VMs
 + Tarefa 6: criar o gateway da CoreServicesVnet
 + Tarefa 7: criar o gateway da ManufacturingVnet
-+ Tarefa 8: conectar a CoreServicesVnet à ManufacturingVnet 
++ Tarefa 8: conectar a CoreServicesVnet à ManufacturingVnet
 + Tarefa 9: conectar ManufacturingVnet à CoreServicesVnet
-+ Tarefa 10: verificar se as conexões se conectam 
++ Tarefa 10: verificar se as conexões se conectam
 + Tarefa 11: testar a conexão entre as VMs
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20a%20virtual%20network%20gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-#### Tempo estimado: 70 minutos (incluindo ~45 minutos de tempo de espera de implantação)
+### Tempo estimado: 70 minutos (incluindo ~45 minutos de tempo de espera de implantação)
 
 ## Tarefa 1: criar CoreServicesVnet e ManufacturingVnet
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
+
  > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
+
 1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M02** para o diretório base do Cloud Shell
 
 1. Implante os seguintes modelos do ARM para criar a rede virtual e as sub-redes necessárias para este exercício:
@@ -43,7 +47,8 @@ Neste exercício, você vai:
    New-AzResourceGroup -Name $RGName -Location "eastus"
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
    ```
- > **Observação:** Atualmente, há um problema contínuo na região da Europa Ocidental que afeta as implantações de gateway. Como uma solução alternativa, a região ManufacturingVnet foi alterada para o Norte da Europa para esta implantação. 
+
+ > **Observação:** Atualmente, há um problema contínuo na região da Europa Ocidental que afeta as implantações de gateway. Como uma solução alternativa, a região ManufacturingVnet foi alterada para o Norte da Europa para esta implantação.
 
 ## Tarefa 2: criar CoreServicesVM
 
@@ -85,7 +90,6 @@ Neste exercício, você vai:
 
 1. Verifique se a máquina virtual foi criada.
 
-
 ## Tarefa 4: conectar-se às VMs usando RDP
 
 1. Na página inicial do Portal do Azure, selecione **Máquinas Virtuais**.
@@ -103,9 +107,7 @@ Neste exercício, você vai:
 1. Nas duas VMs, em **Escolher configurações de privacidade para seu dispositivo**, escolha **Aceitar**.
 1. Em ambas as VMs, em **Redes**, selecione **Sim**.
 1. Em **CoreServicesVM**, abra o PowerShell e execute o seguinte comando: ipconfig
-1. Endereço IPv4 inválido. 
-
- 
+1. Endereço IPv4 inválido.
 
 ## Tarefa 5: testar a conexão entre as VMs
 
@@ -121,9 +123,7 @@ Neste exercício, você vai:
 
    ![Falha na Test-NetConnection.](../media/test-netconnection-fail.png)
 
- 
-
-##  Tarefa 6: criar o gateway da CoreServicesVnet
+## Tarefa 6: criar o gateway da CoreServicesVnet
 
 1. Em **Pesquisar recursos, serviços e documentos (G+/)**, insira **Gateway de rede virtual** e selecione **Gateways de rede virtual** nos resultados.
    ![Pesquise o gateway de rede virtual no Portal do Azure.](../media/virtual-network-gateway-search.png)
@@ -151,9 +151,9 @@ Neste exercício, você vai:
    |                 |                   | Configurar BGP                               | Desabilitado                     |
    | Examinar + criar |                   | Revise suas configurações e selecione **Criar**. |                              |
 
-   > [!NOTE] 
+   > [!NOTE]
    >
-   > A criação de um gateway de rede virtual pode levar até 45 minutos. 
+   > A criação de um gateway de rede virtual pode levar até 45 minutos.
 
 ## Tarefa 7: criar o gateway da ManufacturingVnet
 
@@ -181,14 +181,12 @@ Neste exercício, você vai:
    |                 |                   | Habilitar o modo ativo-ativo                   | Desabilitado                     |
    |                 |                   | Configurar BGP                               | Desabilitado                     |
    | Examinar + criar |                   | Revise suas configurações e selecione **Criar**. |                              |
-   
+
    > [!NOTE]
    >
-   > A criação de um gateway de rede virtual pode levar até 45 minutos. 
+   > A criação de um gateway de rede virtual pode levar até 45 minutos.
 
- 
-
-## Tarefa 8: conectar a CoreServicesVnet à ManufacturingVnet 
+## Tarefa 8: conectar a CoreServicesVnet à ManufacturingVnet
 
 1. Em **Pesquisar recursos, serviços e documentos (G+/)**, insira **Gateway de rede virtual** e selecione **Gateways de rede virtual** nos resultados.
 
@@ -217,7 +215,6 @@ Neste exercício, você vai:
    | Localização                       | Leste dos EUA                           |
 
 1. Selecione **OK** para criar a conexão.
-   
 
 ## Tarefa 9: conectar a ManufacturingVnet à CoreServicesVnet
 
@@ -245,15 +242,13 @@ Neste exercício, você vai:
 
 1. Selecione **OK** para criar a conexão.
 
-## Tarefa 10: verificar se as conexões se conectam 
+## Tarefa 10: verificar se as conexões se conectam
 
 1. Em **Pesquisar recursos, serviços e documentos (G +/)**, insira **conexões** e selecione **Conexões** nos resultados.
 
-1. Aguarde até que o status de ambas as conexões seja **Conectado**. Talvez seja necessário atualizar a tela. 
+1. Aguarde até que o status de ambas as conexões seja **Conectado**. Talvez seja necessário atualizar a tela.
 
    ![Conexões de Gateway de VPN criadas com êxito.](../media/connections-status-connected.png)
-
- 
 
 ## Tarefa 11: testar a conexão entre as VMs
 
