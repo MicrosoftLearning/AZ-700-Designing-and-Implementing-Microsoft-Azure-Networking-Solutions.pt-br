@@ -5,7 +5,8 @@ Exercise:
 ---
 
 # M05-Unidade 4 Implantar um Gateway de Aplicativo do Azure
- 
+
+## Cenário do exercício
 
 Neste exercício, você usará o portal do Azure para criar um gateway de aplicativo. Em seguida, você o testará para verificar se ele funciona corretamente.
 
@@ -14,7 +15,7 @@ Neste exercício, você usará o portal do Azure para criar um gateway de aplica
 
 >**Observação:** uma **[simulação de laboratório interativa](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway)** está disponível e permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-#### Tempo estimado: 25 minutos
+### Tempo estimado: 25 minutos
 
 O gateway de aplicativo direciona o tráfego da Web do aplicativo para recursos específicos em um pool de back-end. Você atribuirá ouvintes a portas, criará regras e adicionará recursos a um pool de back-end. Para simplificar, este artigo usa uma configuração simples com um IP de front-end público, um ouvinte básico para hospedar um só site no gateway de aplicativo, uma regra de roteamento de solicitação básica e duas máquinas virtuais usadas no pool de back-end.
 
@@ -27,13 +28,12 @@ Neste exercício, você vai:
 + Tarefa 3: adicionar servidores de back-end ao pool de back-end
 + Tarefa 4: testar o gateway de aplicativo
 
-
 ## Tarefa 1: criar um gateway de aplicativo
 
 1. Entre no [portal do Azure](https://portal.azure.com/) com sua conta do Azure.
 
 1. Em qualquer página do Portal do Azure, em **Pesquisar recursos, serviços e documentos (G+/)**, insira o gateway de aplicativo e selecione **Gateways de aplicativo** nos resultados.
-    ![Pesquisar Gateway de Aplicativo no Portal do Azure](../media/search-application-gateway.png)    
+    ![Pesquisar Gateway de Aplicativo no Portal do Azure](../media/search-application-gateway.png)
 
 1. Na página Gateways de aplicativo, selecione **+ Criar**.
 
@@ -128,7 +128,7 @@ Neste exercício, você vai:
 
 1. Analise as configurações na guia **Revisar + criar**
 
-1. Selecione **Criar** para criar a rede virtual, o endereço IP público e o gateway de aplicativo. 
+1. Selecione **Criar** para criar a rede virtual, o endereço IP público e o gateway de aplicativo.
 
 Pode levar vários minutos para que o Azure crie o gateway de aplicativo. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 
@@ -162,11 +162,11 @@ Pode levar vários minutos para que o Azure crie o gateway de aplicativo. Aguard
 
 1. Na página Editar pool de back-end, em **Destinos de back-end**, em **Tipo de destino**, selecione **Máquina virtual**.
 
-1. Em **Destino**, selecione **BackendVM1.** 
+1. Em **Destino**, selecione **BackendVM1.**
 
 1. Em **Tipo de destino**, selecione **Máquina virtual**.
 
-1. Em **Destino**, selecione **BackendVM2.** 
+1. Em **Destino**, selecione **BackendVM2.**
 
    ![Adicionar back-ends de destino ao pool de back-end do Portal do Azure](../media/edit-backend-pool.png)
 
@@ -178,9 +178,9 @@ Aguarde a conclusão da implantação antes de prosseguir para a próxima etapa.
 
 Embora o IIS não seja exigido para criar o gateway de aplicativo, você o instalou neste exercício para verificar se o Azure criou o gateway de aplicativo com êxito.
 
-### Use o IIS para testar o gateway de aplicativo:
+### Usar o IIS para testar o gateway de aplicativo
 
-1. Localize o endereço IP público para o gateway de aplicativo na página **Visão geral**. 
+1. Localize o endereço IP público para o gateway de aplicativo na página **Visão geral**.
 
    ![Pesquisar endereço IP público de front-end no Portal do Azure ](../media/app-gw-public-ip.png)
 
