@@ -7,18 +7,16 @@ Exercise:
 
 # M04-Unidade 4 Criar e configurar um balanceador de carga do Azure
 
-Neste exercício, você vai criar um balanceador de carga interno para a organização fictícia Contoso Ltd. 
+Neste exercício, você vai criar um balanceador de carga interno para a organização fictícia Contoso Ltd.
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20an%20Azure%20load%20balancer)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-#### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
+### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
 
 As etapas para criar um balanceador de carga interno são muito semelhantes às que você já aprendeu neste módulo para criar um balanceador de carga público. A principal diferença é que, com um balanceador de carga público, o front-end é acessado por meio de um endereço IP público e você testa a conectividade a partir de um host que está localizado fora de sua rede virtual; ao passo que, com um balanceador de carga interno, o front-end é um endereço IP privado dentro de sua rede virtual e você testa a conectividade a partir de um host dentro da mesma rede.
 
-
 ![diagrama do balanceador de carga padrão interno](../media/4-exercise-create-configure-azure-load-balancer.png)
 
- 
 Neste exercício, você vai:
 
 + Tarefa 1: criar a rede virtual
@@ -30,7 +28,7 @@ Neste exercício, você vai:
 ## Tarefa 1: criar a rede virtual
 
 Nesta seção, você vai criar uma rede virtual e uma sub-rede.
-   
+
 1. Faça logon no Portal do Azure.
 
 2. Na home page portal do Azure, navegue até a barra de pesquisa global e pesquise **Redes Virtuais** e selecione redes virtuais em serviços.  ![Resultados da barra de Pesquisa Global para a rede virtual na home page do portal do Azure.](../media/global-search-bar.PNG)
@@ -45,7 +43,6 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
    | Resource group | Selecione **Criar novo**  Nome: **IntLB-RG** |
    | Nome           | **IntLB-VNet**                             |
    | Região         | **(EUA) Leste dos EUA**                           |
-
 
 5. Selecione **Próximo: Endereços IP**.
 
@@ -69,7 +66,6 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
     | Espaço de endereço AzureBastionSubnet | **10.1.1.0/26**                               |
     | Endereço IP público                 | Selecione **Criar novo**  Nome: **myBastionIP** |
 
-
 13. Selecione **Examinar + criar**.
 
 14. Selecione **Criar**.
@@ -79,7 +75,9 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 Nesta seção, você criará três VMs, que estarão no mesmo conjunto de disponibilidade, para o pool de back-end do balanceador de carga, adicionará as VMs ao pool de back-end e instalará o IIS nas três VMs para testar o balanceador de carga.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
+
  > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
+
 2. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/Baixar arquivos**. No menu suspenso, selecione **Carregar** e carregue os arquivos azuredeploy.json e azuredeploy.parameters.json no diretório inicial do Cloud Shell um a um.
 
 3. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
@@ -118,18 +116,16 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
    | Tipo                  | **Interna**             |
    | Camada                  | **Regional**             |
 
-
 1. Selecione **Próximo: Configurações do IP de front-end**.
 1. Selecione Adicionar um IP de front-end
 1. Na folha **Adicionar endereço IP de front-end**, insira as informações da tabela abaixo e selecione **Adicionar**.
- 
+
    | **Configuração**     | **Valor**                |
    | --------------- | ------------------------ |
    | Nome            | **LoadBalancerFrontEnd** |
    | Rede virtual | **IntLB-VNet**           |
    | Sub-rede          | **myFrontEndSubnet**     |
    | Atribuição      | **Dinâmico**              |
-
 
 1. Selecione **Examinar + criar**.
 
@@ -154,14 +150,12 @@ O pool de endereços de back-end contém os endereços IP de NICs virtuais conec
    | Nome            | **myBackendPool**    |
    | Rede virtual | **IntLB-VNet**       |
 
-
 1. Em **Máquinas virtuais**, selecione **Adicionar**.
 
 1. Marque as caixas de seleção para todas as três VMs (**myVM1**, **myVM2** e **myVM3**) e selecione **Adicionar**.
 
 1. Selecione **Salvar**.
    ![Imagem 7](../media/add-vms-backendpool.png)
-   
 
 ### Criar uma investigação de integridade
 
@@ -179,11 +173,8 @@ O balanceador de carga monitora o status do seu aplicativo com uma investigaçã
    | Caminho                | **/**             |
    | Intervalo            | **15**            |
 
-
 1. Selecione **Adicionar**.
    ![Imagem 5](../media/create-healthprobe.png)
-
- 
 
 ### Criar uma regra de balanceador de carga
 
@@ -207,16 +198,8 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
    | Tempo limite de ociosidade (minutos) | **15**                   |
    | IP flutuante            | **Desabilitado**             |
 
-
 1. Selecione **Salvar**.
    ![Imagem 6](../media/create-loadbalancerrule.png)
-
- 
-
-
- 
-
- 
 
 ## Tarefa 5: testar o balanceador de carga
 
@@ -234,15 +217,14 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
    | Resource group       | **IntLB-RG**                                 |
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Leste dos EUA**                             |
-   | Opções de disponibilidade | **Sem necessidade de redundância de infraestrutura**    |
+   | Opções de disponibilidade | **Nenhuma redundância de infraestrutura necessária**    |
    | Imagem                | **Windows Server 2019 Datacenter – Gen 2**   |
    | Tamanho                 | **Standard_DS2_v3 – 2 vCPU, 8 GiB de memória**   |
    | Nome de Usuário             | **TestUser**                                 |
    | Senha             | **Forneça uma senha segura**                |
    | Confirmar senha     | **Forneça uma senha segura**                |
 
-
-1. Selecione **Avançar: Discos** e **Avançar: Rede**. 
+1. Selecione **Avançar: Discos** e **Avançar: Rede**.
 
 1. Na guia **Rede**, use as informações na tabela abaixo para definir as configurações de rede.
 
@@ -254,7 +236,6 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
    | Grupo de segurança de rede da NIC                                   | **Avançado**                  |
    | Configurar um grupo de segurança de rede                             | Selecione o **myNSG** existente |
    | Opções de balanceamento de carga                                       | **Nenhuma**                      |
-
 
 1. Selecione **Examinar + criar**.
 

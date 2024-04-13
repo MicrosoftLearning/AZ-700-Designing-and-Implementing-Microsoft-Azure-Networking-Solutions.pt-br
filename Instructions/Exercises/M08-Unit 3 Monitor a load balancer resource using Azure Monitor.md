@@ -6,8 +6,9 @@ Exercise:
 
 # M08-Unidade 3 Monitorar um recurso do balanceador de carga usando o Azure Monitor
 
+## Cenário do exercício
 
-Neste exercício, você vai criar um balanceador de carga interno para a organização fictícia Contoso Ltd. Em seguida, vai criar um workspace do Log Analytics e usar Insights do Azure Monitor para exibir informações sobre o balanceador de carga interno. Você verá a exibição de Dependência Funcional, métricas detalhadas para o recurso de balanceador de carga e informações de integridade de recursos para o balanceador de carga. Por fim, você vai definir as configurações de diagnóstico do balanceador de carga para enviar métricas para o workspace do Log Analytics que você criou. 
+Neste exercício, você vai criar um balanceador de carga interno para a organização fictícia Contoso Ltd. Em seguida, vai criar um workspace do Log Analytics e usar Insights do Azure Monitor para exibir informações sobre o balanceador de carga interno. Você verá a exibição de Dependência Funcional, métricas detalhadas para o recurso de balanceador de carga e informações de integridade de recursos para o balanceador de carga. Por fim, você vai definir as configurações de diagnóstico do balanceador de carga para enviar métricas para o workspace do Log Analytics que você criou.
 
 O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 
@@ -30,14 +31,12 @@ O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 + Tarefa 13: definir configurações de diagnóstico
 + Tarefa 14: limpar recursos
 
-
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Monitor%20a%20load%20balancer%20resource%20using%20Azure%20Monitor)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-
 > [!Note]  
-> Você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo. 
+> Você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo.
 
-#### Tempo estimado: 55 minutos
+### Tempo estimado: 55 minutos
 
 ## Tarefa 1: criar a rede virtual
 
@@ -88,14 +87,13 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
 Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. O motivo pelo qual estamos criando um balanceador de carga de SKU Standard aqui no exercício, em vez de um balanceamento de carga de SKU Básico, é que exercícios posteriores exigem uma versão de SKU Standard do balanceador de carga.
 
-1.  Na home page do Azure, na barra de pesquisa, insira **Balanceador de Carga** 
-1.  Selecione **Criar Balanceador de Carga**.
-1.  Na guia **Noções básicas**, use as informações na tabela abaixo para criar o balanceador de carga.
-    
+1. Na home page do Azure, na barra de pesquisa, insira **Balanceador de Carga**
+1. Selecione **Criar Balanceador de Carga**.
+1. Na guia **Noções básicas**, use as informações na tabela abaixo para criar o balanceador de carga.
 
    | **Configuração**           | **Valor**                |
    | --------------------- | ------------------------ |
-   | Guia Básico            |                          | 
+   | Guia Básico            |                          |
    | Assinatura          | Selecionar sua assinatura |
    | Resource group        | **IntLB-RG**             |
    | Nome                  | **myIntLoadBalancer**    |
@@ -108,12 +106,9 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
    | Sub-rede                | **myBackendSubnet**      |
    | Atribuição de endereço IP | **Dinâmico**              |
 
-
 1. Selecione **Examinar + criar**.
 
-
 1. Selecione **Criar**.
-
 
 ## Tarefa 3: criar um pool de back-end
 
@@ -135,8 +130,6 @@ O pool de endereços de back-end contém os endereços IP de NICs virtuais conec
 
    ![Mostrar pool de back-end criado no balanceador de carga](../media/create-backendpool.png)
 
-   
-
 ## Tarefa 4: criar uma investigação de integridade
 
 O balanceador de carga monitora o status do seu aplicativo com uma investigação de integridade. A investigação de integridade adiciona ou remove VMs do balanceador de carga com base na resposta às verificações de integridade. Aqui você vai criar uma investigação de integridade e monitorar a integridade das VMs.
@@ -156,8 +149,6 @@ O balanceador de carga monitora o status do seu aplicativo com uma investigaçã
 1. Selecione **Adicionar**.
 
    ![Mostrar investigação de integridade criada no balanceador de carga](../media/create-healthprobe.png)
-
-
 
 ## Tarefa 5: Criar uma regra de balanceador de carga
 
@@ -187,11 +178,12 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
 
 ## Tarefa 6: criar servidores de back-end
 
-
 Nesta seção, você criará três VMs para o pool de back-end do balanceador de carga, adicionará as VMs ao pool de back-end e instalará o IIS nas três VMs para testar o balanceador de carga.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
+
  > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
+
 1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M08** para o diretório base do Cloud Shell.
 
 1. Implante os seguintes modelos do ARM para criar a rede virtual, as sub-redes e as VMs necessárias para este exercício:
@@ -204,7 +196,7 @@ Nesta seção, você criará três VMs para o pool de back-end do balanceador de
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
    ```
   
-    > **Observação:** isso levará alguns minutos para implantar. 
+    > **Observação:** isso levará alguns minutos para implantar.
 
 ## Tarefa 7: Adicionar VMs ao pool de back-end
 
@@ -222,8 +214,6 @@ Nesta seção, você criará três VMs para o pool de back-end do balanceador de
 
    ![Mostrar VMs adicionadas ao pool de back-end no balanceador de carga](../media/add-vms-backendpool.png)
 
- 
-
 ## Tarefa 8: testar o balanceador de carga
 
 Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
@@ -231,9 +221,9 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 ### Criar VM de teste
 
 > [!Note]  
-> Você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo. 
+> Você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo.
 
-1. Na página inicial do Azure, usando a pesquisa global, digite **Máquinas Virtuais** e selecione máquinas virtuais em Serviços. 
+1. Na página inicial do Azure, usando a pesquisa global, digite **Máquinas Virtuais** e selecione máquinas virtuais em Serviços.
 
 1. Selecione **+ Criar, + Máquina virtual**, na guia **Noções básicas**, use as informações na tabela abaixo para criar a primeira VM.
 
@@ -243,14 +233,14 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
    | Resource group       | **IntLB-RG**                                 |
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Oeste dos EUA**                             |
-   | Opções de disponibilidade | **Sem necessidade de redundância de infraestrutura**    |
+   | Opções de disponibilidade | **Nenhuma redundância de infraestrutura necessária**    |
    | Imagem                | **Windows Server 2019 Datacenter – Gen 1**   |
    | Tamanho                 | **Standard_DS2_v3 – 2 vCPU, 8 GiB de memória** |
    | Nome de Usuário             | **TestUser**                                 |
    | Senha             | **Forneça uma senha segura**                |
    | Confirmar senha     | **Forneça uma senha segura**                |
 
-1. Selecione **Avançar: Discos** e **Avançar: Rede**. 
+1. Selecione **Avançar: Discos** e **Avançar: Rede**.
 
 1. Na guia **Rede**, use as informações na tabela abaixo para definir as configurações de rede.
 
@@ -306,7 +296,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    ![Como acessar workspaces do Log Analytics na home page do portal do Azure](../media/log-analytics-workspace-1.png)
 
-1. Selecione **Criar**. 
+1. Selecione **Criar**.
 
 1. Na página **Criar workspace do Log Analytics**, na guia **Noções básicas**, use as informações na tabela abaixo para criar o workspace.
 
@@ -320,8 +310,6 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 1. Selecione **Examinar + Criar** e **Criar**.
 
    ![Lista de workspaces do Log Analytics](../media/log-analytics-workspace-2.png)
-
-
 
 ## Tarefa 10: usar a exibição de dependência funcional
 
@@ -337,11 +325,11 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
 1. Use os botões **Ampliar (+)** e **Reduzir (-)** no canto inferior direito da página para ampliar e reduzir o diagrama de topologia (como alternativa, você pode usar a roda do mouse se tiver uma). Você também pode arrastar o diagrama de topologia pela página para movê-lo.
 
-1. Focalize o componente **LoadBalancerFrontEnd** com o cursor do mouse no diagrama e focalize o componente **myBackendPool**. 
+1. Focalize o componente **LoadBalancerFrontEnd** com o cursor do mouse no diagrama e focalize o componente **myBackendPool**.
 
 1. Observe que você pode usar os links nessas janelas pop-up para exibir informações sobre esses componentes do balanceador de carga e abrir as respectivas folhas do portal do Azure.
 
-1. Para baixar uma cópia do arquivo .SVG do diagrama de topologia, selecione **Baixar topologia** e salve o arquivo na pasta **Downloads**. 
+1. Para baixar uma cópia do arquivo .SVG do diagrama de topologia, selecione **Baixar topologia** e salve o arquivo na pasta **Downloads**.
 
 1. No canto superior direito, selecione **Exibir métricas** para reabrir o painel de métricas no lado direito da tela.
     ![Exibição de dependência funcional de Insights de Rede do Azure Monitor –botão Exibir métricas realçado](../media/network-insights-functional-dependency-view-3.png)
@@ -349,8 +337,6 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 1. O painel Métricas apresenta uma exibição rápida de algumas das principais métricas para esse recurso de balanceador de carga na forma de gráficos de barras e de linhas.
 
     ![Insights de Rede do Azure Monitor – exibição de métricas básicas](../media/network-insights-basicmetrics-view.png)
-
- 
 
 ## Tarefa 11: exibir métricas detalhadas
 
@@ -368,11 +354,9 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 1. Focalize alguns dos pontos de dados nos gráficos e você verá que os valores são alterados para mostrar o valor exato nesse ponto no tempo.
    ![Insights de Rede do Azure Monitor – Exibição de métricas detalhadas – guia Taxa de Transferência de Dados](../media/network-insights-detailedmetrics-3.png)
 
-1. Selecione a guia **Distribuição de Fluxo** e role para baixo na página para ver os gráficos na seção **Criação de Fluxo da VM e Tráfego de Rede**. 
+1. Selecione a guia **Distribuição de Fluxo** e role para baixo na página para ver os gráficos na seção **Criação de Fluxo da VM e Tráfego de Rede**.
 
    ![Insights de Rede do Azure Monitor – exibição de métricas detalhadas – gráficos de Tráfego de Rede e Criação de Fluxo de VM](../media/network-insights-detailedmetrics-4.png)
-
- 
 
 ## Tarefa 12: exibir a integridade do recurso
 
@@ -391,8 +375,6 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 1. A página **Integridade do recurso** identificará os principais problemas de disponibilidade com o recurso do balanceador de carga. Se houver eventos na seção **Histórico de Integridade**, você poderá expandir o evento de integridade para ver mais detalhes sobre o evento. Você pode até mesmo salvar os detalhes sobre o evento como um arquivo PDF para revisão posterior e para relatórios.
 
    ![Integridade do Serviço > Exibição de integridade do recurso](../media/resource-health-2.png)
-
- 
 
 ## Tarefa 13: definir configurações de diagnóstico
 
@@ -413,8 +395,6 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 1. Selecione **Salvar**.
 
    ![Página de configuração de diagnóstico para o balanceador de carga](../media/diagnostic-settings-2.png)
-
- 
 
 ## Tarefa 14: limpar recursos
 

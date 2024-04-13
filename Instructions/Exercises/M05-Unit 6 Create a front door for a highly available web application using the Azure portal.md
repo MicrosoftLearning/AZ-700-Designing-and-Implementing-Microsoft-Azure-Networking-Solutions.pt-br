@@ -8,7 +8,7 @@ Exercise:
 
 # M05-Unidade 6 Criar um Front Door para um aplicativo Web altamente disponível usando o portal do Azure
 
- 
+## Cenário do exercício  
 
 Neste exercício, você definirá uma configuração do Azure Front Door que agrupa duas instâncias de um aplicativo Web que é executado em diferentes regiões do Azure. Essa configuração direciona o tráfego para o site mais próximo que executa o aplicativo. O Azure Front Door monitora o aplicativo Web continuamente. Você demonstrará o failover automático para o próximo site disponível quando o site mais próximo estiver não disponível. A configuração de rede é mostrada no seguinte diagrama:
 
@@ -23,8 +23,7 @@ Neste exercício, você vai:
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20a%20Front%20Door%20profile%20for%20a%20highly%20available%20web%20application)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-
-#### Tempo estimado: 30 minutos
+### Tempo estimado: 30 minutos
 
 ## Tarefa 1: criar duas instâncias de um aplicativo Web
 
@@ -50,7 +49,7 @@ Este exercício requer duas instâncias de um aplicativo Web em execução em di
    | Plano do Windows     | Selecione **Criar** e insira myAppServicePlanCentralUS na caixa de texto. |
    | Plano de preços    | Selecione **S1 Standard 100 ACU no total, 1,75 GB de memória**.        |
 
-1. Selecione **Revisar + criar**, analise o Resumo, depois selecione **Criar**.   
+1. Selecione **Revisar + criar**, analise o Resumo, depois selecione **Criar**.
    Pode levar vários minutos para que a implantação seja concluída.
 
 1. Crie um segundo aplicativo Web. Na página inicial do Portal do Azure, pesquise **WebApp**.
@@ -71,7 +70,7 @@ Este exercício requer duas instâncias de um aplicativo Web em execução em di
    | Plano do Windows     | Selecione **Criar** e insira myAppServicePlanEastUS na caixa de texto. |
    | Plano de preços     | Selecione **S1 Standard 100 ACU no total, 1,75 GB de memória**.        |
 
-1. Selecione **Revisar + criar**, analise o Resumo, depois selecione **Criar**.   
+1. Selecione **Revisar + criar**, analise o Resumo, depois selecione **Criar**.
    Pode levar vários minutos para que a implantação seja concluída.
 
 ## Tarefa 2: criar um Front Door para seu aplicativo
@@ -84,7 +83,6 @@ Configure o Azure Front Door para direcionar o tráfego do usuário com base na 
 
 1. Na guia Básico, insira ou selecione as informações a seguir.
 
-
    | **Configuração**             | **Valor**                                    |
    | ----------------------- | -------------------------------------------- |
    | Subscription            | Selecione sua assinatura.                    |
@@ -93,19 +91,18 @@ Configure o Azure Front Door para direcionar o tráfego do usuário com base na 
    | Nome                    | Insira um nome exclusivo nesta assinatura, como FrontDoor(yourinitials)   |
    | Camada                    | Standard   |
    | Nome do Ponto de Extremidade           | FDendpoint   |
-   | Tipo de origem             | Serviço de Aplicativo| 
+   | Tipo de origem             | Serviço de Aplicativo|
    | Nome do host de origem        | O nome do aplicativo Web implantado anteriormente |
-   
 
 1. Selecione **Revisar e criar** e, em seguida, selecione **Criar**.
 
 1. Aguarde até que o recurso seja implantando e selecione **Acessar o recurso**.
 1. No recurso Front Door, na folha Visão geral, localize **Grupos de origem** e selecione o grupo de origem criado
-1. Para atualizar o grupo de origem, selecione o nome **default-origin-group** na lista. Selecione **Adicionar uma origem** e adicione o segundo aplicativo Web. Selecione Adicionar e, em seguida, selecione Atualizar. 
+1. Para atualizar o grupo de origem, selecione o nome **default-origin-group** na lista. Selecione **Adicionar uma origem** e adicione o segundo aplicativo Web. Selecione Adicionar e, em seguida, selecione Atualizar.
 
 ## Tarefa 3: ver o Azure Front Door em ação
 
-Depois de você criar um Front Door, a configuração leva alguns minutos para ser implantada globalmente. Depois de concluído, acesse o host de front-end que você criou. 
+Depois de você criar um Front Door, a configuração leva alguns minutos para ser implantada globalmente. Depois de concluído, acesse o host de front-end que você criou.
 
 1. No recurso Front Door, na folha Visão geral, localize o nome do host do ponto de extremidade criado para o seu ponto de extremidade. Isso deve ser fdendpoint seguido por um hífen e uma cadeia de caracteres aleatória. Por exemplo, **fdendpoint-fxa8c8hddhhgcrb9.z01.azurefd.net**. **Copie** esse FQDN.
 
@@ -114,7 +111,7 @@ Depois de você criar um Front Door, a configuração leva alguns minutos para s
 
 1. Para testar o failover global instantâneo em ação, tente as seguintes etapas:
 
-1. Mude para o portal do Azure, procure e selecione **Serviços de aplicativos**. 
+1. Mude para o portal do Azure, procure e selecione **Serviços de aplicativos**.
 
 1. Selecione um dos seus aplicativos Web, selecione **Parar**, depois selecione **Sim** para verificar.
 
@@ -131,10 +128,9 @@ Depois de você criar um Front Door, a configuração leva alguns minutos para s
    ![Navegador mostrando a página de erro do Serviço de aplicativo](../media/web-apps-both-stopped.png)
 
    Parabéns! Você configurou e testou um Azure Front Door.
-   
 
 ## Tarefa 4: limpar recursos
-   
+
    >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.

@@ -6,6 +6,8 @@ Exercise:
 
 # M06-Unidade 7 Implantar e configurar o Firewall do Azure usando o portal do Azure
 
+## Cenário do exercício
+
 Sendo parte da equipe de Segurança de Rede na Contoso, sua próxima tarefa é criar regras de firewall para permitir/negar o acesso a determinados sites. As etapas a seguir explicam como criar um grupo de recursos, uma rede virtual, sub-redes e uma máquina virtual como tarefas de preparação do ambiente e implantar o firewall e a política de firewall, configurar rotas padrão e de aplicativo, regras de rede e DNAT e, por fim, testar o firewall.
 
 ![Diagrama da rede virtual com a arquitetura do Firewall do Azure.](../media/7-exercise-deploy-configure-azure-firewall-using-azure-portal.png)
@@ -26,8 +28,7 @@ Neste exercício, você vai:
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20and%20configure%20Azure%20Firewall%20using%20the%20Azure%20portal)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-
-#### Tempo estimado: 60 minutos
+### Tempo estimado: 60 minutos
 
 ## Tarefa 1: criar um grupo de recursos
 
@@ -37,7 +38,7 @@ Nesta tarefa, você criará um novo grupo de recursos.
 
 1. Na página inicial do portal do Azure, selecione **Grupos de recursos**.
 
-1. Selecione **Criar**. 
+1. Selecione **Criar**.
 
 1. Na guia **Noções básicas**, em **Grupo de recursos**, insira **Test-FW-RG**.
 
@@ -48,8 +49,6 @@ Nesta tarefa, você criará um novo grupo de recursos.
 1. Selecione **Examinar + criar**.
 
 1. Selecione **Criar**.
-
- 
 
 ## Tarefa 2: Criar uma rede virtual e sub-redes
 
@@ -65,7 +64,7 @@ Nesta tarefa, você criará uma única rede virtual com duas sub-redes.
 
    ![Criar uma rede virtual – guia Noções básicas](../media/create-vnet-basics-for-azure-firewall.png)
 
-1. Selecione **Avançar: Endereços IP**. Digite o espaço de endereço IPv4 10.0.0.0/16 se ainda não estiver lá por padrão. 
+1. Selecione **Avançar: Endereços IP**. Digite o espaço de endereço IPv4 10.0.0.0/16 se ainda não estiver lá por padrão.
 
 1. Em **Nome da sub-rede**, selecione a palavra **padrão**.
 
@@ -77,9 +76,8 @@ Nesta tarefa, você criará uma única rede virtual com duas sub-redes.
 
 1. Selecione **Adicionar sub-rede** para criar outra sub-rede que hospedará o servidor de carga de trabalho que será criado em breve.
 
-
     ![Adicionar sub-rede](../media/add-workload-subnet.png)
-    
+
 1. Na caixa de diálogo **Editar sub-rede**, altere o nome para **Workload-SN**.
 
 1. Altere o **Intervalo de endereços de sub-rede** para **10.0.2.0/24**.
@@ -89,8 +87,6 @@ Nesta tarefa, você criará uma única rede virtual com duas sub-redes.
 1. Selecione **Examinar + criar**.
 
 1. Selecione **Criar**.
-
- 
 
 ## Tarefa 3: Criar uma máquina virtual
 
@@ -117,7 +113,6 @@ Nesta tarefa, você criará a máquina virtual de carga de trabalho e a posicion
 1. Quando a implantação da VM for concluída, selecione **Ir para o recurso**.
 
 1. Na página **Visão geral** de **Srv-Work**, à direita da página em **Rede**, anote o **Endereço IP privado** para essa VM (por exemplo, **10.0.2.4**).
- 
 
 ## Tarefa 4: Implantar o firewall e a política de firewall
 
@@ -146,7 +141,6 @@ Nesta tarefa, você implantará o firewall na rede virtual com uma política de 
    | Rede virtual          | **Test-FW-VN**                           |
    | Endereço IP público        | Selecione **Adicionar nova**<br />Nome: **fw-pip** |
 
-
    ![Adicionar endereço IP público ao firewall](../media/assign-public-ip-to-firewall.png)
 
 1. Examine todas as configurações para garantir que correspondam à captura de tela abaixo.
@@ -165,8 +159,6 @@ Nesta tarefa, você implantará o firewall na rede virtual com uma política de 
 
 1. Anote o endereço em **Endereço IP** para a configuração de IP público **fw-pip** (por exemplo, **20.90.136.51**).
 
- 
-
 ## Tarefa 5: Criar uma rota padrão
 
 Para esta tarefa, na sub-rede Workload-SN, configure a rota de saída padrão para atravessar o firewall.
@@ -184,7 +176,6 @@ Para esta tarefa, na sub-rede Workload-SN, configure a rota de saída padrão pa
    | Region                   | Sua região              |
    | Nome                     | **Firewall-route**       |
    | Propagar rotas de gateway | **Sim**                  |
-
 
 1. Selecione **Examinar + criar**.
 
@@ -216,11 +207,9 @@ Para esta tarefa, na sub-rede Workload-SN, configure a rota de saída padrão pa
 
     ![Adicionar rota de firewall](../media/add-firewall-route.png)
 
- 
-
 ## Tarefa 6: Configurar uma regra de aplicativo
 
-Nesta tarefa, você adicionará uma regra de aplicativo que permite o acesso de saída a www.google.com.
+Nesta tarefa, você adicionará uma regra de aplicativo que permite o acesso de saída a <www.google.com>.
 
 1. Na home page do portal do Azure, selecione **Todos os recursos**.
 
@@ -245,14 +234,11 @@ Nesta tarefa, você adicionará uma regra de aplicativo que permite o acesso de 
    | Origem                 | **10.0.2.0/24**                           |
    | Protocolo               | **http,https**                            |
    | Tipo de destino       | **FQDN**                                  |
-   | Destino            | **www.google.com**                        |
-
+   | Destino            | **<www.google.com>**                        |
 
    ![Adicionar uma coleção de regras de aplicativo](../media/add-an-application-rule-for-firewall.png)
 
 1. Selecione **Adicionar**.
-
- 
 
 ## Tarefa 7: Configurar uma regra de rede
 
@@ -280,12 +266,9 @@ Nesta tarefa, você adicionará uma regra de rede que permite o acesso de saída
    | Tipo de destino       | **Endereço IP**                                               |
    | Destino            | **209.244.0.3, 209.244.0.4**<br />São servidores DNS públicos operados pelo Century Link |
 
-
     ![Adicionar uma coleção de regras de rede](../media/add-a-network-rule-for-firewall.png)
 
 1. Selecione **Adicionar**.
-
- 
 
 ## Tarefa 8: Configurar uma regra DNAT (NAT de destino)
 
@@ -314,12 +297,9 @@ Nesta tarefa, você adicionará uma regra DNAT que permite que você conecte uma
    | Endereço traduzido    | Insira o endereço IP privado de **Srv-Work** que você anotou anteriormente.<br />**por exemplo – 10.0.2.4** |
    | Porta traduzida       | **3389**                                                     |
 
-
-        ![Add a DNAT rule collection](../media/add-a-dnat-rule.png)
+  ![Adicionar uma coleção de regras DNAT](../media/add-a-dnat-rule.png)
 
 1. Selecione **Adicionar**.
-
- 
 
 ## Tarefa 9: Alterar os endereços DNS primário e secundário para a interface de rede do servidor
 
@@ -345,8 +325,6 @@ Para fins de teste, nesta tarefa, você configurará os endereços DNS primário
 
 1. Reinicie a máquina virtual **Srv-Work**.
 
- 
-
 ## Tarefa 10: Testar o firewall
 
 Nesta tarefa final, você testará o firewall para verificar se as regras estão configuradas corretamente e funcionando conforme o esperado. Essa configuração permitirá que você conecte uma conexão de área de trabalho remota à máquina virtual Srv-Work por meio do firewall, via endereço IP público do firewall.
@@ -367,7 +345,7 @@ Nesta tarefa final, você testará o firewall para verificar se as regras estão
 
 1. Selecione **Sim** na mensagem do certificado.
 
-1. Abra o Internet Explorer e navegue até **https://www.google.com**.
+1. Abra o Internet Explorer e navegue até **<https://www.google.com>**.
 
 1. Na caixa de diálogo **Alerta de Segurança**, selecione **OK**.
 
@@ -377,14 +355,13 @@ Nesta tarefa final, você testará o firewall para verificar se as regras estão
 
     ![Sessão RDP no servidor Srv-Work – navegador em google.com](../media/remote-desktop-connection-2.png)
 
-1. Navegue até **https://www.microsoft.com**.
+1. Navegue até **<https://www.microsoft.com>**.
 
 1. Você deve ser bloqueado pelo firewall.
 
     ![Sessão RDP no servidor de Srv-Work – navegador bloqueado em microsoft.com](../media/remote-desktop-connection-3.png)
 
- 
-## Tarefa 11: limpar os recursos 
+## Tarefa 11: limpar os recursos
 
 >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 

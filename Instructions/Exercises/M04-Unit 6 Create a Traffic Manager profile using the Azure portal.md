@@ -6,11 +6,13 @@ Exercise:
 
 # M04-Unidade 6 Criar um perfil do Gerenciador de Tráfego usando o portal do Azure
 
-Neste exercício, você criará um perfil do Gerenciador de Tráfego para fornecer alta disponibilidade para o aplicativo Web da organização fictícia Contoso Ltd. 
+## Cenário do exercício
+
+Neste exercício, você criará um perfil do Gerenciador de Tráfego para fornecer alta disponibilidade para o aplicativo Web da organização fictícia Contoso Ltd.
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20a%20Traffic%20Manager%20profile%20using%20the%20Azure%20portal)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-#### Tempo estimado: 35 minutos
+### Tempo estimado: 35 minutos
 
 Você criará duas instâncias de um aplicativo Web implantado em duas regiões diferentes (Leste dos EUA e Oeste da Europa). A região Leste dos EUA atuará como um ponto de extremidade primário para o Gerenciador de Tráfego, e a região Oeste da Europa atuará como um ponto de extremidade de failover.
 
@@ -18,16 +20,15 @@ Em seguida, você criará um perfil do Gerenciador de Tráfego baseado na priori
 
 O diagrama a seguir faz uma ilustração aproximada do ambiente que você vai implantar neste exercício.
 
-    ![Picture 14](../media/exercise-traffic-manager-environment-diagram.png)
+ ![Figura 14](../media/exercise-traffic-manager-environment-diagram.png)
 
  Neste exercício, você vai:
 
 + Tarefa 1: criar os aplicativos Web
 + Tarefa 2: criar um perfil do Gerenciador de Tráfego
-+ Tarefa 3: adicionar pontos de extremidade de Gerenciador de Tráfego
++ Tarefa 3: Adicionar pontos de extremidade do Gerenciador de Tráfego
 + Tarefa 4: testar o perfil do Gerenciador de Tráfego
 + Tarefa 5: limpar os recursos
-
 
 ## Tarefa 1: criar os aplicativos Web
 
@@ -39,7 +40,7 @@ Nesta seção, você criará duas instâncias de um aplicativo Web implantado na
 
    | **Configuração**      | **Valor**                                                    |
    | ---------------- | ------------------------------------------------------------ |
-   | Subscription     | Selecione sua assinatura                                     |
+   | Subscription     | Selecionar sua assinatura                                     |
    | Resource group   | Selecione **Criar novo**  Nome: **Contoso-RG-TM1**             |
    | Nome             | **ContosoWebAppEastUSxx** (em que xx são suas iniciais para tornar o nome exclusivo) |
    | Publicação          | **Código**                                                     |
@@ -48,7 +49,6 @@ Nesta seção, você criará duas instâncias de um aplicativo Web implantado na
    | Região           | **Leste dos EUA**                                                  |
    | Plano do Windows     | Selecione **Criar novo** Nome: **ContosoAppServicePlanEastUS** |
    | Plano de preços     | **Standard S1, total de 100 ACUs, memória de 1,75 GB**               |
-
 
 1. Selecione a guia **Monitoramento**.
 
@@ -60,7 +60,7 @@ Nesta seção, você criará duas instâncias de um aplicativo Web implantado na
 
 1. Selecione **Criar**. Quando o aplicativo Web é implantado com êxito, ele cria um site da Web padrão.
 
-1. Repita as etapas 1-6 acima para criar um segundo aplicativo Web. Use as mesmas configurações de antes, exceto as informações na tabela abaixo. 
+1. Repita as etapas 1-6 acima para criar um segundo aplicativo Web. Use as mesmas configurações de antes, exceto as informações na tabela abaixo.
 
    | **Configuração**    | **Valor**                                                    |
    | -------------- | ------------------------------------------------------------ |
@@ -69,14 +69,11 @@ Nesta seção, você criará duas instâncias de um aplicativo Web implantado na
    | Região         | **Oeste da Europa**                                              |
    | Plano do Windows   | Selecione **Criar novo** Nome: **ContosoAppServicePlanWestEurope** |
 
-
 1. Na página inicial do Azure, selecione **Todos os serviços**, no menu de navegação à esquerda, selecione **Web** e selecione **Serviços de Aplicativos**.
 
 1. Você deve ver os dois novos aplicativos Web listados.
 
    ![Figura 19](../media/create-web-app-2.png)
-
- 
 
 ## Tarefa 2: criar um perfil do Gerenciador de Tráfego
 
@@ -96,14 +93,11 @@ Agora, você criará um perfil do Gerenciador de Tráfego que direciona o tráfe
    | ----------------------- | ------------------------ |
    | Nome                    | **Contoso-TMProfilexx** (em que xx são suas iniciais para tornar o nome exclusivo) |
    | Método de roteamento          | **Prioridade**             |
-   | Subscription            | Selecione sua assinatura |
+   | Subscription            | Selecionar sua assinatura |
    | Resource group          | **Contoso-RG-TM1**       |
    | Localização do grupo de recursos | **Leste dos EUA**              |
 
-
 1. Selecione **Criar**.
-
- 
 
 ## Tarefa 3: adicionar pontos de extremidade de Gerenciador de Tráfego
 
@@ -125,17 +119,15 @@ Nesta seção, você adicionará o site no Leste dos EUA como o ponto de extremi
    | Recurso de destino      | **ContosoWebAppEastUS (Leste dos EUA)** |
    | Prioridade             | **1**                             |
 
-
 1. Selecione **Adicionar**.
 
-1. Repita as etapas 2-4 acima para criar o ponto de extremidade de failover. Use as mesmas configurações de antes, exceto as informações na tabela abaixo. 
+1. Repita as etapas 2-4 acima para criar o ponto de extremidade de failover. Use as mesmas configurações de antes, exceto as informações na tabela abaixo.
 
    | **Configuração**     | **Valor**                                 |
    | --------------- | ----------------------------------------- |
    | Nome            | **myFailoverEndpoint**                    |
    | Recurso de destino | **ContosoWebAppWestEurope (Oeste da Europa)** |
    | Prioridade        | **2**                                     |
-
 
 1. Definir uma prioridade 2 significa que o tráfego será roteado para esse ponto de extremidade de failover se o ponto de extremidade primário configurado se tornar não íntegro.
 
@@ -144,8 +136,6 @@ Nesta seção, você adicionará o site no Leste dos EUA como o ponto de extremi
 1. Os dois novos pontos de extremidade são exibidos no perfil do Gerenciador de Tráfego. Observe que, após alguns minutos, o **Status de monitoramento** deverá mudar para **Online**.
 
    ![Figura 22](../media/create-tmendpoints-2.png)
-
- 
 
 ## Tarefa 4: testar o perfil do Gerenciador de Tráfego
 
@@ -181,8 +171,7 @@ Nesta seção, você verificará o nome DNS do seu perfil do Gerenciador de Trá
 
 1. Verifique se o aplicativo Web ainda está respondendo. Como o ponto de extremidade primário não estava disponível, o tráfego foi roteado para o ponto de extremidade de failover para permitir a continuidade do funcionamento do site da Web.
 
- 
- ## Tarefa 5: limpar os recursos
+## Tarefa 5: limpar os recursos
 
    >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
@@ -198,5 +187,3 @@ Nesta seção, você verificará o nome DNS do seu perfil do Gerenciador de Trá
    ```
 
     >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
- 
-

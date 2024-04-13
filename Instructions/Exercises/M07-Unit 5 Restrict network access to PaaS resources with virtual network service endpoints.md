@@ -6,6 +6,7 @@ Exercise:
 
 # M07-Unidade 5 Restrinja o acesso à rede a recursos de PaaS com pontos de extremidade de serviço de rede virtual
 
+## Cenário do exercício
 
 Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso à rede a alguns recursos de serviço do Azure para uma sub-rede da rede virtual. Você também pode remover o acesso à Internet para os recursos. Os pontos de extremidade de serviço fornecerão conexão direta de sua rede virtual a um serviço do Azure, permitindo que você use o espaço de endereço privado da sua rede virtual para acessar os serviços do Azure compatíveis. O tráfego destinado aos recursos do Azure por meio de pontos de extremidade de serviço sempre fica na rede de backbone do Microsoft Azure.
 
@@ -16,7 +17,7 @@ Neste exercício, você vai:
 + Tarefa 1: criar uma rede virtual
 + Tarefa 2: habilitar um ponto de extremidade de serviço
 + Tarefa 3: restringir o acesso à rede para uma sub-rede
-+ Tarefa 4: adicionar outras regras de saída 
++ Tarefa 4: adicionar outras regras de saída
 + Tarefa 5: permitir o acesso para conexões de RDP
 + Tarefa 6: restringir o acesso à rede para um recurso
 + Tarefa 7: criar um compartilhamento de arquivo na conta de armazenamento
@@ -27,7 +28,7 @@ Neste exercício, você vai:
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Restrict%20network%20access%20to%20PaaS%20resources%20with%20virtual%20network%20service%20endpoints)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
-#### Tempo estimado: 35 minutos
+### Tempo estimado: 35 minutos
 
 ## Tarefa 1: criar uma rede virtual
 
@@ -62,7 +63,7 @@ Neste exercício, você vai:
    | Proteção de Rede DDoS | Desabilitado  |
    | Firewall                | Desabilitado  |
 
-1. Selecione **Examinar + criar**. Após a validação do recurso, selecione **Criar**. 
+1. Selecione **Examinar + criar**. Após a validação do recurso, selecione **Criar**.
 
 ## Tarefa 2: habilitar um ponto de extremidade de serviço
 
@@ -86,18 +87,15 @@ Agora, você deve ter duas sub-redes configuradas:
 
 ![Interface gráfica do usuário, texto, aplicativo, Descrição do email gerada automaticamente](../media/configured-subnets.png)
 
- 
-
 ## Tarefa 3: restringir o acesso à rede para uma sub-rede
 
 Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recursos. É possível limitar a comunicação com todos os recursos em uma sub-rede, criando um grupo de segurança de rede e o associando à sub-rede.
 
 1. Na caixa **Pesquisar recursos, serviços e documentos** na parte superior do portal, insira **security group**. Quando a opção **Grupos de segurança de rede** aparecer nos resultados da pesquisa, selecione-a.
 
-1. Em Grupos de segurança de rede, selecione **+ Criar**. 
+1. Em Grupos de segurança de rede, selecione **+ Criar**.
 
-1. Insira ou selecione as seguintes informações: 
-
+1. Insira ou selecione as seguintes informações:
 
    | **Configuração**    | **Valor**                                                    |
    | -------------- | ------------------------------------------------------------ |
@@ -132,10 +130,9 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
 
 1. Escolha **Adicionar**:
 
+## Tarefa 4: adicionar outras regras de saída
 
-## Tarefa 4: adicionar outras regras de saída 
-
-Crie outra regra de segurança de saída que nega a comunicação com a Internet. Essa regra substitui uma regra padrão em todos os grupos de segurança de rede que permite a comunicação de saída à Internet. 
+Crie outra regra de segurança de saída que nega a comunicação com a Internet. Essa regra substitui uma regra padrão em todos os grupos de segurança de rede que permite a comunicação de saída à Internet.
 
 1. Escolha **+ Adicionar** em **Regras de segurança de saída**.
 
@@ -200,7 +197,6 @@ As etapas necessárias para restringir o acesso de rede a recursos criados por m
 1. Escolha +Criar.
 
 1. Insira ou selecione as informações a seguir e aceite os padrões restantes:
-
 
    | **Configuração**    | **Valor**                                                    |
    | -------------- | ------------------------------------------------------------ |
@@ -269,7 +265,6 @@ Para testar o acesso à rede para uma conta de armazenamento, implante uma VM pa
   
 1. Após a conclusão da implantação, acesse a home page do portal do Azure e, depois, escolha **Máquinas Virtuais**.
 
-
 ## Tarefa 10: confirmar o acesso à conta de armazenamento
 
 1. Após a criação da VM ContosoPrivate, abra o painel da VM selecionando Ir para o recurso. Selecione o botão Conectar e, depois, escolha RDP.
@@ -279,7 +274,6 @@ Para testar o acesso à rede para uma conta de armazenamento, implante uma VM pa
 1. Selecione **OK**.
 1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione Sim ou Continuar para prosseguir com a conexão.
 1. Na VM ContosoPrivate, mapeie o compartilhamento de arquivos do Azure para a unidade Z usando o PowerShell. Antes de executar os comandos a seguir, substitua <storage-account-key> , <storage-account-name> (ou seja, contosostoragexx) e my-file-share (ou seja, Marketing) com os valores fornecidos e recuperados na tarefa criar uma conta de armazenamento.
-
 
 ```azurecli
 $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -296,7 +290,6 @@ O compartilhamento de arquivos do Azure foi mapeado com êxito para a unidade Z.
 
  ping bing.com
 
-
 Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado à sub-rede Privada não permite acesso de saída para a Internet.
 
 1. Feche a sessão de área de trabalho remota da VM ContosoPrivate.
@@ -308,12 +301,12 @@ Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado
 1. Quando **ContosoPublic** aparecer nos resultados da pesquisa, selecione-a.
 
 1. Conclua as etapas de 1 a 6 na tarefa Confirmar acesso à conta de armazenamento da VM ContosoPublic.  
-     
+
    ‎Após uma breve espera, você receberá um erro de New-PSDrive: acesso negado. O acesso é negado porque a VM ContosoPublic está implantada na sub-rede Pública. A sub-rede Pública não tem um ponto de extremidade de serviço habilitado para Armazenamento do Azure. A conta de armazenamento só permite o acesso à rede a partir da sub-rede Privada, não da sub-rede Pública.
 
 1. Confirme que a VM pública tem conectividade de saída com a Internet em um prompt de comando:
 
- ping bing.com    
+ ping bing.com
 
 1. Feche a sessão de área de trabalho remota da VM ContosoPublic.
 
