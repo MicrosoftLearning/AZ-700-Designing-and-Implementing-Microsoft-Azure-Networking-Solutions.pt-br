@@ -134,8 +134,11 @@ Pode levar vários minutos para que o Azure crie o gateway de aplicativo. Aguard
 
 ## Tarefa 2: criar máquinas virtuais
 
-1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
- > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
+1. No portal do Azure, clique no ícone do Cloud Shell (canto superior direito). Se necessário, configure o shell.  
+    + Selecione **PowerShell**.
+    + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
+    + Aguarde até que o terminal seja criado e um prompt seja exibido.
+      
 1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **backend.json** e **backend.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M05** para o diretório base do Cloud Shell.
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:

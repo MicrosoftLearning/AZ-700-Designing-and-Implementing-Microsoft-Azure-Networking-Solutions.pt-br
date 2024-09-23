@@ -33,9 +33,10 @@ Neste exercício, você vai:
 
 ## Tarefa 1: criar CoreServicesVnet e ManufacturingVnet
 
-1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
-
- > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
+1. No portal do Azure, clique no ícone do Cloud Shell (canto superior direito). Se necessário, configure o shell.  
+    + Selecione **PowerShell**.
+    + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
+    + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
 1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M02** para o diretório base do Cloud Shell
 
@@ -244,7 +245,7 @@ Neste exercício, você vai:
 
 ## Tarefa 10: verificar se as conexões se conectam
 
-1. Em **Pesquisar recursos, serviços e documentos (G +/)**, insira **conexões** e selecione **Conexões** nos resultados.
+1. Em **Pesquisar recursos, serviços e documentos (G +/)**, insira **vpn** e selecione **conexões** nos resultados.
 
 1. Aguarde até que o status de ambas as conexões seja **Conectado**. Talvez seja necessário atualizar a tela.
 

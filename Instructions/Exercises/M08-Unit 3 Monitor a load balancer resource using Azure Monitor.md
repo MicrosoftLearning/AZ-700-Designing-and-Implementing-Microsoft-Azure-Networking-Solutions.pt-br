@@ -180,9 +180,10 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
 
 Nesta seção, você criará três VMs para o pool de back-end do balanceador de carga, adicionará as VMs ao pool de back-end e instalará o IIS nas três VMs para testar o balanceador de carga.
 
-1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
-
- > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
+1. No portal do Azure, clique no ícone do Cloud Shell (canto superior direito). Se necessário, configure o shell.  
+    + Selecione **PowerShell**.
+    + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
+    + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
 1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M08** para o diretório base do Cloud Shell.
 

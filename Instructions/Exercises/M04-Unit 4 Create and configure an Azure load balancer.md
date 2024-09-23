@@ -74,9 +74,10 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
 Nesta seção, você criará três VMs, que estarão no mesmo conjunto de disponibilidade, para o pool de back-end do balanceador de carga, adicionará as VMs ao pool de back-end e instalará o IIS nas três VMs para testar o balanceador de carga.
 
-1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
-
- > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
+1. No portal do Azure, clique no ícone do Cloud Shell (canto superior direito). Se necessário, configure o shell.  
+    + Selecione **PowerShell**.
+    + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
+    + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
 2. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/Baixar arquivos**. No menu suspenso, selecione **Carregar** e carregue os arquivos azuredeploy.json e azuredeploy.parameters.json no diretório inicial do Cloud Shell um a um.
 
