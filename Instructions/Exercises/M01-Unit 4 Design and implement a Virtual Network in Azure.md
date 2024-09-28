@@ -3,7 +3,8 @@ Exercise:
   title: M01 - Unidade 4 Projetar e implementar uma rede virtual no Azure
   module: Module 01 - Introduction to Azure Virtual Networks
 ---
-# M01-Unidade 4 Projetar e implementar uma rede virtual no Azure
+
+# M01 - Unidade 4 Projetar e implementar uma rede virtual no Azure
 
 ## Cenário do exercício
 
@@ -56,104 +57,105 @@ Neste exercício, você vai:
 
 1. Acesse o [portal do Azure](https://portal.azure.com/).
 
-2. Na home page, em **Serviços do Azure**, escolha **Grupos de recurso**.  
+1. Na home page, em **Serviços do Azure**, escolha **Grupos de recurso**.  
 
-3. No grupo de recursos, selecione **+ Criar**.
+1. No grupo de recursos, selecione **+ Criar**.
 
-4. Use as informações da tabela abaixo para criar o grupo de recursos.
+1. Use as informações da tabela abaixo para criar o grupo de recursos.
 
-| **Tab**         | **Opção**                                 | **Valor**            |
-| --------------- | ------------------------------------------ | -------------------- |
-| Noções básicas          | Grupo de recursos                             | ContosoResourceGroup |
-|                 | Região                                     | (EUA) Leste dos EUA         |
-| Marcações            | Nenhuma alteração necessária                        |                      |
-| Examinar + criar | Examine suas configurações e escolha **Criar** |                      |
+   | **Tab**         | **Opção**                                 | **Valor**            |
+   | --------------- | ------------------------------------------ | -------------------- |
+   | Noções básicas          | Grupo de recursos                             | ContosoResourceGroup |
+   |                 | Região                                     | (EUA) Leste dos EUA         |
+   | Marcações            | Nenhuma alteração necessária                        |                      |
+   | Examinar + criar | Examine suas configurações e escolha **Criar** |                      |
 
-5. Em Grupos de recursos, verifique se **ContosoResourceGroup** aparece na lista.
+1. Em Grupos de recursos, verifique se **ContosoResourceGroup** aparece na lista.
 
 ## Tarefa 2: criar a rede virtual CoreServicesVnet e as sub-redes
 
 1. Na home page portal do Azure, navegue até a barra de pesquisa global e pesquise **Redes Virtuais** e selecione redes virtuais em serviços.  ![Resultados da barra de Pesquisa Global para a rede virtual na home page do portal do Azure.](../media/global-search-bar.PNG)
-2. Na página Redes virtuais, selecione **Criar**.  ![Assistente para criação de uma rede virtual.](../media/create-virtual-network.png)
-3. Use as informações da tabela abaixo para criar a rede virtual CoreServicesVnet.  
-   ‎Remover ou substituir o espaço de endereço IP padrão![Configuração de endereço IP para implantação de rede virtual do Azure ](../media/default-vnet-ip-address-range-annotated.png)
 
-| **Tab**      | **Opção**         | **Valor**            |
-| ------------ | ------------------ | -------------------- |
-| Noções básicas       | Grupo de recursos     | ContosoResourceGroup |
-|              | Nome               | CoreServicesVnet     |
-|              | Região             | (EUA) Leste dos EUA         |
-| Endereços IP | Espaço de endereço IPv4 | 10.20.0.0/16         |
+1. Na página Redes virtuais, selecione **Criar**.  ![Assistente para criação de uma rede virtual.](../media/create-virtual-network.png)
+1. Use as informações da tabela abaixo para criar a rede virtual CoreServicesVnet.  
+   Remover ou substituir o espaço de endereços IP padrão. ![Configuração de endereço IP para implantação de rede virtual do Azure ](../media/default-vnet-ip-address-range-annotated.png)
 
- 4. Use as informações da tabela abaixo para criar a sub-redes de CoreServicesVnet.
+   | **Tab**      | **Opção**         | **Valor**            |
+   | ------------ | ------------------ | -------------------- |
+   | Noções básicas       | Grupo de recursos     | ContosoResourceGroup |
+   |              | Nome               | CoreServicesVnet     |
+   |              | Região             | (EUA) Leste dos EUA         |
+   | Endereços IP | Espaço de endereço IPv4 | 10.20.0.0/16         |
 
- 5. Para começar a criar cada sub-rede, escolha **+ Adicionar sub-rede**. Para terminar a criação de cada sub-rede, escolha **Adicionar**.
+1. Use as informações da tabela abaixo para criar a sub-redes de CoreServicesVnet.
 
-| **Sub-rede**             | **Opção**           | **Valor**              |
-| ---------------------- | -------------------- | ---------------------- |
-| GatewaySubnet          | Nome da sub-rede          | GatewaySubnet          |
-|                        | Intervalo de endereços da sub-rede | 10.20.0.0/27           |
-| SharedServicesSubnet   | Nome da sub-rede          | SharedServicesSubnet   |
-|                        | Intervalo de endereços da sub-rede | 10.20.10.0/24          |
-| DatabaseSubnet         | Nome da sub-rede          | DatabaseSubnet         |
-|                        | Intervalo de endereços da sub-rede | 10.20.20.0/24          |
-| PublicWebServiceSubnet | Nome da sub-rede          | PublicWebServiceSubnet |
-|                        | Intervalo de endereços da sub-rede | 10.20.30.0/24          |
+1. Para começar a criar cada sub-rede, escolha **+ Adicionar sub-rede**. Para terminar a criação de cada sub-rede, escolha **Adicionar**.
 
- 6. Para concluir a criação da CoreServicesVnet e das sub-redes associadas, escolha **Revisar + criar**.
+   | **Sub-rede**             | **Opção**           | **Valor**              |
+   | ---------------------- | -------------------- | ---------------------- |
+   | GatewaySubnet          | Nome da sub-rede          | GatewaySubnet          |
+   |                        | Intervalo de endereços da sub-rede | 10.20.0.0/27           |
+   | SharedServicesSubnet   | Nome da sub-rede          | SharedServicesSubnet   |
+   |                        | Intervalo de endereços da sub-rede | 10.20.10.0/24          |
+   | DatabaseSubnet         | Nome da sub-rede          | DatabaseSubnet         |
+   |                        | Intervalo de endereços da sub-rede | 10.20.20.0/24          |
+   | PublicWebServiceSubnet | Nome da sub-rede          | PublicWebServiceSubnet |
+   |                        | Intervalo de endereços da sub-rede | 10.20.30.0/24          |
 
- 7. Verifique se a configuração foi aprovada na validação e, depois, escolha **Criar**.
+1. Para concluir a criação da CoreServicesVnet e das sub-redes associadas, escolha **Revisar + criar**.
 
- 8. Repita as oito primeiras etapas para cada VNet com base nas tabelas abaixo  
+1. Verifique se a configuração foi aprovada na validação e, depois, escolha **Criar**.
+
+1. Repita as oito primeiras etapas para cada VNet com base nas tabelas abaixo  
 
 ## Tarefa 3: criar a rede virtual ManufacturingVnet e as sub-redes
 
-| **Tab**      | **Opção**         | **Valor**            |
-| ------------ | ------------------ | -------------------- |
-| Noções básicas       | Grupo de recursos     | ContosoResourceGroup |
-|              | Nome               | ManufacturingVnet    |
-|              | Region             | (Europa) Oeste da Europa |
-| Endereços IP | Espaço de endereço IPv4 | 10.30.0.0/16         |
+   | **Tab**      | **Opção**         | **Valor**            |
+   | ------------ | ------------------ | -------------------- |
+   | Noções básicas       | Grupo de recursos     | ContosoResourceGroup |
+   |              | Nome               | ManufacturingVnet    |
+   |              | Region             | (Europa) Oeste da Europa |
+   | Endereços IP | Espaço de endereço IPv4 | 10.30.0.0/16         |
 
-| **Sub-rede**                | **Opção**           | **Valor**                 |
-| ------------------------- | -------------------- | ------------------------- |
-| ManufacturingSystemSubnet | Nome da sub-rede          | ManufacturingSystemSubnet |
-|                           | Intervalo de endereços da sub-rede | 10.30.10.0/24             |
-| SensorSubnet1             | Nome da sub-rede          | SensorSubnet1             |
-|                           | Intervalo de endereços da sub-rede | 10.30.20.0/24             |
-| SensorSubnet2             | Nome da sub-rede          | SensorSubnet2             |
-|                           | Intervalo de endereços da sub-rede | 10.30.21.0/24             |
-| SensorSubnet3             | Nome da sub-rede          | SensorSubnet3             |
-|                           | Intervalo de endereços da sub-rede | 10.30.22.0/24             |
+   | **Sub-rede**                | **Opção**           | **Valor**                 |
+   | ------------------------- | -------------------- | ------------------------- |
+   | ManufacturingSystemSubnet | Nome da sub-rede          | ManufacturingSystemSubnet |
+   |                           | Intervalo de endereços da sub-rede | 10.30.10.0/24             |
+   | SensorSubnet1             | Nome da sub-rede          | SensorSubnet1             |
+   |                           | Intervalo de endereços da sub-rede | 10.30.20.0/24             |
+   | SensorSubnet2             | Nome da sub-rede          | SensorSubnet2             |
+   |                           | Intervalo de endereços da sub-rede | 10.30.21.0/24             |
+   | SensorSubnet3             | Nome da sub-rede          | SensorSubnet3             |
+   |                           | Intervalo de endereços da sub-rede | 10.30.22.0/24             |
 
 ## Tarefa 4: criar a rede virtual ResearchVnet e as sub-redes
 
-| **Tab**      | **Opção**         | **Valor**            |
-| ------------ | ------------------ | -------------------- |
-| Noções básicas       | Grupo de recursos     | ContosoResourceGroup |
-|              | Nome               | ResearchVnet         |
-|              | Region             | Sudeste Asiático       |
-| Endereços IP | Espaço de endereço IPv4 | 10.40.0.0/16         |
+   | **Tab**      | **Opção**         | **Valor**            |
+   | ------------ | ------------------ | -------------------- |
+   | Noções básicas       | Grupo de recursos     | ContosoResourceGroup |
+   |              | Nome               | ResearchVnet         |
+   |              | Region             | Sudeste Asiático       |
+   | Endereços IP | Espaço de endereço IPv4 | 10.40.0.0/16         |
 
-| **Sub-rede**           | **Opção**           | **Valor**            |
-| -------------------- | -------------------- | -------------------- |
-| ResearchSystemSubnet | Nome da sub-rede          | ResearchSystemSubnet |
-|                      | Intervalo de endereços da sub-rede | 10.40.0.0/24         |
+   | **Sub-rede**           | **Opção**           | **Valor**            |
+   | -------------------- | -------------------- | -------------------- |
+   | ResearchSystemSubnet | Nome da sub-rede          | ResearchSystemSubnet |
+   |                      | Intervalo de endereços da sub-rede | 10.40.0.0/24         |
 
 ## Tarefa 5: verificar a criação de VNets e sub-redes
 
 1. Na home page do portal do Azure, selecione **Todos os recursos**.
 
-2. Verifique se CoreServicesVnet, ManufacturingVnet e ResearchVnet estão listadas.
+1. Verifique se CoreServicesVnet, ManufacturingVnet e ResearchVnet estão listadas.
 
-3. Escolha **CoreServicesVnet**.
+1. Escolha **CoreServicesVnet**.
 
-4. Em CoreServicesVnet, em **Configurações**, escolha **Sub-redes**.
+1. Em CoreServicesVnet, em **Configurações**, escolha **Sub-redes**.
 
-5. Em CoreServicesVnet | Sub-redes, verifique se as sub-redes que você criou estão listadas e se os intervalos de endereços IP estão corretos.
+1. Em CoreServicesVnet \| Sub-redes, verifique se as sub-redes que você criou estão listadas e se os intervalos de endereços IP estão corretos.
 
    ![Lista de sub-redes em CoreServicesVnet.](../media/verify-subnets-annotated.png)
 
-6. Repita as etapas 3 a 5 para cada VNet.
+1. Repita as etapas 3 a 5 para cada VNet.
 
 Parabéns! Você criou um grupo de recursos, três VNets e sub-redes associadas.

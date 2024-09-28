@@ -249,7 +249,10 @@ Por padrão, as contas de armazenamento aceitam conexões de clientes em qualque
 
 Para testar o acesso à rede para uma conta de armazenamento, implante uma VM para cada sub-rede.
 
-1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
+1. No portal do Azure, clique no ícone do Cloud Shell (canto superior direito). Se necessário, configure o shell.  
+    + Selecione **PowerShell**.
+    + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
+    + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
 1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **VMs.json** e **VMs.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M07** para o diretório base do Cloud Shell.
 

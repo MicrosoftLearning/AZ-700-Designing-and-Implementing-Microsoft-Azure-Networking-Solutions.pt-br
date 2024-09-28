@@ -57,11 +57,7 @@ Neste exercício, você vai:
    | **SUB-REDES**       |                                    |
    | Nome da sub-rede       | Altere o **padrão** para **AGSubnet** |
    | Intervalo de endereços     | 10.0.0.0/24                        |
-   | Nome da sub-rede       | BackendSubnet                      |
-   | Intervalo de endereços     | 10.0.1.0/24                        |
 
-
->**Observação**: se a interface do usuário não tiver a opção de adicionar sub-redes adicionais, conclua as etapas e adicione a sub-rede de back-end depois de criar o gateway. 
 
 1. Selecione **OK** para retornar à guia Noções básicas para criar um gateway de aplicativo.
 
@@ -92,13 +88,14 @@ Neste exercício, você vai:
 
 1. Na caixa **Nome da regra**, digite **RoutingRule**.
 
+1. Em **Prioridade**, insira **100**. 
+
 1. Na guia **Ouvinte**, insira ou selecione as informações a seguir:
 
     | **Configuração**   | **Valor**         |
     | ------------- | ----------------- |
     | Nome do ouvinte | Ouvinte          |
-    | Prioridade      | **100**           |
-    | IP de front-end   | Selecione **Público** |
+    | IP de front-end   | Selecione **IPv4 Público** |
 
 1. Aceite os valores padrão para as outras configurações na guia **Ouvinte**.
 
@@ -130,27 +127,59 @@ Neste exercício, você vai:
 
 1. Selecione **Criar** para criar a rede virtual, o endereço IP público e o gateway de aplicativo.
 
-Pode levar vários minutos para que o Azure crie o gateway de aplicativo. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
+1. Pode levar vários minutos para que o Azure crie o gateway de aplicativo. Espere a conclusão da implantação.
+
+### Adicionar uma sub-rede para servidores de back-end
+
+1. Procure e selecione **ContosoVNet**. Verifique se o **AGSubnet** foi criado. 
+
+1. Para criar **BackendSubnet**, selecione **Configurações** e, em seguida, **Subredes**. Certifique-se de **Adicionar** a sub-rede quando terminar.
+   
+   | **Configuração**       | **Valor**                          |
+   | ----------------- | ---------------------------------- |
+   | Nome da sub-rede       | BackendSubnet                      |
+   | Intervalo de endereços     | 10.0.1.0/24                        |
 
 ## Tarefa 2: criar máquinas virtuais
 
-1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
- > **Observação:** se esta for a primeira vez que o Cloud Shell é aberto, você será solicitado a criar uma conta de armazenamento. Selecione **Criar armazenamento**.
-1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **backend.json** e **backend.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M05** para o diretório base do Cloud Shell.
+1. No portal do Azure, clique no ícone do Cloud Shell (canto superior direito). Se necessário, configure o shell.  
+    + Selecione **PowerShell**.
+    + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
+    + Aguarde até que o terminal seja criado e um prompt seja exibido.
+      
+1. Na barra de ferramentas do painel do Cloud Shell, selecione **Gerenciar arquivos** e, em seguida, **Carregar**. Faça upload dos seguintes arquivos: **backend.json**, **backend.parameters.json** e **install-iis.ps1**. Os arquivos estão disponíveis para download no repositório, pasta **\Allfiles\Exercises\M05**.
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
->**Observação**: você será solicitado a fornecer uma senha de Administrador.
+>**Observação**: você será solicitado a fornecer uma senha de Administrador. 
 
    ```powershell
    $RGName = "ContosoResourceGroup"
    
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile backend.json -TemplateParameterFile backend.parameters.json
    ```
-  
-1. Após a conclusão da implantação, acesse a home page do portal do Azure e, depois, escolha **Máquinas Virtuais**.
+>**Observação**: reserve um tempo para revisar o arquivo **backend.json**. Há duas máquinas virtuais sendo implantadas. Isto pode levar alguns minutos. 
 
-1. Verifique se as duas máquinas virtuais foram criadas.
+1. O comando será concluído e listará **BackendVM1** e **BackendVM2**.
+
+### Instalar o IIS em cada máquina virtual
+
+1. Cada servidor back-end precisa ter o IIS instalado.
+
+1. Continue no prompt do PowerShell e use o script fornecido para instalar o IIS em **BackendVM1**.
+
+   ```powershell
+   Invoke-AzVMRunCommand -ResourceGroupName 'ContosoResourceGroup' -Name 'BackendVM1' -CommandId 'RunPowerShellScript' -ScriptPath 'install-iis.ps1'
+   ```
+
+>**Observação**: enquanto aguarda, examine o script do PowerShell. Observe que a home page do IIS está sendo personalizada para fornecer o nome da máquina virtual.
+
+1. Execute o comando novamente, desta vez para **BackendVM2**.
+
+   ```powershell
+   Invoke-AzVMRunCommand -ResourceGroupName 'ContosoResourceGroup' -Name 'BackendVM2' -CommandId 'RunPowerShellScript' -ScriptPath 'install-iis.ps1'
+   ```
+>**Observação:** cada comando levará alguns minutos para ser concluído.
 
 ## Tarefa 3: adicionar servidores de back-end ao pool de back-end
 
@@ -162,17 +191,19 @@ Pode levar vários minutos para que o Azure crie o gateway de aplicativo. Aguard
 
 1. Na página Editar pool de back-end, em **Destinos de back-end**, em **Tipo de destino**, selecione **Máquina virtual**.
 
-1. Em **Destino**, selecione **BackendVM1.**
+1. Em **Destino**, escolha **BackendVM1-nic**.
 
 1. Em **Tipo de destino**, selecione **Máquina virtual**.
 
-1. Em **Destino**, selecione **BackendVM2.**
+1. Em **Destino**, escolha **BackendVM2-nic**.
 
    ![Adicionar back-ends de destino ao pool de back-end do Portal do Azure](../media/edit-backend-pool.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar** e aguarde até que os destinos sejam adicionados. 
 
-Aguarde a conclusão da implantação antes de prosseguir para a próxima etapa.
+1. Verifique se os servidores back-end estão íntegros. Clique em **Monitoramento** e depois em **Integridade do back-end**. Ambos os destinos estarão íntegros. 
+
+   ![Portal do Azure verificar integridade do back-end.](../media/contoso-backend-health.png)
 
 ## Tarefa 4: testar o gateway de aplicativo
 
@@ -191,5 +222,6 @@ Embora o IIS não seja exigido para criar o gateway de aplicativo, você o insta
    ![Navegador – exibir BackendVM1 ou BackendVM2, dependendo de qual servidor e back-end responde à solicitação.](../media/browse-to-backend.png)
 
 1. Ao atualizar o navegador várias vezes, você deverá ver conexões a ambos BackendVM1 e BackendVM2.
+
 
 Parabéns! Você configurou e testou um Gateway de Aplicativo do Azure.
