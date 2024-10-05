@@ -73,6 +73,8 @@ Este exercício requer duas instâncias de um aplicativo Web em execução em di
 1. Selecione **Revisar + criar**, analise o Resumo, depois selecione **Criar**.
    Pode levar vários minutos para que a implantação seja concluída.
 
+**Observação:** se você receber um erro de implantação, leia a notificação com atenção. Se o erro envolver a disponibilidade da região devido a cotas, tente mudar para outra região. 
+
 ## Tarefa 2: criar um Front Door para seu aplicativo
 
 Configure o Azure Front Door para direcionar o tráfego do usuário com base na latência mais baixa entre dois servidores dos aplicativos Web. Para começar, adicione um host de front-end para o Azure Front Door.
