@@ -1,14 +1,17 @@
 ---
 demo:
-  title: Gateways VPN
+  title: Gateways de VPN (Módulo 02)
   module: Module 02 - Design and implement hybrid networking
 ---
+
+**Simulação:**[criar e configurar um gateway de rede virtual](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20a%20virtual%20network%20gateway)
+
 Nesta demonstração, exploraremos gateways de rede virtual.
 
 **Observação:** esta demonstração funciona melhor com duas redes virtuais com sub-redes.
 
 ## Explore a folha de sub-rede do Gateway
-1. Em uma de suas redes virtuais, selecione a folha  **Sub-redes** .
+1. Para uma das redes virtuais, selecione a folha  **Sub-redes** .
 1. Selecione  **+ Sub-rede de gateway**. O nome da sub-rede não pode ser alterado. Observe o  **intervalo de endereços**  da sub-rede do gateway. O endereço deve estar contido no espaço de endereço da rede virtual.
 1. Lembre-se de que cada rede virtual precisa de uma sub-rede de gateway.
 1. Feche a página Adicionar sub-rede de gateway. Não é necessário salvar as alterações.
@@ -19,7 +22,7 @@ Nesta demonstração, exploraremos gateways de rede virtual.
 
 ## Explore a adição de um gateway de rede virtual
 1. Pesquise  **Gateways de rede virtual**.
-1. Clique em  **+Adicionar**.
+1. Clique em  **+ Adicionar**.
 1. Revise cada configuração do gateway de rede virtual.
 1. Use os ícones Informações para saber mais sobre as configurações.
 1. Observe o  **Tipo de gateway**,  **tipo de VPN** e  **SKU**.
@@ -29,10 +32,10 @@ Nesta demonstração, exploraremos gateways de rede virtual.
    
 ## Explore a adição de uma conexão entre as redes virtuais
 1. Pesquise  **Conexões**.
-1. Clique em  **+Adicionar**.
+1. Clique em  **+ Adicionar**.
 1. O  **Tipo de conexão**  pode ser VNet a VNet, Site a site (IPsec) ou ExpressRoute.
 1. Forneça informações suficientes e clique no botão  **Ok** .
-1. Na página  **Configurações**  você precisará selecionar as duas redes virtuais diferentes.
+1. Na página  **Configurações** , você precisará selecionar as duas redes virtuais diferentes.
 1. Leia as informações da Ajuda na caixa de seleção  **Estabelecer conectividade bidirecional** .
 1. Observe as informações de  **PSK (chave compartilhada)** .
 1. Feche a página Adicionar conexão. Não é necessário salvar as alterações.

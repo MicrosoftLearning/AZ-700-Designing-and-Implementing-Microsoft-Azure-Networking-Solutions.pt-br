@@ -1,6 +1,6 @@
 ---
 demo:
-  title: Rotear para serviços compartilhados
+  title: Mód 02 – Rotear para serviços compartilhados
   module: Module 02 - Design and implement hybrid networking
 ---
 Considere demonstrar isso aos alunos: 

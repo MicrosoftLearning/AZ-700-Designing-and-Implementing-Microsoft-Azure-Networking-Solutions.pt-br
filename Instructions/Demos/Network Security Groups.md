@@ -1,13 +1,13 @@
 ---
 demo:
-  title: Mód 06 – Grupos de Segurança de Rede
+  title: Grupos de Segurança de Rede (Módulo 06)
   module: Module 06 - Design and Implement Network Security
 ---
 ## Configurar Grupos de Segurança de Rede
 
 Nesta demonstração, você explorará NSGs e pontos de extremidade de serviço.
 
-**Referência**: [rRstringir o acesso a recursos de PaaS – tutorial – portal do Azure](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources)
+**Referência**: [restringir o acesso de recursos de PaaS – tutorial – portal do Azure](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources)
 
 **Criar um grupo de segurança de rede**
 

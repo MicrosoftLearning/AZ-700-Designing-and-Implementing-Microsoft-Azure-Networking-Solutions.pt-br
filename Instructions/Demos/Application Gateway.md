@@ -1,17 +1,19 @@
 ---
 demo:
-  title: Módulo 05 – Gateway de Aplicativo
   module: Module 05 - Load balancing HTTPS traffic
+  title: Gateway de Aplicativo (Módulo 05)
 ---
 ## Configurar o Gateway de Aplicativo do Azure
 
 Nesta demonstração, aprenderemos a criar um Gateway de Aplicativo do Azure. 
 
-**Referência**: [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicativo do Azure – portal do Azure](https://learn.microsoft.com/azure/application-gateway/quick-create-portal)
+**Simulação:**[implantar um Gateway de Aplicativo do Azure.](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20Azure%20Application%20Gateway)
 
-**Referência**: [Criptografar o tráfego de rede de ponta a ponta com o Gateway de Aplicativo do Azure](https://github.com/MicrosoftDocs/mslearn-end-to-end-encryption-with-app-gateway)
+**Referência**: [Início Rápido: direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – portal do Azure](https://learn.microsoft.com/azure/application-gateway/quick-create-portal)
 
-**Observação**: para simplificar, crie novas redes virtuais e sub-redes conforme fizer a configuração. 
+**Referência**: [criptografar o tráfego de rede de ponta a ponta com o Gateway de Aplicativo do Azure](https://github.com/MicrosoftDocs/mslearn-end-to-end-encryption-with-app-gateway)
+
+**Observação**: para simplificar, crie novas redes virtuais e sub-redes à medida que você avançar na configuração. 
 
 **Criar o Gateway de Aplicativo do Azure**
 
@@ -19,7 +21,7 @@ Nesta demonstração, aprenderemos a criar um Gateway de Aplicativo do Azure.
 
 1. Pesquise e selecione **Gateway de Aplicativo do Azure**.
 
-1. **Crie** um gateway.
+1. **Crie** um novo gateway.
 
 1. Na guia **Noções básicas**, discuta **Camadas**, **Dimensionamento automático** e **Contagens de instâncias**.
 

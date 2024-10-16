@@ -1,7 +1,7 @@
 ---
 demo:
   module: Module 01 - Introduction to Azure Virtual Networks
-  title: Módulo 01 – Rotas personalizadas
+  title: Rotas personalizadas (Módulo 01)
 ---
 ## Configurar pontos de extremidade e roteamento de rede
 
@@ -9,7 +9,7 @@ Nesta demonstração, aprenderemos como criar uma tabela de rotas, definir uma r
 
 **Observação:** esta demonstração requer uma rede virtual com pelo menos uma sub-rede.
 
-**Referência** [Rotear o tráfego de rede – tutorial – portal do Azure](https://learn.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal#create-a-route-table)
+**Referência**: [rotear o tráfego de rede – tutorial – portal do Azure](https://learn.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal#create-a-route-table)
 
 **Criar uma tabela de roteamento**
 
@@ -35,7 +35,7 @@ Nesta demonstração, aprenderemos como criar uma tabela de rotas, definir uma r
 
 1.  Navegue até a sub-rede à qual você deseja associar a tabela de rotas.
 
-1.  Selecione a **Tabela de rotas** e escolha sua nova tabela de roteamento. 
+1.  Selecione  **Tabela de rotas** e escolha sua nova tabela de roteamento. 
 
 1.  **Salve** suas alterações.
 

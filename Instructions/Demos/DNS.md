@@ -1,14 +1,15 @@
 ---
 demo:
   module: Module 01 - Introduction to Azure Virtual Networks
-  title: Mód 01 – Resolução de nomes DNS
+  title: Resolução de nome DNS (Módulo 01)
 ---
 ## Configurar o DNS do Azure
 
 Nesta demonstração, exploraremos o DNS do Azure.
 
-**Referência**: [Tutorial: hospedar seu domínio e subdomínio – DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)
+**Referência:**[Simulação: definir configurações de DNS no Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20DNS%20settings%20in%20Azure)
 
+**Referência**: [Tutorial: hospedar seu domínio e subdomínio – DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)
 
 **Criar uma zona DNS**
 

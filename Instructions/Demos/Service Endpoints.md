@@ -1,7 +1,9 @@
 ---
 demo:
-  title: Mód 07 – Pontos de extremidade de serviço
+  title: Pontos de extremidade de serviço (Módulo 07)
   module: Module 07 - Design and implement private access to Azure Services
 ---
-Restringir o acesso aos recursos de PaaS – tutorial – Portal do Azure | Microsoft Docs – https://learn.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources?tabs=portal
+**Simulação:**[restringir o acesso aos recursos de PaaS](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Restrict%20network%20access%20to%20PaaS%20resources%20with%20virtual%20network%20service%20endpoints)
+
+**Referência:**[restringir o acesso de recursos de PaaS – tutorial](https://learn.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources?tabs=portal)
 

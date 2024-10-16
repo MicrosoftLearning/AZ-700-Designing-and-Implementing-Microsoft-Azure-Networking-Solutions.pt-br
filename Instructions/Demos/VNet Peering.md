@@ -1,13 +1,15 @@
 ---
 demo:
-  title: 'Emparelhamento VNET            '
+  title: Emparelhamento VNET (Módulo 01)
   module: Module 01 - Introduction to Azure Virtual Networks
 ---
 ## Configurar o emparelhamento de VNet
 
 **Observação:**  para esta demonstração você precisará de duas redes virtuais.
 
-**Referência**: [Conectar redes virtuais com o emparelhamento VNET – tutorial](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
+**Simulação:**[conectar duas redes virtuais do Azure usando o emparelhamento do Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering)
+
+**Referência**: [conectar redes virtuais com o Emparelhamento VNet – tutorial](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
 
 **Configurar o emparelhamento VNet na primeira rede virtual**
 
@@ -27,4 +29,4 @@ demo:
 
 1. Observe que um emparelhamento foi criado automaticamente. Observe que o  **Status de emparelhamento**  está como  **Conectado**.
 
-1. No laboratório, os estudantes farão um emparelhamento e testarão a conexão entre máquinas virtuais. 
+1. No laboratório, os alunos criarão peering e testarão a conexão entre máquinas virtuais. 

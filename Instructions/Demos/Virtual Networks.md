@@ -1,13 +1,15 @@
 ---
 demo:
-  module: Module 01 - Introduction to Azure Virtual Networks
-  title: Redes Virtuais
+  module: 'Module 01 - Introduction to Azure Virtual Networks '
+  title: Redes Virtuais (Módulo 01)
 ---
 ## Configurar Redes Virtuais
 
 Nesta demonstração, você criará redes virtuais.
 
-**Referência**: [Guia de Início rápido: criar uma rede virtual – portal do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+**Referência**: [Guia de início rápido: criar uma rede virtual – portal do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+
+**Simulação:**[configurar redes virtuais](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Design%20and%20implement%20a%20virtual%20network%20in%20Azure)
 
 ## Criar uma rede virtual no portal
 
