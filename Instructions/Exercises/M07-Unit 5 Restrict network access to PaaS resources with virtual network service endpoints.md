@@ -254,7 +254,7 @@ Para testar o acesso à rede para uma conta de armazenamento, implante uma VM pa
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **VMs.json** e **VMs.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M07** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **VMs.json** e **VMs.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M07** para o diretório base do Cloud Shell.
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 

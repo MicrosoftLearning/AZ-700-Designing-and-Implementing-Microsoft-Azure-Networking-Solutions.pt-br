@@ -140,7 +140,7 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **FirewallManager.json** e **FirewallManager.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M06** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **FirewallManager.json** e **FirewallManager.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M06** para o diretório base do Cloud Shell.
 
 1. Implante os seguintes modelos do ARM para criar a VM necessária para este exercício:
 

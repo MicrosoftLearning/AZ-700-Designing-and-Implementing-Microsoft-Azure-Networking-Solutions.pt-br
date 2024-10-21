@@ -36,7 +36,7 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **ManufacturingVMazuredeploy.json** e **ManufacturingVMazuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M01** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **ManufacturingVMazuredeploy.json** e **ManufacturingVMazuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M01** para o diretório base do Cloud Shell.
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
@@ -107,29 +107,35 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
 
 1. Em CoreServicesVnet \| Emparelhamentos, selecione **+ Adicionar**.
 
-1. Use as informações da tabela abaixo para criar o emparelhamento.
+1. Use essas informações para criar o emparelhamento. Quando terminar, selecione **Adicionar**. 
 
-   | **Seção**                          | **Opção**                                    | **Valor**                             |
-   | ------------------------------------ | --------------------------------------------- | ------------------------------------- |
-   | Esta rede virtual                 |                                               |                                       |
-   |                                      | Nome do link de emparelhamento                             | CoreServicesVnet-to-ManufacturingVnet |
-   |                                      | Tráfego para a rede virtual remota             | Permitir (padrão)                       |
-   |                                      | Tráfego encaminhado da rede virtual remota | Permitir (padrão)                       |
-   |                                      | Gateway de rede virtual ou Servidor de Rota       | Nenhum (padrão)                        |
-   | Rede virtual remota               |                                               |                                       |
-   |                                      | Nome do link de emparelhamento                             | ManufacturingVnet-to-CoreServicesVnet |
-   |                                      | Modelo de implantação de rede virtual              | Gerenciador de recursos                      |
-   |                                      | Conheço minha ID do recurso                         | Não selecionado                          |
-   |                                      | Assinatura                                  | Selecione a assinatura fornecida      |
-   |                                      | Rede virtual                               | ManufacturingVnet                     |
-   |                                      | Tráfego para a rede virtual remota             | Permitir (padrão)                       |
-   |                                      | Tráfego encaminhado da rede virtual remota | Permitir (padrão)                       |
-   |                                      | Gateway de rede virtual ou Servidor de Rota       | Nenhum (padrão)                        |
-   | Examine suas configurações e escolha Adicionar. |                                               |                                       |
-   |                                      |                                               |                                       |
+   **Resumo da rede virtual remota**
 
-   >**Observação**: se você não tiver uma "Assinatura MOC", use a assinatura que você usou anteriormente.
+   | **Opção**                                    | **Valor**                             |
+   | ------------------------------------ | --------------------------------------------- | 
+   | Nome do link de emparelhamento    | `CoreServicesVnet-to-ManufacturingVnet` |
+   | Rede virtual | ManufacturingVnet |
 
+    **Configurações do emparelhamento da rede virtual remota**
+   
+   | **Opção**                                    | **Valor**                             |
+   | ------------------------------------ | --------------------------------------------- | 
+   | Permitir que "ManufacturingVnet" acesse "CoreServicesVnet" | Enabled |
+   |"ManufacturingVnet" para receber tráfego encaminhado de "CoreServicesVnet" | Enabled |
+ 
+    **Resumo da rede virtual local**
+
+    | **Opção**                                    | **Valor**                             |
+    | ------------------------------------ | --------------------------------------------- | 
+    | Nome do link de emparelhamento | `CoreServicesVnet-to-ManufacturingVnet` |
+ 
+    **Configurações do emparelhamento da rede virtual remota**
+   
+    | **Opção**                                    | **Valor**                             |
+    | ------------------------------------ | --------------------------------------------- | 
+    | Permitir que "CoreServicesVnet" acesse "ManufacturingVnet" | Enabled
+    | Permitir que "CoreServicesVnet" receba tráfego encaminhado de "ManufacturingVnet" | Enabled |
+ 
 1. Em CoreServicesVnet \| Emparelhamentos, verifique se o emparelhamento **CoreServicesVnet-to-ManufacturingVnet** está listado.
 
 1. Em Redes virtuais, escolha **ManufacturingVnet** e verifique se o emparelhamento **ManufacturingVnet-to-CoreServicesVnet** está listado.
