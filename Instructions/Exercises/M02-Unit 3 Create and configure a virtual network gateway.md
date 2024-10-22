@@ -154,15 +154,32 @@ Neste exercício, você vai:
 
    > [!NOTE]
    >
-   > A criação de um gateway de rede virtual pode levar até 45 minutos.
+   > A criação de um gateway de rede virtual pode levar de 15 a 30 minutos. Você não precisa esperar a conclusão da implantação. Prossiga para a criação do próximo gateway. 
 
 ## Tarefa 7: criar o gateway da ManufacturingVnet
+
+### Criar o GatewaySubnet
+
+**Observação:** o modelo criou o GatewaySubnet para o CoreServicesVnet. Aqui você cria a sub-rede manualmente. 
+
+1. Pesquise e selecione o **ManufacturingVnet**.
+
+1. Na folha **Configurações**, escolha **Sub-redes** e, em seguida, **+ Sub-rede**. 
+
+    | Parâmetro | Valor |
+    | --------------- | ----------------- | 
+    | Finalidade da sub-rede | **Gateway de Rede Virtual** |
+    | Tamanho | **/27 (32 endereços)** |
+
+1. Selecione **Adicionar**. 
+
+### Criar o gateway de rede virtual
 
 1. Em **Pesquisar recursos, serviços e documentos (G+/)**, insira **Gateway de rede virtual** e selecione **Gateways de rede virtual** nos resultados.
 
 1. Em gateways de rede virtual, selecione **+ Criar**.
 
-1. Use as informações da seguinte tabela para criar o gateway de rede virtual:
+1. Use essas informações e a guia **Configurações** para criar o gateway de rede virtual. 
 
    | **Tab**         | **Seção**       | **Opção**                                  | **Valor**                    |
    | --------------- | ----------------- | ------------------------------------------- | ---------------------------- |
@@ -185,7 +202,7 @@ Neste exercício, você vai:
 
    > [!NOTE]
    >
-   > A criação de um gateway de rede virtual pode levar até 45 minutos.
+   > A criação de um gateway de rede virtual pode levar de 15 a 30 minutos.
 
 ## Tarefa 8: conectar a CoreServicesVnet à ManufacturingVnet
 
@@ -199,12 +216,14 @@ Neste exercício, você vai:
    >
    >  Você não poderá concluir essa configuração até que os gateways de rede virtual sejam totalmente implantados.
 
-1. Use as informações da seguinte tabela para criar a conexão:
+1. Use essas informações e a guia **Configurações** para criar o gateway de rede virtual. 
+
 
    | **Opção**                     | **Valor**                         |
    | ------------------------------ | --------------------------------- |
    | Nome                           | CoreServicesGW-to-ManufacturingGW |
    | Tipo de conexão                | VNet a VNet                      |
+   | Region                         | Leste dos EUA                           |
    | Primeiro gateway de rede virtual  | CoreServicesVnetGateway           |
    | Segundo gateway de rede virtual | ManufacturingVnetGateway          |
    | Chave compartilhada (PSK)               | abc123                            |
@@ -213,9 +232,9 @@ Neste exercício, você vai:
    | Protocolo IKE                   | IKEv2                             |
    | Subscription                   | Nenhuma alteração necessária               |
    | Resource group                 | Nenhuma alteração necessária               |
-   | Localização                       | Leste dos EUA                           |
 
-1. Selecione **OK** para criar a conexão.
+
+1. Selecione **Revisar + criar** e, em seguida, **Criar** para criar a conexão.
 
 ## Tarefa 9: conectar a ManufacturingVnet à CoreServicesVnet
 
@@ -231,6 +250,7 @@ Neste exercício, você vai:
    | ------------------------------ | --------------------------------- |
    | Nome                           | ManufacturingGW-to-CoreServicesGW |
    | Tipo de conexão                | VNet a VNet                      |
+   | Localidade                       | Europa Ocidental                       |
    | Primeiro gateway de rede virtual  | ManufacturingVnetGateway          |
    | Segundo gateway de rede virtual | CoreServicesVnetGateway           |
    | Chave compartilhada (PSK)               | abc123                            |
@@ -239,9 +259,9 @@ Neste exercício, você vai:
    | Protocolo IKE                   | IKEv2                             |
    | Subscription                   | Nenhuma alteração necessária               |
    | Resource group                 | Nenhuma alteração necessária               |
-   | Location                       | Europa Ocidental                       |
 
-1. Selecione **OK** para criar a conexão.
+
+1. Selecione **Revisar + criar** e, em seguida, **Criar** para criar a conexão.
 
 ## Tarefa 10: verificar se as conexões se conectam
 

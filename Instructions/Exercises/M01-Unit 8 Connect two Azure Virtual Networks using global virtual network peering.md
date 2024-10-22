@@ -121,7 +121,7 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
    | **Opção**                                    | **Valor**                             |
    | ------------------------------------ | --------------------------------------------- | 
    | Permitir que "ManufacturingVnet" acesse "CoreServicesVnet" | Enabled |
-   |"ManufacturingVnet" para receber tráfego encaminhado de "CoreServicesVnet" | Enabled |
+   |"ManufacturingVnet" receba tráfego encaminhado de "CoreServicesVnet" | Enabled |
  
     **Resumo da rede virtual local**
 
@@ -136,9 +136,9 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
     | Permitir que "CoreServicesVnet" acesse "ManufacturingVnet" | Enabled
     | Permitir que "CoreServicesVnet" receba tráfego encaminhado de "ManufacturingVnet" | Enabled |
  
-1. Em CoreServicesVnet \| Emparelhamentos, verifique se o emparelhamento **CoreServicesVnet-to-ManufacturingVnet** está listado.
+1. Em Emparelhamentos \| CoreServicesVnet, verifique se o emparelhamento **CoreServicesVnet-to-ManufacturingVnet** está **Conectado**.
 
-1. Em Redes virtuais, escolha **ManufacturingVnet** e verifique se o emparelhamento **ManufacturingVnet-to-CoreServicesVnet** está listado.
+1. Em Redes virtuais, escolha **ManufacturingVnet** e verifique se o emparelhamento **ManufacturingVnet-to-CoreServicesVnet** está **Conectado**.
 
 ## Tarefa 5: testar a conexão entre as VMs
 
