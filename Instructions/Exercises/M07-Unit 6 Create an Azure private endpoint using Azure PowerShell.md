@@ -31,7 +31,7 @@ Pontos de extremidade privados podem ser criados para diferentes tipos de servi�
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
-1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/Baixar arquivos**. No menu suspenso, clique em **Carregar** e carregue os arquivos **template.json** e **parameters.json** a seguir no diretório base do Cloud Shell, um por um.
+1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça ulpload dos arquivos **template.json** e **parameters.json** a seguir no diretório base do Cloud Shell, um por um.
 
 Se você optar por instalar e usar o PowerShell localmente, este exemplo exigirá o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute ```Get-Module -ListAvailable Az``` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o ```Connect-AzAccount``` para criar uma conexão com o Azure.
 

@@ -47,7 +47,7 @@ Neste exercício, você vai:
 
 ## Tarefa 2: vincular a sub-rede para registro automático
 
-1. Em Contoso.com, sob **Configurações**, escolha **Links de rede virtual**.
+1. Em Contoso.com, em **Gerenciamento de DNS**, escolha **Links de rede virtual**.
 
 1. Em Contoso.com \| Links de rede virtual, selecione **+ Adicionar**.
 
@@ -104,7 +104,7 @@ Nesta seção, você criará duas VMs de teste para testar a configuração da z
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/baixar arquivos**, no menu suspenso, selecione **Carregar** e carregue os seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M01** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M01** para o diretório base do Cloud Shell.
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
