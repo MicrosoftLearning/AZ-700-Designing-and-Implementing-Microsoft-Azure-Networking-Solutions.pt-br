@@ -223,5 +223,37 @@ Embora o IIS não seja exigido para criar o gateway de aplicativo, você o insta
 
 1. Ao atualizar o navegador várias vezes, você deverá ver conexões a ambos BackendVM1 e BackendVM2.
 
+## Limpar os recursos
 
-Parabéns! Você configurou e testou um Gateway de Aplicativo do Azure.
+>**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+
+1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
+
+1. Exclua todos os grupos de recursos criados em todos os laboratórios deste módulo executando o seguinte comando:
+
+   ```powershell
+   Remove-AzResourceGroup -Name 'IntLB-RG' -Force -AsJob
+   ```
+
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Como o Gateway de Aplicativo do Azure roteia solicitações?
++ Quais recursos de segurança o Gateway de Aplicativo do Azure inclui?
++ Compare o Gateway de Aplicativo do Azure com o Azure Load Balancer. Dê exemplos de quando usar cada produto.
+
+
+## Saiba mais com treinamento individual
+
++ [Introdução ao Gateway de Aplicativo do Azure](https://learn.microsoft.com/training/modules/intro-to-azure-application-gateway/). Este módulo explica o que o Gateway de Aplicativo do Azure faz, como funciona e quando você deve optar por utilizá-lo como uma solução para atender às necessidades de sua organização.
++ [Balancear a carga do tráfego de seu serviço Web com o Gateway de Aplicativo](https://learn.microsoft.com/training/modules/load-balancing-https-traffic-azure/). Neste módulo, você aprenderá a criar e configurar um Gateway de Aplicativo com roteamento baseado em caminho de URL.
++ [Balancear carga de tráfego HTTP(S) no Azure](https://learn.microsoft.com/training/modules/load-balancing-https-traffic-azure/). Neste módulo, você aprenderá a projetar e implementar o Gateway de Aplicativo do Azure.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
++ O Gateway de Aplicativo do Azure é um balanceador de carga de tráfego da Web (camada 7 OSI) que permite que você gerencie o tráfego para seus aplicativos Web.
++ O Gateway de Aplicativo pode tomar decisões de roteiros com base em outros atributos de uma solicitação HTTP, por exemplo, o caminho de URI ou os cabeçalhos de host.
++ Use o Gateway de Aplicativo para aplicativos hospedados em uma única região e quando precisar de roteamento baseado em URL. 
