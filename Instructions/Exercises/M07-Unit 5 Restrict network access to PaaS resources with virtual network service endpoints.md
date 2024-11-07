@@ -24,7 +24,7 @@ Neste exercício, você vai:
 + Tarefa 8: restringir o acesso à rede para uma sub-rede
 + Tarefa 9: criar máquinas virtuais
 + Tarefa 10: confirmar o acesso à conta de armazenamento
-+ Tarefa 11: limpar os recursos
+
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Restrict%20network%20access%20to%20PaaS%20resources%20with%20virtual%20network%20service%20endpoints)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
@@ -329,9 +329,9 @@ Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado
 
 Resultados: você concluiu este laboratório.
 
-## Tarefa 11: limpar os recursos
+## Limpar os recursos
 
-   >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+>**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -341,4 +341,21 @@ Resultados: você concluiu este laboratório.
    Remove-AzResourceGroup -Name 'myResourceGroup' -Force -AsJob
    ```
 
-    >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Qual é a diferença entre pontos de extremidade de serviço do Azure e pontos de extremidade privados?
++ Quais serviços do Azure podem usar pontos de extremidade de serviço?
++ Quais são as etapas para restringir o acesso ao Armazenamento do Azure usando pontos de extremidade de serviço?
+
+## Saiba mais com treinamento individual
+
++ [Proteger e isolar o acesso aos recursos do Azure usando grupos de segurança de rede e pontos de extremidade de serviço](https://learn.microsoft.com/training/modules/secure-and-isolate-with-nsg-and-service-endpoints/). Neste módulo, você aprenderá a usar pontos de extremidade do serviço de rede virtual para controlar o tráfego de rede entre os serviços do Azure.
+
+## Principais aspectos a serem lembrados
++ Pontos de extremidade de serviço de rede virtual estendem seu espaço de endereço privado no Azure ao fornecer uma conexão direta com os serviços do Azure.
++ Os pontos de extremidade de serviço permitem que você restrinja o acesso a seus recursos do Azure somente à sua rede virtual. O tráfego do serviço permanecerá no backbone do Azure e não é enviado para a Internet.
++ Os pontos de extremidade de serviço do Azure estão disponíveis para muitos serviços, como: Armazenamento do Azure, Banco de Dados SQL do Azure e Azure Cosmos DB.
++ Os pontos de extremidade de serviço de rede virtual não são, por padrão, acessíveis em redes locais. Para acessar os recursos em uma rede local, use IPs NAT.

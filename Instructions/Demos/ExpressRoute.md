@@ -3,7 +3,7 @@ demo:
   module: Module 03 - Design and implement Azure ExpressRoute
   title: ExpressRoute (Módulo 03)
 ---
-## ExpressRoute
+## Rota Expressa
 
 Nesta demonstração, revise a configuração do ExpressRoute.
 

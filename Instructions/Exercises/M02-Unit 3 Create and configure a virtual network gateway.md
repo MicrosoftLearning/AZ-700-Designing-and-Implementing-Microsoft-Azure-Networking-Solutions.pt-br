@@ -287,4 +287,26 @@ Neste exercício, você vai:
 
 1. Feche as janelas de conexão da Área de Trabalho Remota.
 
-Parabéns! Você configurou uma conexão VNet a VNet usando um gateway de rede virtual.
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Quais são os principais tipos de gateways de VPN do Azure e por que você usaria cada tipo?
++ Quais fatores devo considerar ao selecionar o SKU do gateway de VPN do Azure? Forneça exemplos
++ Há custos associados aos gateways de VPN do Azure?
+
+
+## Saiba mais com treinamento individual
+
++ [Conectar sua rede local ao Azure com o Gateway de VPN](https://learn.microsoft.com/training/modules/connect-on-premises-network-with-vpn-gateway/). Neste módulo, você aprenderá a usar a CLI para provisionar gateways de VPN.
++ [Solucionar problemas de gateways de VPN no Microsoft Azure](https://learn.microsoft.com/training/modules/troubleshoot-vpn-gateways/). Neste módulo, você aprenderá como monitorar e solucionar problemas relacionados a VPNs site a site e ponto a site.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
+
++ O Gateway de VPN do Azure é um serviço que fornece conectividade segura entre suas redes locais e as redes virtuais do Azure.
++ As conexões S2S (site a site) conectam sua rede local a uma rede virtual do Azure através de túneis VPN IPsec/IKE. Ideal para cenários de nuvem híbrida.
++ As conexões P2S (ponto a site) conectam clientes individuais a uma rede virtual do Azure a partir de locais remotos. Os protocolos VPN incluem OpenVPN, IKEv2 ou SSTP. Útil para trabalhadores remotos.
++ As conexões VNet a VNet conectam duas ou mais redes virtuais do Azure usando túneis VPN IPsec/IKE. Adequado para implantações de várias regiões ou várias VNets.
++ Diferentes SKUs do Gateway de VPN oferecem níveis variados de desempenho, taxa de transferência e recursos. 
+

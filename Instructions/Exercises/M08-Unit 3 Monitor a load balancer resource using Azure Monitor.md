@@ -29,7 +29,7 @@ O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 + Tarefa 11: exibir métricas detalhadas
 + Tarefa 12: exibir a integridade do recurso
 + Tarefa 13: definir configurações de diagnóstico
-+ Tarefa 14: limpar recursos
+
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Monitor%20a%20load%20balancer%20resource%20using%20Azure%20Monitor)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
@@ -397,9 +397,9 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    ![Página de configuração de diagnóstico para o balanceador de carga](../media/diagnostic-settings-2.png)
 
-## Tarefa 14: limpar recursos
+## Limpar os recursos
 
-   >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+   >**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -409,4 +409,26 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
    Remove-AzResourceGroup -Name 'IntLB-RG' -Force -AsJob
    ```
 
-    >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+    
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Resuma as ferramentas do Azure disponíveis para monitorar redes virtuais.
++ Quais ferramentas de monitoramento do Observador de Rede do Azure estão disponíveis?
+
+## Saiba mais com treinamento individual
+
++ [Introdução ao Azure Monitor](https://learn.microsoft.com/training/modules/intro-to-azure-monitor/). Neste módulo, você aprenderá a usar o Azure Monitor para fornecer insights sobre o desempenho e as operações de recursos do Azure.
++ [Monitorar e solucionar problemas de ponta a ponta na infraestrutura de rede do Azure usando ferramentas de monitoramento de rede](https://learn.microsoft.com/training/modules/troubleshoot-azure-network-infrastructure/). Neste módulo, você aprenderá a usar as ferramentas, os diagnósticos e os logs do Observador de Rede do Azure para ajudar a localizar e corrigir problemas de rede na infraestrutura do Microsoft Azure.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
+
++ O Azure Monitor fornece recursos e ferramentas para coletar, gerenciar e analisar dados de TI de todos os seus recursos do Azure, de outras nuvens e locais.
++ As métricas são medidas quantitativas que mostram instantâneos do desempenho do aplicativo ou do recurso. Normalmente, as métricas são valores numéricos que você pode medir ao longo do tempo.
++ Os logs são registros textuais de eventos, ações e mensagens que ocorrem em um recurso ou aplicativo. 
++ Os Insights, visualizações e painéis do Azure Monitor podem consumir e transmitir informações de monitoramento sobre seus aplicativos.
++ Alertas notificam você sobre condições críticas e podem executar ações corretivas. As regras de alerta podem ser baseadas em dados de métrica ou de log.+ 
+    

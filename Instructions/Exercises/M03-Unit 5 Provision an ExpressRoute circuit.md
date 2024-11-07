@@ -20,7 +20,7 @@ Neste exercício, você vai:
 + Tarefa 1: criar e provisionar um circuito do ExpressRoute
 + Tarefa 2: recuperar sua chave de serviço
 + Tarefa 3: desprovisionar um circuito do ExpressRoute
-+ Tarefa 4: limpar recursos
+
 
 ## Tarefa 1: criar e provisionar um circuito do ExpressRoute
 
@@ -110,13 +110,13 @@ Se o estado de provisionamento do provedor de serviço de circuito de ExpressRou
 >
 > Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como Não provisionado), exclua o circuito. Isso interrompe a cobrança pelo circuito.
 
-## Tarefa 4: limpar recursos
+## Limpar os recursos
 
 Você pode excluir seu circuito do ExpressRoute selecionando o ícone **Excluir**. Verifique se o status do provedor está definido como Não provisionado antes de continuar.
 
 ![Portal do Azure – excluir um circuito do ExpressRoute](../media/expressroute-circuit-delete.png)
 
-   >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+>**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -127,4 +127,23 @@ Você pode excluir seu circuito do ExpressRoute selecionando o ícone **Excluir*
    Remove-AzResourceGroup -Name 'ExpressRouteResourceGroup' -Force -AsJob
    ```
 
-   >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Quais provedores de serviços estão disponíveis para o Azure ExpressRoute?
++ Quais são os problemas de configuração mais comuns com o Azure ExpressRoute? O que devo fazer se tiver esse problema?
+
+## Saiba mais com treinamento individual
+
++ [Introdução ao Azure ExpressRoute](https://learn.microsoft.com/training/modules/intro-to-azure-expressroute/). Neste módulo, você aprenderá o que é o Azure ExpressRoute e a funcionalidade que fornece.
++ [Projetar e implementar o ExpressRoute](https://learn.microsoft.com/training/modules/design-implement-azure-expressroute/). Neste módulo, você aprenderá a projetar e a implementar o Azure ExpressRoute, o Alcance Global do ExpressRoute e o ExpressRoute FastPath.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
++ O Azure ExpressRoute permite que uma organização conecte suas redes locais diretamente às nuvens do Microsoft Azure e do Microsoft 365. O Azure ExpressRoute usa uma conexão de alta largura de banda dedicada fornecida por um parceiro da Microsoft.
++ A Microsoft garante um mínimo de 99,95% de disponibilidade para conexões dedicadas do ExpressRoute. A conexão é privada e trafega por uma linha dedicada, terceiros não podem interceptar o tráfego.
++ Você pode criar uma conexão entre sua rede local e a nuvem da Microsoft de quatro maneiras diferentes, Colocalização do CloudExchange, Conexão de Ethernet Ponto a Ponto, Conexão de Qualquer para Qualquer (IPVPN) e ExpressRoute Direct.
++ Os recursos do ExpressRoute são determinados pelo SKU: Local, Standard e Premium. 

@@ -28,7 +28,6 @@ O diagrama a seguir faz uma ilustração aproximada do ambiente que você vai im
 + Tarefa 2: criar um perfil do Gerenciador de Tráfego
 + Tarefa 3: Adicionar pontos de extremidade do Gerenciador de Tráfego
 + Tarefa 4: testar o perfil do Gerenciador de Tráfego
-+ Tarefa 5: limpar os recursos
 
 ## Tarefa 1: criar os aplicativos Web
 
@@ -171,9 +170,9 @@ Nesta seção, você verificará o nome DNS do seu perfil do Gerenciador de Trá
 
 1. Verifique se o aplicativo Web ainda está respondendo. Como o ponto de extremidade primário não estava disponível, o tráfego foi roteado para o ponto de extremidade de failover para permitir a continuidade do funcionamento do site da Web.
 
-## Tarefa 5: limpar os recursos
+## Limpar os recursos
 
-   >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+>**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -186,4 +185,23 @@ Nesta seção, você verificará o nome DNS do seu perfil do Gerenciador de Trá
 
    ```
 
-    >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Quais são as etapas de alto nível para configurar o Gerenciador de Tráfego do Azure?
++ Compare e contraste quando usar o Azure Load Balancer e o Gerenciador de Tráfego do Azure.
++ Explique os perfis de roteamento do Gerenciador de Tráfego e quando devem ser usados.
+
+## Saiba mais com treinamento individual
+
++ [Aprimore sua localidade de dados e disponibilidade do serviço usando o Gerenciador de Tráfego do Azure](https://learn.microsoft.com/training/modules/distribute-load-with-traffic-manager/). Nesse módulo, você aprenderá a usar o Gerenciador de Tráfego para distribuir dinamicamente o tráfego de rede.
++ [Balanceamento de carga de tráfego não HTTP(S) no Azure](https://learn.microsoft.com/training/modules/load-balancing-non-https-traffic-azure/). Neste módulo, você aprenderá sobre o Gerenciador de Tráfego do Azure e a implementação de métodos de roteamento. 
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
++ O Gerenciador de Tráfego do Azure é um balanceador de carga de tráfego baseado em DNS. Esse serviço permite distribuir o tráfego para seus aplicativos voltados ao público nas regiões globais do Azure.
++ O Gerenciador de Tráfego inclui seis métodos de roteamento de tráfego que permitem controlar como o Gerenciador escolhe qual ponto de extremidade deve receber o tráfego de cada usuário final. Quantos você pode nomear?
++ Aninhe perfis do Gerenciador de Tráfego para combinar os benefícios de mais de um método de roteamento de tráfego. Os perfis aninhados permitem que você substitua o comportamento padrão do Gerenciador de Tráfego para dar suporte a implantações de aplicativo maiores e mais complexas.

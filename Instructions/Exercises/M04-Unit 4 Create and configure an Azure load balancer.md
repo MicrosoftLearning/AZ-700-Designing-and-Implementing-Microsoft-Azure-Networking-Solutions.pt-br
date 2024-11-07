@@ -276,7 +276,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
 ## Limpar os recursos
 
-   >**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+>**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -286,4 +286,25 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
    Remove-AzResourceGroup -Name 'IntLB-RG' -Force -AsJob
    ```
 
-    >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Qual é a diferença entre os balanceadores de carga públicos e privados do Azure? Forneça cenários de exemplo para cada tipo.
++ Forneça uma tabela que compara os SKUs básicos e padrão do Azure Load Balancer.
++ Como o Azure Load Balancer decide processar solicitações de entrada?
+
+
+## Saiba mais com treinamento individual
++ [Introdução ao Azure Load Balancer](https://learn.microsoft.com/training/modules/intro-to-azure-load-balancer/). Este módulo explica o que o Azure Load Balancer faz, como funciona e quando você deve optar por utilizá-lo como uma solução para atender às necessidades de sua organização.
++ [Solucionar problemas de conectividade de rede de entrada para o Azure Load Balancer](https://learn.microsoft.com/en-us/training/modules/troubleshoot-inbound-connectivity-azure-load-balancer/). Neste módulo, você identificará e solucionará problemas comuns de conectividade de entrada do Azure Load Balancer.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
++ Balanceamento de carga refere-se à distribuição eficiente de tráfego de rede de entrada em um grupo de recursos ou servidores back-end.
++ O Azure Load Balancer distribui fluxos de entrada das instâncias do pool de front-end a back-end do balanceador de carga. Esses fluxos são distribuídos de acordo com as regras de balanceamento de carga configuradas e investigações de integridade. As instâncias do pool de back-end podem ser VMs (Máquinas Virtuais) do Azure ou conjuntos de dimensionamento de máquinas virtuais.
++ O Azure oferece balanceadores de carga públicos e privados. Os balanceadores de carga públicos são ideais para aplicativos voltados para a Internet, conexões de saída e aplicativos Web. Os balanceadores de carga privados são melhores para aplicativos internos, serviços de back-end e cenários híbridos.
+
+
