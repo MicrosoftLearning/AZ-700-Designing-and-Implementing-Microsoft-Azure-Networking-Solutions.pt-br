@@ -164,4 +164,22 @@ Nesta seção, você criará duas VMs de teste para testar a configuração da z
 
 1. Como alternativa, você pode inserir o comando nslookup TestVM2.contoso.com e verificar se recebeu um registro de resolução de nome com êxito para VM2
 
-Parabéns! Você criou uma zona DNS privada, adicionou uma resolução de nome e um link de registro automático e testou a resolução de nomes em sua configuração.
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Qual é a diferença entre o DNS do Azure e o DNS Privado do Azure? Forneça exemplos de quando usar o DNS privado do Azure.
++ Qual é a finalidade do registro automático ao criar uma zona DNS do Azure?
+
+## Saiba mais com treinamento individual
+
++ [Introdução ao DNS do Azure](https://learn.microsoft.com/training/modules/intro-to-azure-dns/). Este módulo explica o que o DNS do Azure faz, como ele funciona e quando você deve optar por usar o DNS do Azure como uma solução para atender às necessidades da sua organização.
++ [Hospede seu domínio no DNS do Azure](https://learn.microsoft.com/training/modules/host-domain-azure-dns/). Neste módulo, você criará uma zona DNS e registros DNS para mapear o domínio em um endereço IP. Você também testará para garantir que o nome de domínio resolve para o seu servidor Web.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
+
++ O DNS do Azure é um serviço de nuvem que permite hospedar e gerenciar domínios DNS (sistema de nomes de domínio), também conhecidos como zonas DNS. 
++ As zonas públicas do DNS do Azure hospedam dados de zona de nome de domínio para registros que você pretende que sejam resolvidos por qualquer host na Internet.
++ As zonas DNS privadas do Azure permitem que você configure um namespace de zona DNS privada para recursos privados do Azure.
++ Uma zona DNS é uma coleção de registros DNS. Registros DNS fornecem informações sobre o domínio.

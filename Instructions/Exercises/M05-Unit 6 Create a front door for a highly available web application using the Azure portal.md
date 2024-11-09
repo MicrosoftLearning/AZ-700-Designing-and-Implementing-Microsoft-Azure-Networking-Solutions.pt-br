@@ -19,7 +19,7 @@ Neste exercício, você vai:
 + Tarefa 1: criar duas instâncias de um aplicativo Web
 + Tarefa 2: criar um Front Door para seu aplicativo
 + Tarefa 3: ver o Azure Front Door em ação
-+ Tarefa 4: limpar recursos
+
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20a%20Front%20Door%20profile%20for%20a%20highly%20available%20web%20application)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
@@ -131,9 +131,9 @@ Depois de você criar um Front Door, a configuração leva alguns minutos para s
 
    Parabéns! Você configurou e testou um Azure Front Door.
 
-## Tarefa 4: limpar recursos
+## Limpar os recursos
 
-   >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+>**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -145,4 +145,24 @@ Depois de você criar um Front Door, a configuração leva alguns minutos para s
 
    ```
 
-    >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Quais as diferenças entre o Gateway de Aplicativo do Azure e o Azure Front Door? Forneça exemplos em que eu usaria cada produto.
++ Forneça uma lista de verificação de coisas a se fazer ao configurar o Azure Front Door.
++ O que é uma origem no Azure Front Door e como ela é diferente de um ponto de extremidade?
+
+
+## Saiba mais com treinamento individual
+
++ [Introdução ao Azure Front Door](https://learn.microsoft.com/training/modules/intro-to-azure-front-door/). Neste módulo, você aprenderá como o Azure Front Door pode proteger seus aplicativos.
++ [Balancear a carga do tráfego do serviço web com o Front Door](https://learn.microsoft.com/training/modules/create-first-azure-front-door/). Neste módulo, você aprenderá a criar e configurar o Azure Front Door. 
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
++ O Azure Front Door é um serviço baseado em nuvem que entrega seus aplicativos em qualquer lugar do mundo. 
++ O Azure Front Door utiliza o balanceamento de carga de camada 7 para distribuir o tráfego em várias regiões e pontos de extremidade.
++ O Azure Front Door aceita diferentes métodos de roteamento de tráfego para determinar como o tráfego HTTP/HTTPS é distribuído. Os métodos de roteamento são: latência, prioridade, ponderado e afinidade de sessão. 

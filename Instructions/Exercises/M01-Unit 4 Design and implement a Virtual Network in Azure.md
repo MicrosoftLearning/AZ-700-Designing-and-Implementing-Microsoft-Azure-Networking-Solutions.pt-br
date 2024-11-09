@@ -157,5 +157,26 @@ Neste exercício, você vai:
    ![Lista de sub-redes em CoreServicesVnet.](../media/verify-subnets-annotated.png)
 
 1. Repita as etapas 3 a 5 para cada VNet.
+   
+## Estender seu aprendizado com o Copilot
 
-Parabéns! Você criou um grupo de recursos, três VNets e sub-redes associadas.
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Você pode dar um exemplo de como o endereço IP 10.30.0.0/16 é usado em um cenário do mundo real?
++ Qual é o comando do Azure PowerShell para criar uma rede virtual chamada CoreServicesVnet na região Leste (EUA). A rede virtual deve usar o espaço do endereço IP 10.20.0.0/16.
++ Qual é o comando da CLI do Azure para criar uma rede virtual chamada ManufacturingVnet na região Oeste da Europa? A rede virtual deve usar o espaço do endereço IP 10.30.0.0/16.
+
+## Saiba mais com treinamento individual
+
++ [Criar um esquema de endereçamento IP para sua implantação do Azure](https://learn.microsoft.com/training/modules/design-ip-addressing-for-azure/). Neste módulo, você identificará as funcionalidades de endereçamento IP público e privado das redes virtuais do Azure.
++ [Introdução às Redes Virtuais do Azure](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/). Neste módulo, você aprenderá a projetar e implementar os serviços de rede do Azure. Você aprenderá sobre redes virtuais, IPs públicos e privados, DNS, emparelhamento de rede virtual, roteamento e NAT Virtual do Azure.
+
+## Principais aspectos a serem lembrados
+
++ A Rede Virtual do Azure é um serviço que fornece o bloco de construção fundamental para sua rede privada no Azure. Uma instância do serviço (uma rede virtual) permite que muitos tipos de recursos do Azure se comuniquem com segurança entre si, com a Internet e com as redes locais. Certifique-se de não sobrepor os espaços de endereço. Certifique-se de que seu espaço de endereço de sua rede virtual (bloco CIDR) não se sobrepõe aos outros intervalos de rede da sua organização.
++ Todos os recursos do Azure em uma rede virtual são implantados em sub-redes dentro da rede virtual. As sub-redes permitem que você segmente a rede virtual em uma ou mais sub-redes e aloque uma parte do espaço de endereço da rede virtual a cada sub-rede. Suas sub-redes não devem abranger todo o espaço de endereço da rede virtual. Planeje com antecedência e reserve algum espaço de endereço para o futuro.
+
+
+
+
+
+

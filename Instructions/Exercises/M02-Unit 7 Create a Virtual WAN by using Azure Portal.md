@@ -17,7 +17,7 @@ Neste exercício, você vai:
 + Tarefa 1: Criar uma WAN Virtual
 + Tarefa 2: criar um hub usando o Portal do Azure
 + Tarefa 3: conectar uma VNet ao Hub Virtual
-+ Tarefa 4: limpar recursos
+
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20a%20virtual%20WAN%20using%20the%20Azure%20portal)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
@@ -101,11 +101,9 @@ Um hub contém gateways para funcionalidade site a site, ExpressRoute ou ponto a
 
 1. Selecione **Criar**.
 
-Parabéns! Você criou uma WAN Virtual e um Hub de WAN Virtual e conectou a ResearchVNet ao hub.
+## Limpar os recursos
 
-## Tarefa 4: limpar recursos
-
-   >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+>**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -115,4 +113,34 @@ Parabéns! Você criou uma WAN Virtual e um Hub de WAN Virtual e conectou a Rese
    Remove-AzResourceGroup -Name 'ContosoResourceGroup' -Force -AsJob
    ```
 
-    >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Que tipo de arquitetura de rede a VWAN do Azure usa?
++ Quais são as diferenças entre a VWAN do Azure básica e standard? Forneça exemplos.
++ A VWAN do Azure pode ser criada com ferramentas de script?
+
+## Saiba mais com treinamento individual
+
++ [Introdução à WAN Virtual do Azure](https://learn.microsoft.com/training/modules/introduction-azure-virtual-wan/). Neste módulo, você aprenderá sobre a funcionalidade e os recursos da WAN Virtual do Azure. 
++ [Projetar e implementar redes híbridas](https://learn.microsoft.com/training/modules/design-implement-hybrid-networking/). Neste módulo, você aprenderá a projetar e implementar a WAN Virtual do Azure.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
+
++ A WAN Virtual do Azure é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma interface operacional
++ A arquitetura da WAN Virtual é uma arquitetura hub and spoke com dimensionamento e desempenho integrados para branches, usuários, circuitos do ExpressRoute e redes virtuais.
++ Há três casos de uso principais para a WAN virtual: Site a Site, Ponto a Site e ExpressRoute. 
++ Há dois tipos de WANs virtuais: Básica (VPN Site a site apenas) e Standard.
+
+
+
+
+
+
+
+
+

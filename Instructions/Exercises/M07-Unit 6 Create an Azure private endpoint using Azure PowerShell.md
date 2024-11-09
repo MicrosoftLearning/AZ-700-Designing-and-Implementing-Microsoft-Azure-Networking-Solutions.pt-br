@@ -43,7 +43,6 @@ Neste exercício, você vai:
 - Tarefa 4: criar um ponto de extremidade privado
 - Tarefa 5: configurar a zona DNS privada
 - Tarefa 6: testar a conectividade com o ponto de extremidade privado
-- Tarefa 7: limpar os recursos
 
 ## Tarefa 1: criar um grupo de recursos e implantar o aplicativo Web de pré-requisito
 
@@ -401,13 +400,29 @@ O endereço IP privado **10.0.0.5** é retornado para o nome do aplicativo Web. 
 
 1. Na conexão do bastion com **myVM**, abra o Internet Explorer.
 1. Insira a URL do aplicativo Web,**https://&lt;your-webapp-name&gt;.azurewebsites.net**
-1. Você receberá a página de aplicativo Web padrão se seu aplicativo não tiver sido implantado: ![captura de tela da página no Azure indicando que um serviço de aplicativo está ativo e em execução](../media/web-app-default-page.png)
+1. Você receberá a página de aplicativo Web padrão se seu aplicativo não tiver sido implantado: ![Captura de tela da página no Azure indicando que um serviço de aplicativo está em funcionamento](../media/web-app-default-page.png)
 1. Feche a conexão com **myVM**.
 
-## Tarefa 7: limpar os recursos
+## Limpar os recursos
 
 Quando terminar de usar o ponto de extremidade privado e a VM, use [Remove-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele tem:
 
 ```PowerShell
 Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force -AsJob
 ```
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Dê um exemplo de quando usar um ponto de extremidade privado em vez de um ponto de extremidade de serviço.
++ Como posso solucionar problemas de conectividade de ponto de extremidade privado?
+
+## Saiba mais com treinamento individual
+
++ [Introdução ao Link Privado do Azure](https://learn.microsoft.com/training/modules/introduction-azure-private-link/) Neste módulo, você descobrirá como o Link Privado do Azure permite a conectividade particular com os serviços do Azure, incluindo recursos, funcionamento e casos de uso.
++ [Projetar e implementar o acesso privado aos Serviços do Azure](https://learn.microsoft.com/en-us/training/modules/design-implement-private-access-to-azure-services/). Neste módulo, você aprenderá a projetar e a implementar o acesso privado aos Serviços do Azure com o Link Privado do Azure, e os pontos de extremidade do serviço de rede virtual.
+
+## Principais aspectos a serem lembrados
+
++ O Link Privado do Azure permite acessar os serviços de PaaS do Azure (por exemplo, o Armazenamento do Azure e o Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um ponto de extremidade privado da sua rede virtual.
++ Um ponto de extremidade privado é uma adaptador de rede que usa um endereço IP privado de sua rede virtual. Essa interface de rede conecta você de forma privada e segura a um serviço da plataforma do Link Privado do Azure. 

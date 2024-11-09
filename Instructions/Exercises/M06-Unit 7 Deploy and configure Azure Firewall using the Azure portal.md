@@ -24,7 +24,7 @@ Neste exercício, você vai:
 + Tarefa 8: Configurar uma regra DNAT (NAT de destino)
 + Tarefa 9: Alterar os endereços DNS primário e secundário para a interface de rede do servidor
 + Tarefa 10: Testar o firewall
-+ Tarefa 11: limpar os recursos
+
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20and%20configure%20Azure%20Firewall%20using%20the%20Azure%20portal)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
@@ -364,9 +364,9 @@ Nesta tarefa final, você testará o firewall para verificar se as regras estão
 
     ![Sessão RDP no servidor de Srv-Work – navegador bloqueado em microsoft.com](../media/remote-desktop-connection-3.png)
 
-## Tarefa 11: limpar os recursos
+## Limpar os recursos
 
->**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+>**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -376,4 +376,24 @@ Nesta tarefa final, você testará o firewall para verificar se as regras estão
    Remove-AzResourceGroup -Name 'Test-FW-RG' -Force -AsJob
    ```
 
-    >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+>**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+
+## Estender seu aprendizado com o Copilot
+
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Forneça três cenários de uso comuns para firewalls. 
++ Forneça uma tabela comparando os recursos dos SKUs do Firewall do Azure.
++ Descreva os três tipos de regras que você pode criar para um Firewall do Azure.
+
+## Saiba mais com treinamento individual
+
++ [Introdução ao Firewall do Azure](https://learn.microsoft.com/training/modules/introduction-azure-firewall/). Neste módulo, você aprenderá como o Firewall do Azure protege os recursos de rede virtual do Azure, incluindo recursos, regras e opções de implantação.
++ [Introdução ao Gerenciador de Firewall do Azure](https://learn.microsoft.com/training/modules/intro-to-azure-firewall-manager/). Neste módulo, você aprenderá como o Gerenciador de Firewall do Azure fornece política de segurança central e gerenciamento de rotas para parâmetros de segurança baseados em nuvem.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
++ Um firewall é um recurso de segurança de rede que fica entre uma rede confiável e uma rede não confiável, como a Internet. O trabalho do firewall é analisar e permitir ou negar o tráfego de rede.
++ O Firewall do Azure é um serviço de firewall baseado em nuvem. Na maioria das configurações, ele é provisionado dentro de uma rede virtual hub. O tráfego das redes virtuais spoke e para elas, bem como a rede local, atravessa o firewall.
++ As regras de firewall avaliam o tráfego da rede. O Firewall do Azure tem três tipos de regras: aplicativo, rede e NAT. 
++ O Firewall do Azure é oferecido em três SKUs: Standard, Premium e Basic.

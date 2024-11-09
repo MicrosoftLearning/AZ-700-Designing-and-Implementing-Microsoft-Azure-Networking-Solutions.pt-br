@@ -19,7 +19,6 @@ Nesta unidade, você vai:
 + Tarefa 3: testar a conexão entre as VMs
 + Tarefa 4: criar emparelhamentos de VNet entre a CoreServicesVnet e a ManufacturingVnet
 + Tarefa 5: testar a conexão entre as VMs
-+ Tarefa 6: limpar os recursos
 
 **Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
@@ -152,11 +151,10 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
 
 1. A conexão de teste deve ter êxito, e você verá um resultado semelhante ao seguinte: ![ janela do PowerShell com Test-NetConnection 10.20.20.4 -port 3389 mostrando que o teste de TCP foi bem-sucedido: true ](../media/test-connection-succeeded.png)
 
-Parabéns! Você configurou a conectividade entre VNets adicionando emparelhamentos.
 
-## Tarefa 6: limpar os recursos
+## Limpar os recursos
 
-   >**Observação**: lembre-se de remover todos os recursos do Azure recém-criados que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+   >**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**. (Crie armazenamento do Cloud Shell, se necessário, usando as configurações padrão.)
 
@@ -165,5 +163,26 @@ Parabéns! Você configurou a conectividade entre VNets adicionando emparelhamen
    ```powershell
    Remove-AzResourceGroup -Name 'ContosoResourceGroup' -Force -AsJob
    ```
+   >**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+   
+## Estender seu aprendizado com o Copilot
 
-   >**Observação**: o comando é executado de modo assíncrono (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente depois na mesma sessão do PowerShell, levará alguns minutos antes de os grupos de recursos serem de fato removidos.
+O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure. O Copilot também pode ajudar em áreas não cobertas no laboratório ou onde você precisar de mais informações. Abra um navegador do Edge e escolha Copilot (canto superior direito) ou navegue até *copilot.microsoft.com*. Reserve alguns minutos para experimentar essas solicitações.
++ Quais são os erros mais comuns ao configurar o emparelhamento de rede virtual do Azure?
++ No Azure, se eu emparelhar a Vnet1 com a Vnet2 e, em seguida, emparelhar a Vnet2 com a Vnet3, a Vnet1 será emparelhada com a Vnet3?
++ Os firewalls e gateways podem afetar o emparelhamento de rede virtual do Azure?
+
+
+## Saiba mais com treinamento individual
+
++ [Introdução às Redes Virtuais do Azure](https://learn.microsoft.com/training/modules/introduction-to-azure-virtual-networks/). Neste módulo, você aprenderá a projetar e implementar os serviços de rede do Azure. Você aprenderá sobre redes virtuais, IPs públicos e privados, DNS, emparelhamento de rede virtual, roteamento e NAT Virtual do Azure.
++ [Distribuir seus serviços em redes virtuais do Azure e integre-os usando o emparelhamento de rede virtual](https://learn.microsoft.com/training/modules/integrate-vnets-with-vnet-peering/). Neste módulo, você aprenderá a configurar o emparelhamento de rede virtual.
+
+## Principais aspectos a serem lembrados
+
+Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
+
++ O emparelhamento de rede virtual permite que você conecte duas redes virtuais do Azure sem interrupção. As redes virtuais aparecerão como uma só para fins de conectividade.
++ O Azure dá suporte à conexão de redes virtuais na mesma região do Azure e entre regiões do Azure (global).
++ O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas é roteado diretamente pela infraestrutura de backbone da Microsoft, não por um gateway ou pela Internet pública.
++ É possível redimensionar o espaço de endereço de redes virtuais do Azure emparelhadas sem gerar nenhum tempo de inatividade no espaço de endereço emparelhado no momento.
