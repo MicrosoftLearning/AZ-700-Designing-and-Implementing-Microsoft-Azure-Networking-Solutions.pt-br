@@ -31,7 +31,7 @@ O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 + Tarefa 13: definir configurações de diagnóstico
 
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Monitor%20a%20load%20balancer%20resource%20using%20Azure%20Monitor)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Monitor%20a%20load%20balancer%20resource%20using%20Azure%20Monitor)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 > [!Note]  
 > Você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo.
@@ -88,7 +88,9 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. O motivo pelo qual estamos criando um balanceador de carga de SKU Standard aqui no exercício, em vez de um balanceamento de carga de SKU Básico, é que exercícios posteriores exigem uma versão de SKU Standard do balanceador de carga.
 
 1. Na home page do Azure, na barra de pesquisa, insira **Balanceador de Carga**
+
 1. Selecione **Criar Balanceador de Carga**.
+
 1. Na guia **Noções básicas**, use as informações na tabela abaixo para criar o balanceador de carga.
 
    | **Configuração**           | **Valor**                |
@@ -221,8 +223,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
 ### Criar VM de teste
 
-> [!Note]  
-> Você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo.
+   >**Observação**: você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo.
 
 1. Na página inicial do Azure, usando a pesquisa global, digite **Máquinas Virtuais** e selecione máquinas virtuais em Serviços.
 
@@ -235,7 +236,8 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Oeste dos EUA**                             |
    | Opções de disponibilidade | **Nenhuma redundância de infraestrutura necessária**    |
-   | Imagem                | **Windows Server 2019 Datacenter – Gen 1**   |
+   | Tipo de segurança        | **Standard**                                 |
+   | Imagem                | **Ver todas as imagens** --> **Datacenter para Windows Server 2019**  |
    | Tamanho                 | **Standard_DS2_v3 – 2 vCPU, 8 GiB de memória** |
    | Nome de Usuário             | **TestUser**                                 |
    | Senha             | **Forneça uma senha segura**                |
@@ -399,7 +401,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
 ## Limpar os recursos
 
-   >**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+>**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
