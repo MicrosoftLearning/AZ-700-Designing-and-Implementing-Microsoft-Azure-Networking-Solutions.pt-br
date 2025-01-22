@@ -11,7 +11,7 @@ Exercise:
 
 Para conectar sua rede virtual do Azure e sua rede local por ExpressRoute, você deve primeiro criar um gateway de rede virtual. Um gateway de rede virtual tem duas finalidades: trocar rotas de IP entre as redes e rotear o tráfego da rede.
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20an%20ExpressRoute%20gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20an%20ExpressRoute%20gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
 
@@ -62,7 +62,7 @@ Neste exercício, você vai:
 
 1. Confirme se a VNet é aprovada na validação e selecione **Criar**.
 
->**Observação:** se você estiver usando uma rede virtual de pilha dupla e planeja usar o emparelhamento privado baseado em IPv6 por meio do ExpressRoute, clique em Adicionar espaço de endereço IPv6 e insira os valores de intervalo de endereços IPv6.
+   >**Observação:** se você estiver usando uma rede virtual de pilha dupla e planeja usar o emparelhamento privado baseado em IPv6 por meio do ExpressRoute, clique em Adicionar espaço de endereço IPv6 e insira os valores de intervalo de endereços IPv6.
 
 ## Tarefa 2: criar o gateway de rede virtual
 
@@ -93,7 +93,7 @@ Neste exercício, você vai:
 
 1. Depois que a implantação estiver concluída, selecione **Ir para o recurso**.
 
->**Observação:** pode levar até 45 minutos para implantar um Gateway.
+   >**Observação:** pode levar até 45 minutos para implantar um Gateway.
 
 
 ## Estender seu aprendizado com o Copilot

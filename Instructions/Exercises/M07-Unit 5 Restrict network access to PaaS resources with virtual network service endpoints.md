@@ -26,7 +26,7 @@ Neste exercício, você vai:
 + Tarefa 10: confirmar o acesso à conta de armazenamento
 
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Restrict%20network%20access%20to%20PaaS%20resources%20with%20virtual%20network%20service%20endpoints)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Restrict%20network%20access%20to%20PaaS%20resources%20with%20virtual%20network%20service%20endpoints)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ### Tempo estimado: 35 minutos
 
@@ -148,7 +148,7 @@ Crie outra regra de segurança de saída que nega a comunicação com a Internet
    | Serviço                 | Personalizado                    |
    | Intervalos de portas de destino | *                         |
    | Protocolo                | Qualquer                       |
-   | Ação                  | Negar                      |
+   | Ação                  | Deny                      |
    | Prioridade                | 110                       |
    | Nome                    | Deny-Internet-All         |
 
@@ -325,7 +325,7 @@ Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado
 
  Acesso negado porque o computador não está na sub-rede Privada da rede virtual CoreServicesVNet.
 
-> **Aviso**: antes de continuar, remova todos os recursos usados para este laboratório. Para fazer isso, no portal do Azure, selecione Grupos de recursos. Selecione os grupos de recursos que você criou. No painel do grupo de recursos, clique em Excluir Grupo de Recursos, insira o nome do grupo de recursos e clique em Excluir. Repita o processo para todos os grupos de recursos adicionais que você possa ter criado. Se não fizer isso, poderá causar problemas com outros laboratórios.
+   >**Aviso**: antes de continuar, remova todos os recursos usados para este laboratório. Para fazer isso, no portal do Azure, selecione Grupos de recursos. Selecione os grupos de recursos que você criou. No painel do grupo de recursos, clique em Excluir Grupo de Recursos, insira o nome do grupo de recursos e clique em Excluir. Repita o processo para todos os grupos de recursos adicionais que você possa ter criado. Se não fizer isso, poderá causar problemas com outros laboratórios.
 
 Resultados: você concluiu este laboratório.
 
@@ -341,7 +341,7 @@ Resultados: você concluiu este laboratório.
    Remove-AzResourceGroup -Name 'myResourceGroup' -Force -AsJob
    ```
 
->**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+   >**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
 
 ## Estender seu aprendizado com o Copilot
 

@@ -11,6 +11,8 @@ Exercise:
 
 Neste exercício, você vai configurar um gateway de rede virtual para conectar a VNet do Contoso Core Services e a VNet de Fabricação.
 
+   >**Importante**: Examine este design de perto. Você notou que CoreServicesSubnet se sobrepõe a GatewaySubnet? Como melhor prática, essas sub-redes devem ser segregadas para evitar possíveis problemas de conectividade. 
+
 ![Diagrama de gateway de rede virtual.](../media/3-exercise-create-configure-local-network-gateway.png)
 
 Neste exercício, você vai:
@@ -27,7 +29,7 @@ Neste exercício, você vai:
 + Tarefa 10: verificar se as conexões se conectam
 + Tarefa 11: testar a conexão entre as VMs
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20a%20virtual%20network%20gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+>**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20a%20virtual%20network%20gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ### Tempo estimado: 70 minutos (incluindo ~45 minutos de tempo de espera de implantação)
 
@@ -49,7 +51,7 @@ Neste exercício, você vai:
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
    ```
 
- > **Observação:** Atualmente, há um problema contínuo na região da Europa Ocidental que afeta as implantações de gateway. Como uma solução alternativa, a região ManufacturingVnet foi alterada para o Norte da Europa para esta implantação.
+   >**Observação:** Atualmente, há um problema contínuo na região da Europa Ocidental que afeta as implantações de gateway. Como uma solução alternativa, a região ManufacturingVnet foi alterada para o Norte da Europa para esta implantação.
 
 ## Tarefa 2: criar CoreServicesVM
 
@@ -94,20 +96,35 @@ Neste exercício, você vai:
 ## Tarefa 4: conectar-se às VMs usando RDP
 
 1. Na página inicial do Portal do Azure, selecione **Máquinas Virtuais**.
+
 1. Escolha **ManufacturingVM**.
-1. Em **ManufacturingVM**, selecione **Conectar&gt; RDP**.
-1. Em **ManufacturingVM | Conectar**, selecione **Baixar arquivo RDP**.
+
+1. Em **ManufacturingVM**, selecione **Conectar** e **RDP**.
+
+1. Selecione **Baixar Arquivo RDP**.
+
 1. Salve o arquivo RDP em sua área de trabalho.
+
 1. Conecte-se ao **ManufacturingVM** usando o arquivo RDP e o nome de usuário **TestUser** e a senha fornecida durante a implantação. Após a conexão, minimize a sessão RDP.
+
 1. Na página inicial do Portal do Azure, selecione **Máquinas Virtuais**.
+
 1. Selecione **CoreServicesVM**.
-1. Em **CoreServicesVM**, selecione **Conectar &gt; RDP**.
-1. Em **CoreServicesVM | Conectar**, selecione **Baixar arquivo RDP**.
+
+1. Em **CoreServicesVM**, selecione **Conectar** e **RDP**.
+
+1. Selecione **Baixar Arquivo RDP**.
+
 1. Salve o arquivo RDP em sua área de trabalho.
+
 1. Conecte-se ao **CoreServicesVM** usando o arquivo RDP e o nome de usuário **TestUser** e a senha fornecida durante a implantação.
+
 1. Nas duas VMs, em **Escolher configurações de privacidade para seu dispositivo**, escolha **Aceitar**.
+
 1. Em ambas as VMs, em **Redes**, selecione **Sim**.
+
 1. Em **CoreServicesVM**, abra o PowerShell e execute o seguinte comando: ipconfig
+
 1. Endereço IPv4 inválido.
 
 ## Tarefa 5: testar a conexão entre as VMs
@@ -152,15 +169,13 @@ Neste exercício, você vai:
    |                 |                   | Configurar BGP                               | Desabilitado                     |
    | Examinar + criar |                   | Revise suas configurações e selecione **Criar**. |                              |
 
-   > [!NOTE]
-   >
-   > A criação de um gateway de rede virtual pode levar de 15 a 30 minutos. Você não precisa esperar a conclusão da implantação. Prossiga para a criação do próximo gateway. 
+   >**Observação**: a criação de um gateway de rede virtual pode levar de 15 a 30 minutos. Você não precisa esperar a conclusão da implantação. Prossiga para a criação do próximo gateway. 
 
 ## Tarefa 7: criar o gateway da ManufacturingVnet
 
 ### Criar o GatewaySubnet
 
-**Observação:** o modelo criou o GatewaySubnet para o CoreServicesVnet. Aqui você cria a sub-rede manualmente. 
+   >**Observação:** o modelo criou o GatewaySubnet para o CoreServicesVnet. Aqui você cria a sub-rede manualmente. 
 
 1. Pesquise e selecione o **ManufacturingVnet**.
 
@@ -200,9 +215,7 @@ Neste exercício, você vai:
    |                 |                   | Configurar BGP                               | Desabilitado                     |
    | Examinar + criar |                   | Revise suas configurações e selecione **Criar**. |                              |
 
-   > [!NOTE]
-   >
-   > A criação de um gateway de rede virtual pode levar de 15 a 30 minutos.
+   >**Observação**: a criação de um gateway de rede virtual pode levar de 15 a 30 minutos.
 
 ## Tarefa 8: conectar a CoreServicesVnet à ManufacturingVnet
 
@@ -212,9 +225,7 @@ Neste exercício, você vai:
 
 1. Em CoreServicesGateway, selecione **Conexões** e selecione **+ Adicionar**.
 
-   > [!NOTE]
-   >
-   >  Você não poderá concluir essa configuração até que os gateways de rede virtual sejam totalmente implantados.
+   >**Observação**: você não poderá concluir essa configuração até que os gateways de rede virtual sejam totalmente implantados.
 
 1. Use essas informações e a guia **Configurações** para criar o gateway de rede virtual. 
 
@@ -223,7 +234,7 @@ Neste exercício, você vai:
    | ------------------------------ | --------------------------------- |
    | Nome                           | CoreServicesGW-to-ManufacturingGW |
    | Tipo de conexão                | VNet a VNet                      |
-   | Region                         | Leste dos EUA                           |
+   | Região                         | Leste dos EUA                           |
    | Primeiro gateway de rede virtual  | CoreServicesVnetGateway           |
    | Segundo gateway de rede virtual | ManufacturingVnetGateway          |
    | Chave compartilhada (PSK)               | abc123                            |

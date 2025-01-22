@@ -20,7 +20,7 @@ Nesta unidade, você vai:
 + Tarefa 4: criar emparelhamentos de VNet entre a CoreServicesVnet e a ManufacturingVnet
 + Tarefa 5: testar a conexão entre as VMs
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ### Tempo estimado: 20 minutos
 
@@ -119,8 +119,8 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
    
    | **Opção**                                    | **Valor**                             |
    | ------------------------------------ | --------------------------------------------- | 
-   | Permitir que "ManufacturingVnet" acesse "CoreServicesVnet" | Enabled |
-   |"ManufacturingVnet" receba tráfego encaminhado de "CoreServicesVnet" | Enabled |
+   | Permitir que "ManufacturingVnet" acesse "CoreServicesVnet" | Habilitado |
+   |"ManufacturingVnet" receba tráfego encaminhado de "CoreServicesVnet" | Habilitado |
  
     **Resumo da rede virtual local**
 
@@ -132,8 +132,8 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
    
     | **Opção**                                    | **Valor**                             |
     | ------------------------------------ | --------------------------------------------- | 
-    | Permitir que "CoreServicesVnet" acesse "ManufacturingVnet" | Enabled
-    | Permitir que "CoreServicesVnet" receba tráfego encaminhado de "ManufacturingVnet" | Enabled |
+    | Permitir que "CoreServicesVnet" acesse "ManufacturingVnet" | Habilitado
+    | Permitir que "CoreServicesVnet" receba tráfego encaminhado de "ManufacturingVnet" | Habilitado |
  
 1. Em Emparelhamentos \| CoreServicesVnet, verifique se o emparelhamento **CoreServicesVnet-to-ManufacturingVnet** está **Conectado**.
 

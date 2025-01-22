@@ -19,7 +19,7 @@ Neste exercício, você vai:
 + Tarefa 3: criar máquinas virtuais para testar a configuração
 + Tarefa 4: verificar se os registros estão presentes na zona DNS
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20DNS%20settings%20in%20Azure)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20DNS%20settings%20in%20Azure)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ### Tempo estimado: 25 minutos
 
@@ -108,7 +108,7 @@ Nesta seção, você criará duas VMs de teste para testar a configuração da z
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
-    >**Observação**: você será solicitado a fornecer uma senha de Administrador.
+   >**Observação**: você será solicitado a fornecer uma senha de Administrador.
 
    ```powershell
    $RGName = "ContosoResourceGroup"
