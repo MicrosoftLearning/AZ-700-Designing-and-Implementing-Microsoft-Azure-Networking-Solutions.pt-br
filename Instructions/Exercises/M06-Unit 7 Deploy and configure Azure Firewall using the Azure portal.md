@@ -26,7 +26,7 @@ Neste exercício, você vai:
 + Tarefa 10: Testar o firewall
 
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20and%20configure%20Azure%20Firewall%20using%20the%20Azure%20portal)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Deploy%20and%20configure%20Azure%20Firewall%20using%20the%20Azure%20portal)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ### Tempo estimado: 60 minutos
 
@@ -113,8 +113,6 @@ Nesta tarefa, você criará a máquina virtual de carga de trabalho e a posicion
 
 1. Verifique se a máquina virtual foi criada.
 
-1. Quando a implantação da VM for concluída, selecione **Ir para o recurso**.
-
 1. Na página **Visão geral** de **Srv-Work**, à direita da página em **Rede**, anote o **Endereço IP privado** para essa VM (por exemplo, **10.0.2.4**).
 
 ## Tarefa 4: Implantar o firewall e a política de firewall
@@ -146,13 +144,15 @@ Nesta tarefa, você implantará o firewall na rede virtual com uma política de 
 
    ![Adicionar endereço IP público ao firewall](../media/assign-public-ip-to-firewall.png)
 
-1. Examine todas as configurações para garantir que correspondam à captura de tela abaixo.
+1. Não usaremos o Gerenciador de Firewall, portanto, desmarque a caixa **Ativar NIC de Gerenciamento de Firewall**. 
+
+1. Examine suas configurações. 
 
    ![Criar um firewall – configurações de revisão](../media/review-all-configurations-for-firewall.png)
 
-1. Selecione **Examinar + criar**.
+1. Continue para **Revisar + criar** e depois **Criar**.
 
-1. Selecione **Criar** e aguarde a conclusão da implantação do firewall.
+1. Aguarde até que a implantação do firewall seja concluída.
 
 1. Quando a implantação do firewall for concluída, selecione **Ir para o recurso**.
 
@@ -366,7 +366,7 @@ Nesta tarefa final, você testará o firewall para verificar se as regras estão
 
 ## Limpar os recursos
 
->**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+   >**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -376,7 +376,7 @@ Nesta tarefa final, você testará o firewall para verificar se as regras estão
    Remove-AzResourceGroup -Name 'Test-FW-RG' -Force -AsJob
    ```
 
->**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+   >**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
 
 ## Estender seu aprendizado com o Copilot
 

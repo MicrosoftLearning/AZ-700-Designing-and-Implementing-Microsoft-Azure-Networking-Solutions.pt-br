@@ -9,7 +9,7 @@ Exercise:
 
 Neste exercício, você vai criar um balanceador de carga interno para a organização fictícia Contoso Ltd.
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20an%20Azure%20load%20balancer)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20an%20Azure%20load%20balancer)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
 
@@ -83,7 +83,7 @@ Nesta seção, você criará três VMs, que estarão no mesmo conjunto de dispon
 
 3. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
->**Observação**: você será solicitado a fornecer uma senha de Administrador.
+   >**Observação**: você será solicitado a fornecer uma senha de Administrador.
 
    ```powershell
    $RGName = "IntLB-RG"
@@ -118,7 +118,9 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
    | Camada                  | **Regional**             |
 
 1. Selecione **Próximo: Configurações do IP de front-end**.
+   
 1. Selecione Adicionar um IP de front-end
+
 1. Na folha **Adicionar endereço IP de front-end**, insira as informações da tabela abaixo e selecione **Adicionar**.
 
    | **Configuração**     | **Valor**                |
@@ -276,7 +278,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
 ## Limpar os recursos
 
->**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
+   >**Observação**: lembre-se de remover todos os recursos recém-criados do Azure que você não usa mais. Remover recursos não utilizados garante que você não veja encargos inesperados.
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
 
@@ -286,7 +288,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
    Remove-AzResourceGroup -Name 'IntLB-RG' -Force -AsJob
    ```
 
->**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
+   >**Observação**: o comando é executado de maneira assíncrona (conforme determinado pelo parâmetro -AsJob), portanto, embora você possa executar outro comando do PowerShell imediatamente após na mesma sessão do PowerShell, levará alguns minutos antes dos grupos de recursos serem de fato removidos.
 
 ## Estender seu aprendizado com o Copilot
 

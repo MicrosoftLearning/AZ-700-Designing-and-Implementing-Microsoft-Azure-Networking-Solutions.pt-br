@@ -12,7 +12,7 @@ Você já pode implantar redes virtuais no portal do Azure.
 
 Considere a organização fictícia Contoso Ltd, que está em processo de migração da infraestrutura e de aplicativos para o Azure. Sua função de engenheiro de rede exige o planejamento e a implementação de três redes virtuais e sub-redes para dar suporte a recursos nessas redes virtuais.
 
-**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Design%20and%20implement%20a%20virtual%20network%20in%20Azure)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Design%20and%20implement%20a%20virtual%20network%20in%20Azure)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
 
 ### Tempo estimado: 20 minutos
 
@@ -77,6 +77,7 @@ Neste exercício, você vai:
 1. Na home page portal do Azure, navegue até a barra de pesquisa global e pesquise **Redes Virtuais** e selecione redes virtuais em serviços.  ![Resultados da barra de Pesquisa Global para a rede virtual na home page do portal do Azure.](../media/global-search-bar.PNG)
 
 1. Na página Redes virtuais, selecione **Criar**.  ![Assistente para criação de uma rede virtual.](../media/create-virtual-network.png)
+   
 1. Use as informações da tabela abaixo para criar a rede virtual CoreServicesVnet.  
    Remover ou substituir o espaço de endereços IP padrão. ![Configuração de endereço IP para implantação de rede virtual do Azure ](../media/default-vnet-ip-address-range-annotated.png)
 
