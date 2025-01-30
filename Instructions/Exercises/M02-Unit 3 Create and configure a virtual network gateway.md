@@ -11,8 +11,6 @@ Exercise:
 
 Neste exercício, você vai configurar um gateway de rede virtual para conectar a VNet do Contoso Core Services e a VNet de Fabricação.
 
-   >**Importante**: Examine este design de perto. Você notou que CoreServicesSubnet se sobrepõe a GatewaySubnet? Como melhor prática, essas sub-redes devem ser segregadas para evitar possíveis problemas de conectividade. 
-
 ![Diagrama de gateway de rede virtual.](../media/3-exercise-create-configure-local-network-gateway.png)
 
 Neste exercício, você vai:
@@ -50,9 +48,7 @@ Neste exercício, você vai:
    New-AzResourceGroup -Name $RGName -Location "eastus"
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
    ```
-
-   >**Observação:** Atualmente, há um problema contínuo na região da Europa Ocidental que afeta as implantações de gateway. Como uma solução alternativa, a região ManufacturingVnet foi alterada para o Norte da Europa para esta implantação.
-
+   
 ## Tarefa 2: criar CoreServicesVM
 
 1. No portal do Azure, abra a sessão **PowerShell** no painel do **Cloud Shell**.
@@ -157,7 +153,6 @@ Neste exercício, você vai:
    |                 | Detalhes da Instância  | Nome                                        | CoreServicesVnetGateway      |
    |                 |                   | Região                                      | Leste dos EUA                      |
    |                 |                   | Tipo de gateway                                | VPN                          |
-   |                 |                   | Tipo de VPN                                    | Baseado em rotas                  |
    |                 |                   | SKU                                         | VpnGw1                       |
    |                 |                   | Generation                                  | Geração1                  |
    |                 |                   | Rede virtual                             | CoreServicesVnet             |
@@ -201,9 +196,8 @@ Neste exercício, você vai:
    | Noções básicas          | Detalhes do projeto   | Subscription                                | Nenhuma alteração necessária          |
    |                 |                   | ResourceGroup                               | ContosoResourceGroup         |
    |                 | Detalhes da Instância  | Nome                                        | ManufacturingVnetGateway     |
-   |                 |                   | Region                                      | Norte da Europa                  |
+   |                 |                   | Region                                      | Norte da Europa                 |
    |                 |                   | Tipo de gateway                                | VPN                          |
-   |                 |                   | Tipo de VPN                                    | Baseado em rotas                  |
    |                 |                   | SKU                                         | VpnGw1                       |
    |                 |                   | Generation                                  | Geração1                  |
    |                 |                   | Rede virtual                             | ManufacturingVnet            |
@@ -261,7 +255,7 @@ Neste exercício, você vai:
    | ------------------------------ | --------------------------------- |
    | Nome                           | ManufacturingGW-to-CoreServicesGW |
    | Tipo de conexão                | VNet a VNet                      |
-   | Localidade                       | Europa Ocidental                       |
+   | Localidade                       | Norte da Europa                      |
    | Primeiro gateway de rede virtual  | ManufacturingVnetGateway          |
    | Segundo gateway de rede virtual | CoreServicesVnetGateway           |
    | Chave compartilhada (PSK)               | abc123                            |

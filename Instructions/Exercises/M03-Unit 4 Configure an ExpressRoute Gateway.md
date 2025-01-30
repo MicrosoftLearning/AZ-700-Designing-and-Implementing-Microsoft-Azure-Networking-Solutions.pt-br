@@ -49,10 +49,12 @@ Neste exercício, você vai:
 
 1. No painel Adicionar sub-rede, use as informações na seguinte tabela para criar a sub-rede:
 
-   | **Configuração**                  | **Valor**     |
-   | ---------------------------- | ------------- |
-   | Nome da sub-rede do gateway          | GatewaySubnet |
-   | Espaço de endereço da sub-rede do gateway | 10.20.0.0/27  |
+   | **Configuração**                  | **Valor**               |
+   | ---------------------------- | ----------------------- |
+   | Finalidade da sub-rede               | Gateway de Rede Virtual |
+   | Espaço de endereço da sub-rede do gateway | 10.20.0.0/27            |
+
+O nome da sub-rede será preenchido automaticamente.
 
 1. Então selecione **Adicionar**.
 

@@ -32,9 +32,9 @@ Neste exercício, você vai:
 
    ![Portal do Azure – menu Criar circuito do ExpressRoute](../media/create-expressroute-circuit-menu.png)
 
-1. Na página **Criar ExpressRoute**, forneça o **Grupo de Recursos**, a **Região** e o **Nome** para o circuito com o seguinte: ExpressRouteResourceGroup, Leste dos EUA 2, TestERCircuit. Então selecione **Avançar: Configuração &gt;**.
+1. Na página **Criar ExpressRoute**, informe o **Grupo de recursos** como ExpressRouteResourceGroup. Em seguida, selecione **Resiliência Padrão** em **Resiliência**
 
-1. Ao preencher os valores nesta página, neste exemplo, certifique-se de especificar a camada de SKU (**Padrão**) o modelo de cobrança de medição de dados, (**Limitado**) o Provedor (**Equinix**) o local de emparelhamento (**Seattle**) e a Largura de Banda (**50 Mbps**) com os valores corretos).
+1. Em ***Detalhes do circuito**, especifique a Região correta (**Leste dos EUA 2**), o Nome do circuito (**TestERCircuit**), o Local de emparelhamento (**Seattle**), o Provedor (**Equinix**), a Largura de banda (**50 Mbps**), o nível de SKU (**Padrão**) e o modelo de cobrança de medição de dados (**limitado**).
 
 1. Selecione **Examinar + criar**.
 
