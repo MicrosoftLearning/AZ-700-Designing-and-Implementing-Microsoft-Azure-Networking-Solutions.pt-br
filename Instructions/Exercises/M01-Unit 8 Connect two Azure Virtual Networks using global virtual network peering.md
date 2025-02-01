@@ -26,7 +26,7 @@ Nesta unidade, você vai:
 
 ## Tarefa 1: criar uma máquina virtual para testar a configuração
 
-Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar se pode acessar recursos dentro de outra rede virtual do Azure em sua ManufacturingVnet.
+Nesta seção, você criará uma VM de teste na VNet para testar se pode acessar recursos dentro de outra rede virtual do Azure a partir da VNet.
 
 ### Criar ManufacturingVM
 
@@ -112,7 +112,7 @@ Nesta seção, você criará uma VM de teste na VNet de Fabricação para testar
 
    | **Opção**                                    | **Valor**                             |
    | ------------------------------------ | --------------------------------------------- | 
-   | Nome do link de emparelhamento    | `CoreServicesVnet-to-ManufacturingVnet` |
+   | Nome do link de emparelhamento    | `ManufacturingVnet-to-CoreServicesVnet` |
    | Rede virtual | ManufacturingVnet |
 
     **Configurações do emparelhamento da rede virtual remota**
