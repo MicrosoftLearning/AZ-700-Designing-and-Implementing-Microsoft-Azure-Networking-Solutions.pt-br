@@ -201,7 +201,7 @@ Neste exercício, você vai:
    |                 |                   | SKU                                         | VpnGw1                       |
    |                 |                   | Generation                                  | Geração1                  |
    |                 |                   | Rede virtual                             | ManufacturingVnet            |
-   |                 |                   | Sub-rede                                      | GatewaySubnet (10.30.0.0/27) |
+   |                 |                   | Sub-rede                                      | GatewaySubnet |
    |                 |                   | Tipo de Endereço IP Público                      | Standard                     |
    |                 | Endereço IP público | Endereço IP público                           | Criar novo                   |
    |                 |                   | Nome do endereço IP público                      | ManufacturingVnetGateway-ip  |
