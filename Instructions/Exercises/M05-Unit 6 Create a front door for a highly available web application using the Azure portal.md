@@ -43,7 +43,7 @@ Este exercício requer duas instâncias de um aplicativo Web em execução em di
    | Resource group   | Selecione o grupo de recursos ContosoResourceGroup               |
    | Nome             | Insira um Nome exclusivo para o aplicativo Web. Este exemplo usa WebAppContoso-1. |
    | Publicar          | Selecione **Código**.                                             |
-   | Pilha de runtime    | Selecione **.NET 6 (LTS)**.                                     |
+   | Pilha de runtime    | Selecione **.NET 8 (LTS)**.                                     |
    | Sistema operacional | Selecione **Windows**.                                          |
    | Região           | Selecione **EUA Central**.                                       |
    | Plano do Windows     | Selecione **Criar** e insira myAppServicePlanCentralUS na caixa de texto. |
@@ -64,7 +64,7 @@ Este exercício requer duas instâncias de um aplicativo Web em execução em di
    | Resource group   | Selecione o grupo de recursos ContosoResourceGroup               |
    | Nome             | Insira um Nome exclusivo para o aplicativo Web. Este exemplo usa WebAppContoso-2. |
    | Publicar          | Selecione **Código**.                                             |
-   | Pilha de runtime    | Selecione **.NET 6 (LTS)**.                                     |
+   | Pilha de runtime    | Selecione **.NET 8 (LTS)**.                                     |
    | Sistema operacional | Selecione **Windows**.                                          |
    | Região           | Selecione **Leste dos EUA**.                                          |
    | Plano do Windows     | Selecione **Criar** e insira myAppServicePlanEastUS na caixa de texto. |
