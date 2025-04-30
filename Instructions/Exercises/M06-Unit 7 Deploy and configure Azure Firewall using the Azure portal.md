@@ -127,7 +127,7 @@ Nesta tarefa, você implantará o firewall na rede virtual com uma política de 
 
    | **Configuração**          | **Valor**                                                    |
    | -------------------- | ------------------------------------------------------------ |
-   | Subscription         | Selecionar sua assinatura                                     |
+   | Subscription         | Selecione sua assinatura                                     |
    | Grupo de recursos       | **Test-FW-RG**                                               |
    | Nome do firewall        | **Test-FW01**                                                |
    | Region               | Sua região                                                  |
@@ -174,7 +174,7 @@ Para esta tarefa, na sub-rede Workload-SN, configure a rota de saída padrão pa
 
    | **Configuração**              | **Valor**                |
    | ------------------------ | ------------------------ |
-   | Subscription             | Selecionar sua assinatura |
+   | Subscription             | Selecione sua assinatura |
    | Grupo de recursos           | **Test-FW-RG**           |
    | Region                   | Sua região              |
    | Nome                     | **Firewall-route**       |
@@ -218,7 +218,7 @@ Nesta tarefa, você adicionará uma regra de aplicativo que permite o acesso de 
 
 1. Na lista de recursos, selecione sua política de firewall, **fw-test-pol**.
 
-1. Em **Configurações**, selecione **Regras de aplicativo**.
+1. Em **Regras**, selecione **Regras de aplicativo**.
 
 1. Selecione **Adicionar uma coleção de regras**.
 
@@ -247,7 +247,7 @@ Nesta tarefa, você adicionará uma regra de aplicativo que permite o acesso de 
 
 Nesta tarefa, você adicionará uma regra de rede que permite o acesso de saída a dois endereços IP na porta 53 (DNS).
 
-1. Na página **fw-test-pol**, em **Configurações**, selecione **Regras de Rede**.
+1. Na página **fw-test-pol**, em **Regras**, selecione **Regras de Rede**.
 
 1. Selecione **Adicionar uma coleção de regras**.
 
@@ -277,7 +277,7 @@ Nesta tarefa, você adicionará uma regra de rede que permite o acesso de saída
 
 Nesta tarefa, você adicionará uma regra DNAT que permite que você conecte uma área de trabalho remota à máquina virtual Srv-Work por meio do firewall.
 
-1. Na página **fw-test-pol**, em **Configurações**, selecione **Regras DNAT**.
+1. Na página **fw-test-pol**, em **Regras**, selecione **Regras DNAT**.
 
 1. Selecione **Adicionar uma coleção de regras**.
 
