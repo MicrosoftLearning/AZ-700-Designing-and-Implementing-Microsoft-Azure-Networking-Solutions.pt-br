@@ -149,7 +149,7 @@ Nesta etapa, você criará uma máquina virtual, atribuirá um endereço IP púb
 
    | **Configuração**           | **Valor**                                                    |
    | --------------------- | ------------------------------------------------------------ |
-   | Subscription          | Selecionar sua assinatura                                     |
+   | Subscription          | Selecione sua assinatura                                     |
    | Grupo de recursos        | **MyResourceGroup**                                          |
    | Nome da máquina virtual  | **MyVirtualMachine**                                         |
    | Region                | Sua região                                                  |
@@ -214,19 +214,9 @@ Nesta etapa, você criará uma máquina virtual, atribuirá um endereço IP púb
 
 ## Tarefa 7: testar com parceiros de simulação
 
-1. Examinar [Política de teste de simulação de DDoS do Azure](https://learn.microsoft.com/azure/ddos-protection/test-through-simulations#azure-ddos-simulation-testing-policy)
+1. Examine a página [Política de teste de simulação de DDoS do Azure](https://learn.microsoft.com/en-us/azure/ddos-protection/test-through-simulations#configure-a-ddos-attack-simulation). 
 
-1. Configure um ataque de teste DDoS usando um parceiro de teste aprovado. Se estiver usando o BreakingPoint Cloud para testar, use as configurações na captura de tela abaixo (pode ser necessário selecionar o tamanho de teste de 100k pps com a conta de teste), mas especificando o endereço IP do seu próprio recurso **MyPublicIPAddress** na caixa **Endereço IP de destino** (por exemplo, **51.140.137.219**) ![DDOSAttack](https://user-images.githubusercontent.com/46939028/138599420-58bef33a-2597-4fa2-919f-bf1614037bc3.JPG)
-
-1. Na home page do portal do Azure, selecione **Todos os recursos**.
-
-1. Na lista de recursos, selecione o recurso **MyPublicIPAddress** e, em **Monitoramento**, selecione **Métricas**.
-
-1. Na caixa **Métrica**, selecione **Sob DDoS ou não** na lista.
-
-1. Agora você pode ver o ataque de DDoS acontecendo. Observe que pode levar os 10 minutos completos antes de ver os resultados.
-
-   ![Métricas mostrando recursos sob DDoS](../media/metrics-showing-resource-under-attack.png)
+1. Observe que existem vários parceiros de testes. Como você tem tempo, configure uma simulação de ataque DDoS. No caso do BreakingPoint Cloud, primeiro você precisa criar uma conta do BreakingPoint Cloud.
 
 ## Limpar os recursos
 
