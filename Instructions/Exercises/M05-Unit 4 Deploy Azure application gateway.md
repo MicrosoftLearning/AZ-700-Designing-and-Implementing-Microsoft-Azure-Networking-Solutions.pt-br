@@ -147,7 +147,9 @@ Neste exercício, você vai:
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido.
       
-1. Na barra de ferramentas do painel do Cloud Shell, selecione **Gerenciar arquivos** e, em seguida, **Carregar**. Faça upload dos seguintes arquivos: **backend.json**, **backend.parameters.json** e **install-iis.ps1**. Os arquivos estão disponíveis para download no repositório, pasta **\Allfiles\Exercises\M05**.
+1. Na barra de ferramentas do painel do Cloud Shell, selecione **Gerenciar arquivos** e, em seguida, **Carregar**. Carregue os seguintes arquivos: **backend.json**, **backend.parameters.json** e **install-iis.ps1**.
+
+    >**Observação:** se você estiver trabalhando em sua própria assinatura, os [arquivos de modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) estarão disponíveis no repositório do GitHub Lab.
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 

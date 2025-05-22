@@ -97,7 +97,9 @@ Nesta tarefa, você criará a máquina virtual de carga de trabalho e a posicion
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **firewall.json** e **firewall.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M06** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do painel do Cloud Shell, selecione o ícone **Gerenciar arquivos**. No menu suspenso, selecione **Upload** e faça upload dos seguintes arquivos **firewall.json** e **firewall.parameters.json** no diretório base do Cloud Shell.
+
+    > **Observação:** se você estiver trabalhando em sua própria assinatura, os [arquivos de modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) estarão disponíveis no repositório do GitHub Lab.
 
 1. Implante os seguintes modelos do ARM para criar a VM necessária para este exercício:
 

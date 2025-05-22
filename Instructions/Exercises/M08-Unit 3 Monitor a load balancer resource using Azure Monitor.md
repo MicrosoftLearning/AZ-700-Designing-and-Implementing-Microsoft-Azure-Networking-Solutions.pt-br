@@ -54,7 +54,7 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
    | **Configuração**    | **Valor**                                           |
    | -------------- | --------------------------------------------------- |
-   | Subscription   | Selecionar sua assinatura                            |
+   | Subscription   | Selecione sua assinatura                            |
    | Resource group | Selecione **Criar**<br /><br />Nome: **IntLB-RG** |
    | Nome           | **IntLB-VNet**                                      |
    | Região         | **(EUA) Oeste dos EUA**                                    |
@@ -96,7 +96,7 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
    | **Configuração**           | **Valor**                |
    | --------------------- | ------------------------ |
    | Guia Básico            |                          |
-   | Assinatura          | Selecionar sua assinatura |
+   | Assinatura          | Selecione sua assinatura |
    | Resource group        | **IntLB-RG**             |
    | Nome                  | **myIntLoadBalancer**    |
    | Região                | **(EUA) Oeste dos EUA**         |
@@ -187,7 +187,9 @@ Nesta seção, você criará três VMs para o pool de back-end do balanceador de
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M08** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Gerenciar arquivos**, no menu suspenso, selecione **Upload** e faça o upload dos seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json** no diretório base do Cloud Shell.
+
+    > **Observação:** se você estiver trabalhando em sua própria assinatura, os [arquivos de modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) estarão disponíveis no repositório do GitHub Lab.
 
 1. Implante os seguintes modelos do ARM para criar a rede virtual, as sub-redes e as VMs necessárias para este exercício:
 
@@ -231,7 +233,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**          | **Valor**                                    |
    | -------------------- | -------------------------------------------- |
-   | Subscription         | Selecionar sua assinatura                     |
+   | Subscription         | Selecione sua assinatura                     |
    | Resource group       | **IntLB-RG**                                 |
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Oeste dos EUA**                             |
@@ -305,7 +307,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**    | **Valor**                |
    | -------------- | ------------------------ |
-   | Subscription   | Selecionar sua assinatura |
+   | Subscription   | Selecione sua assinatura |
    | Resource group | **IntLB-RG**             |
    | Nome           | **myLAworkspace**        |
    | Região         | **Oeste dos EUA**              |
