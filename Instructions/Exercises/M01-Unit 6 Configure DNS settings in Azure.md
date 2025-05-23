@@ -23,6 +23,8 @@ Neste exercício, você vai:
 
 ### Tempo estimado: 25 minutos
 
+**Importante:** este exercício requer uma rede virtual do laboratório anterior. Ela pode ser instalada usando um arquivo de [modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises/M01/template.json). Todas as redes virtuais serão instaladas, mas apenas a CoreServicesVNet é necessária. 
+
 ## Tarefa 1: criar uma zona DNS privada
 
 1. Vá para [Portal do Azure](https://portal.azure.com/).
@@ -36,9 +38,8 @@ Neste exercício, você vai:
 
     | **Tab**         | **Opção**                             | **Valor**            |
     | --------------- | -------------------------------------- | -------------------- |
-    | Noções básicas          | Grupo de recursos                         | ContosoResourceGroup |
-    |                 | Nome                                   | Contoso.com          |
-    | Marcações            | Nenhuma alteração necessária                    |                      |
+    | Noções básicas          | Grupo de recursos (crie um novo se necessário) | `ContosoResourceGroup` |
+    |                 | Nome                                   | `Contoso.com`          |
     | Examinar + criar | Examine suas configurações e escolha Criar |                      |
 
 1. Aguarde a conclusão da implantação e, então, escolha **Ir para o recurso**.
@@ -57,8 +58,8 @@ Neste exercício, você vai:
 
     | **Opção**                          | **Valor**                               |
     | ----------------------------------- | --------------------------------------- |
-    | Nome do link                           | CoreServicesVnetLink                    |
-    | Subscription                        | Nenhuma alteração necessária                     |
+    | Nome do link                           | `CoreServicesVnetLink`                   |
+    | Assinatura                        | Nenhuma alteração necessária                     |
     | Rede Virtual                     | CoreServicesVnet (ContosoResourceGroup) |
     | Habilitar o registro automático            | Selecionadas                                |
     | Examine suas configurações e escolha OK. |                                         |
@@ -66,34 +67,6 @@ Neste exercício, você vai:
 1. Selecione **Atualizar**.
 
 1. Verifique se CoreServicesVnetLink foi criada e se o registro automático está habilitado.
-
-1. Repita as etapas dois a cinco para ManufacturingVnet usando as informações na tabela abaixo:
-
-    | **Opção**                          | **Valor**                                |
-    | ----------------------------------- | ---------------------------------------- |
-    | Nome do link                           | ManufacturingVnetLink                    |
-    | Subscription                        | Nenhuma alteração necessária                      |
-    | Rede Virtual                     | ManufacturingVnet (ContosoResourceGroup) |
-    | Habilitar o registro automático            | Selecionadas                                 |
-    | Examine suas configurações e escolha OK. |                                          |
-
-1. Selecione **Atualizar**.
-
-1. Verifique se ManufacturingVnetLink foi criada e se o registro automático está habilitado.
-
-1. Repita as etapas dois a cinco para ResearchVnet usando as informações na tabela abaixo:
-
-    | **Opção**                          | **Valor**                           |
-    | ----------------------------------- | ----------------------------------- |
-    | Nome do link                           | ResearchVnetLink                    |
-    | Subscription                        | Nenhuma alteração necessária                 |
-    | Rede Virtual                     | ResearchVnet (ContosoResourceGroup) |
-    | Habilitar o registro automático            | Selecionadas                            |
-    | Examine suas configurações e escolha OK. |                                     |
-
-1. Selecione **Atualizar**.
-
-1. Verifique se ResearchVnetLink foi criada e se o registro automático está habilitado.
 
 ## Tarefa 3: criar máquinas virtuais para testar a configuração
 
@@ -104,11 +77,13 @@ Nesta seção, você criará duas VMs de teste para testar a configuração da z
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M01** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça ulpload dos arquivos de modelo:**azuredeploy.json** e **azuredeploy.parameters.json**.
 
+   >**Observação:** se você estiver trabalhando em sua própria assinatura, os [arquivos de modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) estarão disponíveis no repositório do laboratório do GitHub.
+   
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
-   >**Observação**: você será solicitado a fornecer uma senha de Administrador.
+   >**Observação**: você será solicitado a fornecer uma senha de Administrador. Você precisará dessa senha em uma etapa posterior. 
 
    ```powershell
    $RGName = "ContosoResourceGroup"
@@ -132,37 +107,27 @@ Nesta seção, você criará duas VMs de teste para testar a configuração da z
 
 1. Anote os nomes e os endereços IP das VMs.
 
-### Conectar-se às VMs de teste usando RDP
+### Conectar-se a uma VM para testar a resolução de nomes
 
 1. Na página inicial do Portal do Azure, selecione **Máquinas Virtuais**.
 
 1. Escolha **TestVM1**.
 
-1. Em TestVM1, selecione **Conectar &gt; RDP** e baixe o arquivo RDP.
+1. Em TestVM1, selecione**Conectar &gt; Conectar** e baixe o arquivo RDP. Confirme o download do arquivo.
 
-    ![TestVM1 com Conectar e RDP realçados.](../media/connect-to-am.png)
+1. Localize o arquivo RDP e clique duas vezes para executá-lo.
 
-1. Salve o arquivo RDP em sua área de trabalho.
+1. Selecione **Conectar** e informe a senha **TestUser** fornecida durante a implantação do modelo.
 
-1. Siga as mesmas etapas para **TestVM2**
-
-1. Conecte-se à TestVM1 usando o arquivo RDP e o nome de usuário **TestUser** e a senha fornecida durante a implantação.
-
-1. Conecte-se à TestVM2 usando o arquivo RDP e o nome de usuário **TestUser** e a senha fornecida durante a implantação.
-
-1. Nas duas VMs, em **Escolher configurações de privacidade para seu dispositivo**, escolha **Aceitar**.
-
-1. Se solicitado, em **Redes**, selecione **Sim** para as duas VMs.
+1. Clique em **OK** e, em seguida, em **Sim** na página de aviso.
 
 1. Em TestVM1, abra um prompt de comando e insira o comando `ipconfig /all`.
 
-1. Verifique se o endereço IP é o mesmo que você anotou na zona DNS.
+1. O endereço IP é o mesmo da zona DNS.
 
-1. Insira o comando ping TestVM2.contoso.com.
+1. Digite o comando `ping TestVM2.contoso.com`. Esse comando atingirá o tempo limite por causa do Firewall do Windows habilitado nas VMs.
 
-1. Verifique se o FQDN é resolvido para o endereço IP que você anotou na zona DNS privada. O próprio ping atingirá o tempo limite por causa do Firewall do Windows habilitado nas VMs.
-
-1. Como alternativa, você pode inserir o comando nslookup TestVM2.contoso.com e verificar se recebeu um registro de resolução de nome com êxito para VM2
+1. Em vez disso, use o comando `nslookup TestVM2.contoso.com` para verificar se você recebe um registro de resolução de nomes para VM2. Isso demonstra a resolução de nomes de zonas privadas. 
 
 ## Estender seu aprendizado com o Copilot
 

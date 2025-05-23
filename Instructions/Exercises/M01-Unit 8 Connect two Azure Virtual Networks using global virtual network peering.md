@@ -35,7 +35,9 @@ Nesta seção, você criará uma VM de teste na VNet para testar se pode acessar
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **ManufacturingVMazuredeploy.json** e **ManufacturingVMazuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M01** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **ManufacturingVMazuredeploy.json** e **ManufacturingVMazuredeploy.parameters.json**.
+
+    >**Observação:** se você estiver trabalhando em sua própria assinatura, os [arquivos de modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) estarão disponíveis no repositório do GitHub Lab.
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
@@ -182,7 +184,7 @@ O Copilot pode ajudar você a aprender a usar as ferramentas de script do Azure.
 
 Parabéns por concluir o laboratório. Aqui estão as principais lições desse laboratório. 
 
-+ O emparelhamento de rede virtual permite que você conecte duas redes virtuais do Azure sem interrupção. As redes virtuais aparecerão como uma só para fins de conectividade.
++ O emparelhamento de rede virtual permite que você conecte perfeitamente duas redes virtuais do Azure. As redes virtuais aparecerão como uma só para fins de conectividade.
 + O Azure dá suporte à conexão de redes virtuais na mesma região do Azure e entre regiões do Azure (global).
 + O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas é roteado diretamente pela infraestrutura de backbone da Microsoft, não por um gateway ou pela Internet pública.
 + É possível redimensionar o espaço de endereço de redes virtuais do Azure emparelhadas sem gerar nenhum tempo de inatividade no espaço de endereço emparelhado no momento.

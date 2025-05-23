@@ -39,7 +39,7 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
    | **Configuração**    | **Valor**                                  |
    | -------------- | ------------------------------------------ |
-   | Subscription   | Selecionar sua assinatura                   |
+   | Subscription   | Selecione sua assinatura                   |
    | Resource group | Selecione **Criar novo**  Nome: **IntLB-RG** |
    | Nome           | **IntLB-VNet**                             |
    | Região         | **(EUA) Leste dos EUA**                           |
@@ -79,9 +79,11 @@ Nesta seção, você criará três VMs, que estarão no mesmo conjunto de dispon
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-2. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/Baixar arquivos**. No menu suspenso, selecione **Carregar** e carregue os arquivos azuredeploy.json e azuredeploy.parameters.json no diretório inicial do Cloud Shell um a um.
+2. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Carregar/Baixar arquivos**. No menu suspenso, selecione **Upload** e faça upload dos seguintes arquivos azuredeploy.json e azuredeploy.parameters.json no diretório base do Cloud Shell.
 
-3. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
+    > **Observação:** se você estiver trabalhando em sua própria assinatura, os [arquivos de modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) estarão disponíveis no repositório do GitHub Lab.
+
+4. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
    >**Observação**: você será solicitado a fornecer uma senha de Administrador.
 
@@ -109,7 +111,7 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
 
    | **Configuração**           | **Valor**                |
    | --------------------- | ------------------------ |
-   | Subscription          | Selecionar sua assinatura |
+   | Subscription          | Selecione sua assinatura |
    | Resource group        | **IntLB-RG**             |
    | Nome                  | **myIntLoadBalancer**    |
    | Região                | **(EUA) Leste dos EUA**         |
@@ -216,7 +218,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**          | **Valor**                                    |
    | -------------------- | -------------------------------------------- |
-   | Subscription         | Selecionar sua assinatura                     |
+   | Subscription         | Selecione sua assinatura                     |
    | Resource group       | **IntLB-RG**                                 |
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Leste dos EUA**                             |

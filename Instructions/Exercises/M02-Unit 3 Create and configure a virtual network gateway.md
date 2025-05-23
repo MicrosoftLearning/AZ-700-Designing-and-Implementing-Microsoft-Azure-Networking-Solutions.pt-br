@@ -38,7 +38,9 @@ Neste exercício, você vai:
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Carregar** e carregue os seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M02** para o diretório base do Cloud Shell
+1. Na barra de ferramentas do painel do Cloud Shell, selecione o ícone **Gerenciar arquivos**. No menu suspenso, selecione **Upload** e faça upload dos seguintes arquivos **azuredeploy.json** e **azuredeploy.parameters.json** no diretório base do Cloud Shell.
+
+        Note:: If you are working in your own subscription the [template files](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) are available in the GitHub lab repository.
 
 1. Implante os seguintes modelos do ARM para criar a rede virtual e as sub-redes necessárias para este exercício:
 
