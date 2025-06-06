@@ -12,15 +12,17 @@ Neste exercício, você vai criar uma WAN Virtual para a Contoso.
 
 ![Diagrama da arquitetura WAN de rede virtual.](../media/7-exercise-create-virtual-wan-by-using-azure-portal.png)
 
+### Habilidades de trabalho
 Neste exercício, você vai:
 
 + Tarefa 1: Criar uma WAN Virtual
 + Tarefa 2: criar um hub usando o Portal do Azure
 + Tarefa 3: conectar uma VNet ao Hub Virtual
 
+### Simulações interativas de laboratório
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20a%20virtual%20WAN%20using%20the%20Azure%20portal)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
-
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
+>
 ### Tempo estimado: 65 minutos (incluindo ~45 minutos de tempo de espera de implantação)
 
 ## Tarefa 1: Criar uma WAN Virtual

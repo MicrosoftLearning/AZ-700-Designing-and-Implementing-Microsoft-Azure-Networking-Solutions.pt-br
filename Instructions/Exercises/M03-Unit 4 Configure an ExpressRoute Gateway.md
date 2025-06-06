@@ -11,7 +11,9 @@ Exercise:
 
 Para conectar sua rede virtual do Azure e sua rede local por ExpressRoute, você deve primeiro criar um gateway de rede virtual. Um gateway de rede virtual tem duas finalidades: trocar rotas de IP entre as redes e rotear o tráfego da rede.
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20an%20ExpressRoute%20gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+### Simulações interativas de laboratório
+
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
 
@@ -23,6 +25,8 @@ Quando você cria um gateway de rede virtual, precisa especificar várias config
 - **ExpressRoute** - Para enviar tráfego em uma conexão privada, use o tipo de gateway 'ExpressRoute'. Isso também é chamado de gateway ExpressRoute e é o tipo de gateway usado na configuração do ExpressRoute.
 
 Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway. Por exemplo, você pode ter um gateway de rede virtual que usa -GatewayType VPN e outro que usa -GatewayType ExpressRoute.
+
+### Habilidades de trabalho
 
 Neste exercício, você vai:
 

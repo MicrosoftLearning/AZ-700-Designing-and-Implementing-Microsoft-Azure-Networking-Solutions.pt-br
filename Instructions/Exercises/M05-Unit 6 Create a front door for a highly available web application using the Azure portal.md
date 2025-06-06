@@ -14,14 +14,17 @@ Neste exercício, você definirá uma configuração do Azure Front Door que agr
 
 ![Configuração de rede para o Azure Front Door.](../media/6-exercise-create-front-door-for-highly-available.png)
 
+### Habilidades de trabalho
+
 Neste exercício, você vai:
 
 + Tarefa 1: criar duas instâncias de um aplicativo Web
 + Tarefa 2: criar um Front Door para seu aplicativo
 + Tarefa 3: ver o Azure Front Door em ação
 
+### Simulações interativas de laboratório
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20a%20Front%20Door%20profile%20for%20a%20highly%20available%20web%20application)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 30 minutos
 

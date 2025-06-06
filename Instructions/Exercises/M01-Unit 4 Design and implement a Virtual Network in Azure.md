@@ -12,7 +12,9 @@ Você já pode implantar redes virtuais no portal do Azure.
 
 Considere a organização fictícia Contoso Ltd, que está em processo de migração da infraestrutura e de aplicativos para o Azure. Sua função de engenheiro de rede exige o planejamento e a implementação de três redes virtuais e sub-redes para dar suporte a recursos nessas redes virtuais.
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Design%20and%20implement%20a%20virtual%20network%20in%20Azure)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+### Simulações interativas de laboratório
+
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 20 minutos
 
@@ -44,6 +46,8 @@ Você criará os seguintes recursos:
 |                     |                |                                   | ResearchSystemSubnet      | 10.40.0.0/24  |
 
 Essas redes virtuais e sub-redes são estruturadas de um modo que acomoda os recursos existentes, embora ainda permita o crescimento projetado. Vamos criar essas redes virtuais e sub-redes para estabelecer a base para nossa infraestrutura de rede.
+
+### Habilidades de trabalho
 
 Neste exercício, você vai:
 

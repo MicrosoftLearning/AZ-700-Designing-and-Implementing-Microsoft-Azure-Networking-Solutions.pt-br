@@ -10,7 +10,9 @@ Exercise:
 
 Neste exercício, você criará um perfil do Gerenciador de Tráfego para fornecer alta disponibilidade para o aplicativo Web da organização fictícia Contoso Ltd.
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20a%20Traffic%20Manager%20profile%20using%20the%20Azure%20portal)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+### Simulações interativas de laboratório
+
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 35 minutos
 
@@ -21,6 +23,8 @@ Em seguida, você criará um perfil do Gerenciador de Tráfego baseado na priori
 O diagrama a seguir faz uma ilustração aproximada do ambiente que você vai implantar neste exercício.
 
  ![Figura 14](../media/exercise-traffic-manager-environment-diagram.png)
+
+### Habilidades de trabalho
 
  Neste exercício, você vai:
 
@@ -39,7 +43,7 @@ Nesta seção, você criará duas instâncias de um aplicativo Web implantado na
 
    | **Configuração**      | **Valor**                                                    |
    | ---------------- | ------------------------------------------------------------ |
-   | Subscription     | Selecionar sua assinatura                                     |
+   | Subscription     | Selecione sua assinatura                                     |
    | Resource group   | Selecione **Criar novo**  Nome: **Contoso-RG-TM1**             |
    | Nome             | **ContosoWebAppEastUSxx** (em que xx são suas iniciais para tornar o nome exclusivo) |
    | Publicação          | **Código**                                                     |
@@ -92,7 +96,7 @@ Agora, você criará um perfil do Gerenciador de Tráfego que direciona o tráfe
    | ----------------------- | ------------------------ |
    | Nome                    | **Contoso-TMProfilexx** (em que xx são suas iniciais para tornar o nome exclusivo) |
    | Método de roteamento          | **Prioridade**             |
-   | Subscription            | Selecionar sua assinatura |
+   | Subscription            | Selecione sua assinatura |
    | Resource group          | **Contoso-RG-TM1**       |
    | Localização do grupo de recursos | **Leste dos EUA**              |
 

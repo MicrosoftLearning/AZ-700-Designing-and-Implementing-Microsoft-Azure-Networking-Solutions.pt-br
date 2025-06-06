@@ -12,8 +12,9 @@ Introdução ao Link Privado do Azure usando um Ponto de Extremidade Privado par
 
 ![Diagrama de arquitetura de ponto de extremidade privado.](../media/6-exercise-create-azure-private-endpoint-using-azure-powershell.png)
 
+### Simulações interativas de laboratório
 
-   >**Observação:** uma **[simulação de laboratório interativa](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20an%20Azure%20private%20endpoint%20using%20Azure%20PowerShell)** está disponível e permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 45 minutos
 
@@ -36,6 +37,8 @@ Pontos de extremidade privados podem ser criados para diferentes tipos de servi�
     > **Observação:** se você estiver trabalhando em sua própria assinatura, os [arquivos de modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) estarão disponíveis no repositório do GitHub Lab.
 
 Se você optar por instalar e usar o PowerShell localmente, este exemplo exigirá o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute ```Get-Module -ListAvailable Az``` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o ```Connect-AzAccount``` para criar uma conexão com o Azure.
+
+### Habilidades de trabalho
 
 Neste exercício, você vai:
 
