@@ -12,6 +12,8 @@ Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso �
 
 ![Diagrama da arquitetura do ponto de extremidade de serviço.](../media/5-exercise-restrict-network-paas-resources-virtual-network-service-endpoints.png)
 
+### Habilidades de trabalho
+
 Neste exercício, você vai:
 
 + Tarefa 1: criar uma rede virtual
@@ -26,7 +28,9 @@ Neste exercício, você vai:
 + Tarefa 10: confirmar o acesso à conta de armazenamento
 
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Restrict%20network%20access%20to%20PaaS%20resources%20with%20virtual%20network%20service%20endpoints)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+### Simulações interativas de laboratório
+
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 35 minutos
 
@@ -42,7 +46,7 @@ Neste exercício, você vai:
 
    | **Configuração**    | **Valor**                                     |
    | -------------- | --------------------------------------------- |
-   | Subscription   | Selecionar sua assinatura                      |
+   | Subscription   | Selecione sua assinatura                      |
    | Grupo de recursos | (Novo) myResourceGroup                         |
    | Nome           | CoreServicesVNet                              |
    | Localização       | Selecione **Leste dos EUA**                            |
@@ -99,7 +103,7 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
 
    | **Configuração**    | **Valor**                                                    |
    | -------------- | ------------------------------------------------------------ |
-   | Subscription   | Selecionar sua assinatura                                     |
+   | Subscription   | Selecione sua assinatura                                     |
    | Grupo de recursos | myResourceGroup                                              |
    | Nome           | ContosoPrivateNSG                                            |
    | Localização       | Selecione **Leste dos EUA**                                           |
@@ -200,7 +204,7 @@ As etapas necessárias para restringir o acesso de rede a recursos criados por m
 
    | **Configuração**    | **Valor**                                                    |
    | -------------- | ------------------------------------------------------------ |
-   | Subscription   | Selecionar sua assinatura                                     |
+   | Subscription   | Selecione sua assinatura                                     |
    | Grupo de recursos | myResourceGroup                                              |
    | Nome           | Insira contosostoragexx (em que xx são suas iniciais para torná-la exclusiva) |
    | Desempenho    | Standard StorageV2 (uso geral v2)                      |

@@ -12,6 +12,7 @@ Nesta unidade, você configurará a resolução de nomes DNS para Contoso Ltd. V
 
 ![Diagrama da arquitetura de DNS.](../media/6-exercise-configure-domain-name-servers-configuration-azure.png)
 
+### Habilidades de trabalho
 Neste exercício, você vai:
 
 + Tarefa 1: criar uma zona DNS privada
@@ -19,7 +20,9 @@ Neste exercício, você vai:
 + Tarefa 3: criar máquinas virtuais para testar a configuração
 + Tarefa 4: verificar se os registros estão presentes na zona DNS
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20DNS%20settings%20in%20Azure)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+### Simulações interativas de laboratório
+
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 25 minutos
 

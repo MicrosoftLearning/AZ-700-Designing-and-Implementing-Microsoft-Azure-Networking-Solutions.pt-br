@@ -13,6 +13,8 @@ Neste exercício, você vai configurar um gateway de rede virtual para conectar 
 
 ![Diagrama de gateway de rede virtual.](../media/3-exercise-create-configure-local-network-gateway.png)
 
+### Habilidades de trabalho
+
 Neste exercício, você vai:
 
 + Tarefa 1: criar CoreServicesVnet e ManufacturingVnet
@@ -27,7 +29,9 @@ Neste exercício, você vai:
 + Tarefa 10: verificar se as conexões se conectam
 + Tarefa 11: testar a conexão entre as VMs
 
->**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Create%20and%20configure%20a%20virtual%20network%20gateway)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+### Simulações interativas de laboratório
+
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 70 minutos (incluindo ~45 minutos de tempo de espera de implantação)
 

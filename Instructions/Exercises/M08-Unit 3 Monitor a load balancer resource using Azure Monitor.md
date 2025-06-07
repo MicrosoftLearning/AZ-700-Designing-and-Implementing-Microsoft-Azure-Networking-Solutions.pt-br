@@ -14,6 +14,8 @@ O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 
 ![Diagrama que ilustra a arquitetura do balanceador de carga que será criada no exercício. Inclui balanceador de carga, VNet, sub-rede, Bastionsubnet e VMs](../media/3-exercise-monitor-load-balancer-resource-using-azure-monitor.png)
 
+### Habilidades de trabalho
+
  Neste exercício, você vai:
 
 + Tarefa 1: criar a rede virtual
@@ -30,11 +32,9 @@ O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 + Tarefa 12: exibir a integridade do recurso
 + Tarefa 13: definir configurações de diagnóstico
 
+### Simulações interativas de laboratório
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Monitor%20a%20load%20balancer%20resource%20using%20Azure%20Monitor)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
-
-> [!Note]  
-> Você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo.
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 55 minutos
 

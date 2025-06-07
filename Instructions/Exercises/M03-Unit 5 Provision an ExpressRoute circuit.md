@@ -9,11 +9,15 @@ Exercise:
 
 Neste exercício, você criará um circuito do ExpressRoute usando o portal do Azure e o modelo de implantação do Azure Resource Manager.
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Provision%20an%20ExpressRoute%20circuit)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+### Simulações interativas de laboratório
+
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 15 minutos
 
 ![Diagrama do layout do circuito do ExpressRoute para exercício](../media/5-exercise-provision-expressroute-circuit.png)
+
+### Habilidades de trabalho
 
 Neste exercício, você vai:
 
@@ -28,11 +32,9 @@ Neste exercício, você vai:
 
    >**Importante**: o circuito de ExpressRoute será cobrado a partir do momento em que uma chave de serviço for emitida. Execute esta operação quando o provedor de conectividade estiver pronto para provisionar o circuito.
 
-1. No menu do portal do Azure, selecione **+ Criar um recurso**. Selecione **Rede** e **ExpressRoute**, conforme mostra a imagem a seguir. Se o ExpressRoute não aparecer na lista, use **Pesquisar no marketplace** para procurá-lo:
+1. No menu do portal do Azure, pesquise e selecione **Circuitos do ExpressRoute**.
 
-   ![Portal do Azure – menu Criar circuito do ExpressRoute](../media/create-expressroute-circuit-menu.png)
-
-1. Na página **Criar ExpressRoute**, informe o **Grupo de recursos** como ExpressRouteResourceGroup. Em seguida, selecione **Resiliência Padrão** em **Resiliência**
+1. Na página **Criar ExpressRoute**, informe o **Grupo de recursos** como `ExpressRouteResourceGroup`. Em seguida, selecione **Resiliência Padrão** em **Resiliência**.
 
 1. Em ***Detalhes do circuito**, especifique a Região correta (**Leste dos EUA 2**), o Nome do circuito (**TestERCircuit**), o Local de emparelhamento (**Seattle**), o Provedor (**Equinix**), a Largura de banda (**50 Mbps**), o nível de SKU (**Padrão**) e o modelo de cobrança de medição de dados (**limitado**).
 

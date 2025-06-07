@@ -12,6 +12,8 @@ Sendo responsável pela equipe de Segurança de Rede da Contoso, você executar�
 
 ![Diagrama da arquitetura de DDoS.](../media/4-exercise-configure-ddos-protection-virtual-network-using-azure-portal.png)
 
+### Habilidades de trabalho
+
 Neste exercício, você vai:
 
 + Tarefa 1: criar um grupo de recursos
@@ -21,10 +23,10 @@ Neste exercício, você vai:
 + Tarefa 5: Configurar logs de diagnóstico de DDoS
 + Tarefa 6: Configurar alertas de DDoS
 + Tarefa 7: testar com parceiros de simulação
+  
+### Simulações interativas de laboratório
 
-
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Configure%20Azure%20DDoS%20Protection%20on%20a%20virtual%20network)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
-
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 ### Tempo estimado: 40 minutos
 
 ## Tarefa 1: criar um grupo de recursos

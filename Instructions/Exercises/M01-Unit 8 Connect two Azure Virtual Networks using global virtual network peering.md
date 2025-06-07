@@ -12,7 +12,9 @@ Nesta unidade, você configurará a conectividade entre a CoreServicesVnet e a M
 
 ![Diagrama do emparelhamento de rede virtual.](../media/8-exercise-connect-two-azure-virtual-networks-global.png)
 
-Nesta unidade, você vai:
+### Habilidades de trabalho
+
+Neste exercício, você vai:
 
 + Tarefa 1: criar uma máquina virtual para testar a configuração
 + Tarefa 2: conectar-se às VMs de teste usando RDP
@@ -20,7 +22,9 @@ Nesta unidade, você vai:
 + Tarefa 4: criar emparelhamentos de VNet entre a CoreServicesVnet e a ManufacturingVnet
 + Tarefa 5: testar a conexão entre as VMs
 
-   >**Observação:** há uma **[simulação interativa de laboratório](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering)** disponível que permite que você clique neste laboratório no seu próprio ritmo. Você pode encontrar pequenas diferenças entre a simulação interativa e o laboratório hospedado, mas os principais conceitos e ideias que estão sendo demonstrados são os mesmos.
+### Simulações interativas de laboratório
+
+>**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 
 ### Tempo estimado: 20 minutos
 
