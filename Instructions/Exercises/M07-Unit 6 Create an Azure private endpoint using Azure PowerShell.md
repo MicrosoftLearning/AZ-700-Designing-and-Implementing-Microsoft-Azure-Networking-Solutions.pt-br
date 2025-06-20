@@ -4,7 +4,9 @@ Exercise:
   module: Module 07 - Design and implement private access to Azure Services
 ---
 
-# M07-Unidade 6 Criar um ponto de extremidade privado do Azure usando o Azure PowerShell
+# M07-Unidade 6 Criar um ponto de extremidade privado do Azure usando o Azure PowerShell (opcional)
+
+> **Observação**: este laboratório é opcional. O laboratório anterior, *Restringir o acesso de rede a recursos de PaaS com pontos de extremidade de serviço de rede virtual*, aborda essa funcionalidade. No futuro, este laboratório será desativado. 
 
 ## Cenário do exercício
 
@@ -144,6 +146,7 @@ $parameters3 = @{
 }
 
 New-AzBastion @parameters3
+
 ```
 
 ## Tarefa 3: criar uma máquina virtual de teste
