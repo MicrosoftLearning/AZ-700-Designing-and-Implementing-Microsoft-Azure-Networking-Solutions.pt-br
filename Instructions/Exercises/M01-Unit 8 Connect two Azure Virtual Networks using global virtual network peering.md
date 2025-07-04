@@ -134,7 +134,7 @@ Nesta seção, você criará uma VM de teste na VNet para testar se pode acessar
     | ------------------------------------ | --------------------------------------------- | 
     | Nome do link de emparelhamento | `CoreServicesVnet-to-ManufacturingVnet` |
  
-    **Configurações do emparelhamento da rede virtual remota**
+    **Configurações de emparelhamento da rede virtual local**
    
     | **Opção**                                    | **Valor**                             |
     | ------------------------------------ | --------------------------------------------- | 
