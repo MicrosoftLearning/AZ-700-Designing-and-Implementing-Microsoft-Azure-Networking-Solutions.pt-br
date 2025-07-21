@@ -7,9 +7,7 @@ demo:
 
 **Observação:**  para esta demonstração você precisará de duas redes virtuais.
 
-**Simulação:**[conectar duas redes virtuais do Azure usando o emparelhamento do Azure](https://mslabs.cloudguides.com/guides/AZ-700%20Lab%20Simulation%20-%20Connect%20two%20Azure%20virtual%20networks%20using%20global%20virtual%20network%20peering)
-
-**Referência**: [conectar redes virtuais com o Emparelhamento VNet – tutorial](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
+**Referência**: [Conectar redes virtuais com o emparelhamento VNET – tutorial](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
 
 **Configurar o emparelhamento VNet na primeira rede virtual**
 
