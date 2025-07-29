@@ -45,64 +45,63 @@ Nesta tarefa, você criará as duas redes virtuais spoke, cada uma contendo uma 
 
 1. Selecione **Criar**.
 
-1. Em **Grupo de recursos,** selecione **Criar novo** e insira **fw-manager-rg** como o nome e selecione **OK**.
+1. Em **Grupo de recursos,** selecione **Criar novo** e insira `fw-manager-rg` como o nome e selecione **OK**.
 
-1. Em **Nome**, insira **Spoke-01**.
+1. Em **Nome**, insira `Spoke-01`.
 
 1. Em **Região**, selecione sua região.
 
-1. Selecione **Avançar: Endereços IP**.
+1. Selecione **Avançar**. Examine, mas não faça alterações na guia **Segurança**. 
 
-1. Em **Espaço de endereço IPv4**, insira **10.0.0.0/16**.
+1. Selecione **Avançar** e vá para a guia **Endereços IP**.
 
-1. **Exclua** quaisquer outros espaços de endereço listados aqui, como **10.1.0.0/16**.
+1. Selecione **Excluir espaço de endereço** e, em seguida, **Adicionar espaço de endereço IPv4**. 
 
-1. Em **Nome da sub-rede**, selecione a palavra **padrão**.
+1. Verifique se o espaço de endereços IP é **10.0.0.0/16**.
 
-1. Na caixa de diálogo **Editar sub-rede**, altere o nome para **Workload-01-SN**.
+1. Selecione **Adicionar uma sub-rede**. 
 
-1. Altere o **Intervalo de endereços de sub-rede** para **10.0.1.0/24**.
+1. Altere o **Nome** da sub-rede para `Workload-01-SN`.
 
-1. Selecione **Salvar**.
+1. Altere o **Endereço inicial** para `10.0.1.0`.
+
+1. Selecione **Adicionar**.
 
 1. Selecione **Examinar + criar**.
 
 1. Selecione **Criar**.
 
-Repita as etapas de 1 a 14 acima para criar outra rede virtual e sub-rede semelhantes, mas usando as seguintes informações:
+Repita as etapas de 1 a 14 acima para criar outra rede virtual e sub-rede semelhantes, mas usando as seguintes informações. Você não precisa esperar que a primeira rede virtual conclua a implantação. 
 
 + Grupo de Recursos: **fw-manager-rg** (selecionar existente)
-+ Nome: **Spoke-02**
++ Nome da Rede Virtual: `Spoke-02`
 + Espaço de endereço: **10.1.0.0/16** – (excluir quaisquer outros espaços de endereço listados)
-+ Nome da sub-rede: **Workload-02-SN**
++ Nome da sub-rede: `Workload-02-SN`
 + Intervalo de endereços da sub-rede: **10.1.1.0/24**
 
 ## Tarefa 2: Criar o hub virtual seguro
 
 Nesta tarefa, você criará seu hub virtual seguro usando o Gerenciador de Firewall.
 
-1. Na página inicial do portal do Azure, selecione **Todos os serviços**.
+1. No portal, pesquise `firewall manager` e selecione **Gerenciador de Firewall com palavra-chave Segurança de Rede**.
+   
+1. Na folha **Proteger seus recursos**, selecione **Hubs Virtuais**.
 
-1. Na caixa de pesquisa, insira **gerenciador de firewall** e selecione **Gerenciador de Firewall** quando for exibido.
-
-1. Na página **Gerenciador de Firewall**, a partir da página Visão geral, selecione **Exibir hubs virtuais protegidos**.
-
-1. Na página **Hubs virtuais**, selecione **Criar novo hub virtual seguro**.
+1. Selecione **Criar um hub virtual seguro**.
 
 1. Em **Grupo de recursos**, selecione **fw-manager-rg**.
 
 1. Em **Região**, selecione sua região.
 
-1. Para o **nome do hub virtual seguro**, insira **Hub-01**.
+1. Para o **Nome do hub virtual seguro**, insira `Hub-01`.
 
-1. Em **Espaço de endereço do hub**, insira **10.2.0.0/16**.
+1. Em **Espaço de endereço do hub**, insira `10.2.0.0/16`.
 
-1. Escolha **Nova vWAN**.
+1. Verifique se **Novo vWAN** está selecionado
 
-1. Em **Nome da WAN Virtual**, insira **Vwan-01**.
+1. Em **Nome da WAN Virtual**, insira `Vwan-01`.
 
 1. Selecione **Avançar: Firewall do Azure**.
-    ![Criar um hub virtual seguro – guia Noções básicas](../media/create-new-secured-virtual-hub-1.png)
 
 1. Selecione **Avançar: Provedor de Parceiro de Segurança**.
 
@@ -110,17 +109,11 @@ Nesta tarefa, você criará seu hub virtual seguro usando o Gerenciador de Firew
 
 1. Selecione **Criar**.
 
-    > **[!NOTE]**
-    >
-    > Pode levar até 30 minutos para implantar.
+    > Observação: Pode levar até 30 minutos para implantar.
 
-    
+1. Aguarde até que a implantação seja concluída. 
 
-    ![Criar um novo hub virtual seguro – guia Revisar + criar](../media/create-new-secured-virtual-hub-2.png)
-
-1. Quando a implantação for concluída, na página inicial do portal do Azure, selecione **Todos os serviços**.
-
-1. Na caixa de pesquisa, insira **gerenciador de firewall** e selecione **Gerenciador de Firewall** quando for exibido.
+1. No portal, pesquise `firewall manager` e selecione **Gerenciador de Firewall com palavra-chave Segurança de Rede**.
 
 1. Na página **Gerenciador de Firewall**, selecione **Hubs virtuais**.
 
@@ -134,15 +127,15 @@ Nesta tarefa, você criará seu hub virtual seguro usando o Gerenciador de Firew
 
 Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalmente conhecido como emparelhamento.
 
-1. Na página inicial do portal do Azure, selecione **Grupos de recursos**.
-
-1. Escolha o grupo de recursos **fw-manager-rg** e selecione a WAN Virtual **Vwan-01**.
+1. Selecione **Ir para grupo de recursos**.
+2. 
+1. No portal, pesquise e selecione a WAN virtual **Vwan-01**.
 
 1. Em **Conectividade**, selecione **Conexões de rede virtual**.
 
 1. Selecione **Adicionar conexão**.
 
-1. Em **Nome da conexão**, insira **hub-spoke-01**.
+1. Em **Nome da conexão**, insira `hub-spoke-01`.
 
 1. Para **Hubs**, selecione **Hub-01**.
 
@@ -151,12 +144,11 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
 1. Para **Rede virtual**, selecione **Spoke-01**.
 
 1. Selecione **Criar**.
-   ![Adicionar conexão hub e spoke à WAN virtual – Spoke 1](../media/connect-hub-spoke-vnet-1.png)
 
-1. Repita as etapas de 4 a 9 acima para criar outra conexão semelhante, mas usando o nome da conexão **hub-spoke-02** para conectar à rede virtual **Spoke-02**.
+1. Repita as etapas de 4 a 9 acima para criar outra conexão semelhante, mas usando o nome da conexão `hub-spoke-02` para conectar à rede virtual **Spoke-02**.
 
-    ![Adicionar conexão hub e spoke à WAN virtual – Spoke 2](../media/connect-hub-spoke-vnet-2.png)
-
+1. **Atualize** a página de conexões de rede virtual e verifique se você tem duas redes virtuais, Spoke-01 e Spoke-02.\
+   
 ## Tarefa 4: Implantar os servidores
 
 1. No portal do Azure, clique no ícone do Cloud Shell (canto superior direito). Se necessário, configure o shell.  
@@ -182,36 +174,35 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
 
 1. Na página **Visão geral** do **Srv-workload-01**, no painel à direita, na seção **Rede**, anote o **Endereço IP privado** (por exemplo, **10.0.1.4**).
 
-1. Na página **Visão geral** do **Srv-workload-02**, no painel à direita, na seção **Rede**, anote o **Endereço IP privado** (por exemplo, **10.1.1.4**).
+1. Na página **Visão geral** do **Srv-workload-02**, no painel à direita, na seção **Rede**, anote o **Endereço IP privado** (por exemplo, **10.1.0.4**).
 
 ## Tarefa 5: Criar uma política de firewall e proteger seu hub
 
 Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma política de firewall define coleções de regras para direcionar o tráfego em um ou mais Hubs virtuais seguros.
 
-1. Na página inicial do portal do Azure, selecione **Gerenciador de Firewall**.
-   + Se o ícone do Gerenciador de Firewall não aparecer na página inicial, selecione**Todos os serviços**. Em seguida, na caixa de pesquisa, insira **gerenciador de firewall** e selecione **Gerenciador de Firewall** quando for exibido.
+1. No portal, pesquise `firewall manager` e selecione **Gerenciador de Firewall com palavra-chave Segurança de Rede**.
 
-1. No **Gerenciador de Firewall**, a partir da página Visão Geral, selecione **Exibir políticas de Firewall do Azure**.
+1. Na folha **Gerenciador de Firewall**, selecione **Políticas de Firewall do Azure**.
 
-1. Selecione **Criar uma Política de Firewall do Azure**.
+1. Selecione **Criar**.
 
 1. Em **Grupo de recursos**, selecione **fw-manager-rg**.
 
-5. Em **Detalhes da política**, para o **Nome**, insira **Policy-01**.
+5. Em **Detalhes da política**, para o **Nome**, insira `Policy-01`.
 
 1. Em **Região**, selecione sua região.
 
 1. Em **Camada da política**, selecione **Standard**.
 
-1. Selecione **Próximo: Configurações de DNS**.
+1. Selecione **Próximo: Configurações de DNS**. Examine, mas não faça nenhuma alteração. 
 
-1. Selecione **Próximo: Inspeção de TLS (versão prévia)**.
+1. Selecione **Avançar: Inspeção TLS**. Examine, mas não faça nenhuma alteração. 
 
 1. Selecione **Avançar: Regras**.
 
 1. Na guia **Regras**, selecione **Adicionar a coleção de regras**.
 
-1. Na página **Adicionar uma coleção de regras**, em **Nome**, insira **App-RC-01**.
+1. Na página **Adicionar uma coleção de regras**, em **Nome**, insira `App-RC-01`.
 
 1. Para **Tipo de coleção de regras**, selecione **Aplicativo**.
 
@@ -219,31 +210,29 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 
 1. Verifique se a **Ação de coleção de regras** é **Permitir**.
 
-1. Em **Regras**, em **Nome**, insira **Allow-msft**.
+1. Em **Regras**, em **Nome**, insira `Allow-msft`.
 
 1. Para o **Tipo de origem**, selecione **Endereço IP**.
 
 1. Em **Origem**, insira *.
 
-1. Para **Protocolo**, insira **http,https**.
+1. Para **Protocolo**, insira `http,https`.
 
 1. Verifique se o **Tipo de destino** é **FQDN**.
 
-1. Para **Destino**, insira ***.microsoft.com**.
+1. Para **Destino**, insira `*.microsoft.com`.
 
 1. Selecione **Adicionar**.
 
-    ![Adicionar coleção de regras de aplicativo à política de firewall](../media/add-rule-collection-firewall-policy-1.png)
-
 1. Para adicionar uma regra DNAT para que você possa conectar uma área de trabalho remota à VM Srv-workload-01, selecione **Adicionar uma coleção de regras**.
 
-1. Para **Nome**, insira **dnat-rdp**.
+1. Para **Nome**, insira `dnat-rdp`.
 
 1. Em **Tipo de coleção de regras**, selecione **DNAT**.
 
 1. Para **Prioridade**, insira **100**.
 
-1. Em **Regras**, em **Nome**, insira **Allow-rdp**.
+1. Em **Regras**, em **Nome**, insira `Allow-rdp`.
 
 1. Para o **Tipo de origem**, selecione **Endereço IP**.
 
@@ -251,11 +240,11 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 
 1. Em **Protocolo**, selecione **TCP**.
 
-1. Para **Portas de Destino**, insira **3389**.
+1. Para **Portas de Destino**, insira `3389`.
 
-1. Para **Tipo de Destino**, selecione **Endereço IP**.
+1. Para **IP de destino**, insira o endereço IP do hub virtual do firewall que você anotou anteriormente (por exemplo, **51.143.226.18**).
 
-1. Para **Destino**, insira o endereço IP público do hub virtual do firewall que você anotou anteriormente (por exemplo, **51.143.226.18**).
+1. Em **Tipo convertido**, selecione **Endereço IP**.
 
 1. Para **Endereço traduzido**, insira o endereço IP privado para **Srv-workload-01** que você anotou anteriormente (por exemplo, **10.0.1.4**).
 
@@ -265,7 +254,7 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 
 1. Para adicionar uma Regra de rede para que você possa conectar uma área de trabalho remota de Srv-workload-01 à VM Srv-workload-02, selecione **Adicionar uma coleção de regras**.
 
-1. Para **Nome**, insira **vnet-rdp**.
+1. Para **Nome**, insira `vnet-rdp`.
 
 1. Para **Tipo de coleção de regras**, selecione **Rede**.
 
@@ -273,7 +262,7 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 
 1. Em **Ação de coleção de regras**, selecione **Permitir**.
 
-1. Em **Regras**, em **Nome**, insira **Allow-vnet**.
+1. Em **Regras**, em **Nome**, insira `Allow-vnet`.
 
 1. Para o **Tipo de origem**, selecione **Endereço IP**.
 
@@ -285,11 +274,9 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 
 1. Para **Tipo de Destino**, selecione **Endereço IP**.
 
-1. Para **Destino**, insira o endereço IP privado para **Srv-workload-02** que você anotou anteriormente (por exemplo, **10.1.1.4**).
+1. Para **Destino**, insira o endereço IP privado para **Srv-workload-02** que você anotou anteriormente (por exemplo, **10.1.0.4**).
 
 1. Selecione **Adicionar**.
-
-    ![Listar coleções de regras na política de firewall](../media/list-rule-collections-firewall-policy.png)
 
 1. Agora você deve ter três coleções de regras listadas.
 
@@ -301,8 +288,7 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 
 Nesta tarefa, você associará a política de firewall ao hub virtual.
 
-1. Na página inicial do portal do Azure, selecione **Gerenciador de Firewall**.
-   + Se o ícone do Gerenciador de Firewall não aparecer na página inicial, selecione**Todos os serviços**. Em seguida, na caixa de pesquisa, insira **gerenciador de firewall** e selecione **Gerenciador de Firewall** quando for exibido.
+1. No portal, pesquise `firewall manager` e selecione **Gerenciador de Firewall com palavra-chave Segurança de Rede**.
 
 1. No **Gerenciador de Firewall**, em **Segurança**, selecione **Políticas de Firewall do Azure**.
 
@@ -315,8 +301,6 @@ Nesta tarefa, você associará a política de firewall ao hub virtual.
 1. Selecione **Adicionar**.
 
 1. Quando a política tiver sido anexada, selecione **Atualizar**. A associação deve ser exibida.
-
-![Mostrar política de firewall associada no hub](../media/associate-firewall-policy-with-hub-end.png)
 
 ## Tarefa 7: Rotear o tráfego para o hub
 
