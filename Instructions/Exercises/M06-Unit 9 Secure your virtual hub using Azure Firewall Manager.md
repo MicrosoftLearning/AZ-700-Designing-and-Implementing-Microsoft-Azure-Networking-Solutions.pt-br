@@ -15,7 +15,9 @@ Neste exercício, você criará a rede virtual spoke, criará um hub virtual seg
 
 ### Simulações interativas de laboratório
 
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
+**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
+
+
 ## Criar uma arquitetura de hub e spoke
 
 Nesta parte do exercício, você criará as redes virtuais spoke e sub-redes em que colocará os servidores da carga de trabalho. Você criará o hub virtual seguro e conectará as redes virtuais hub e spoke.
@@ -41,13 +43,13 @@ Neste exercício, você vai:
 
 Nesta tarefa, você criará as duas redes virtuais spoke, cada uma contendo uma sub-rede que hospedará seus servidores de carga de trabalho.
 
-1. Na página inicial do portal do Azure, na caixa de pesquisa, insira **rede virtual** e selecione **Rede Virtual** quando ela aparecer.
+1. No portal do Azure, pesquise e selecione `Virtual Networks`.
 
 1. Selecione **Criar**.
 
 1. Em **Grupo de recursos,** selecione **Criar novo** e insira `fw-manager-rg` como o nome e selecione **OK**.
 
-1. Em **Nome**, insira `Spoke-01`.
+1. Em **Nome da rede virtual**, insira `Spoke-01`.
 
 1. Em **Região**, selecione sua região.
 
@@ -71,13 +73,13 @@ Nesta tarefa, você criará as duas redes virtuais spoke, cada uma contendo uma 
 
 1. Selecione **Criar**.
 
-Repita as etapas de 1 a 14 acima para criar outra rede virtual e sub-rede semelhantes, mas usando as seguintes informações. Você não precisa esperar que a primeira rede virtual conclua a implantação. 
+Repita as etapas 1 a 14 acima para criar outra rede e sub-rede virtuais semelhantes usando as informações a seguir. Você não precisa esperar que a primeira rede virtual conclua a implantação. 
 
 + Grupo de Recursos: **fw-manager-rg** (selecionar existente)
 + Nome da Rede Virtual: `Spoke-02`
 + Espaço de endereço: **10.1.0.0/16** – (excluir quaisquer outros espaços de endereço listados)
 + Nome da sub-rede: `Workload-02-SN`
-+ Intervalo de endereços da sub-rede: **10.1.1.0/24**
++ Endereço inicial da sub-rede: `10.1.1.0`
 
 ## Tarefa 2: Criar o hub virtual seguro
 
@@ -101,9 +103,9 @@ Nesta tarefa, você criará seu hub virtual seguro usando o Gerenciador de Firew
 
 1. Em **Nome da WAN Virtual**, insira `Vwan-01`.
 
-1. Selecione **Avançar: Firewall do Azure**.
+1. Selecione **Avançar: Firewall do Azure**. Examine, mas não faça nenhuma alteração. 
 
-1. Selecione **Avançar: Provedor de Parceiro de Segurança**.
+1. Selecione **Avançar: Provedor de Parceiro de Segurança**. Examine, mas não faça nenhuma alteração. 
 
 1. Selecione **Avançar: Revisar + criar**.
 
@@ -119,17 +121,15 @@ Nesta tarefa, você criará seu hub virtual seguro usando o Gerenciador de Firew
 
 1. Selecione **Hub-01**.
 
-1. Selecione **Configuração de IP público**.
+1. Selecione **Firewall do Azure** e **Configuração de IP público**.
 
-1. Anote o endereço IP público (por exemplo, **51.143.226.18**), que será usado posteriormente.
+1. Anote o endereço IP público (por exemplo, **172.191.79.203**), que será usado depois.
 
 ## Tarefa 3: Conectar as redes virtuais hub e spoke
 
 Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalmente conhecido como emparelhamento.
 
-1. Selecione **Ir para grupo de recursos**.
-2. 
-1. No portal, pesquise e selecione a WAN virtual **Vwan-01**.
+1. No portal, pesquise e selecione a WAN virtual `Vwan-01`.
 
 1. Em **Conectividade**, selecione **Conexões de rede virtual**.
 
@@ -147,7 +147,7 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
 
 1. Repita as etapas de 4 a 9 acima para criar outra conexão semelhante, mas usando o nome da conexão `hub-spoke-02` para conectar à rede virtual **Spoke-02**.
 
-1. **Atualize** a página de conexões de rede virtual e verifique se você tem duas redes virtuais, Spoke-01 e Spoke-02.\
+1. **Atualize** a página de conexões de rede virtual e verifique se você tem duas redes virtuais, Spoke-01 e Spoke-02.
    
 ## Tarefa 4: Implantar os servidores
 
@@ -162,7 +162,7 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
 
 1. Implante os seguintes modelos do ARM para criar a VM necessária para este exercício:
 
-   >**Observação**: você será solicitado a fornecer uma senha de Administrador.
+   >**Observação**: você será solicitado a fornecer uma senha de Administrador. **Você precisará dessa senha em uma etapa posterior.**
 
    ```powershell
    $RGName = "fw-manager-rg"
@@ -174,7 +174,7 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
 
 1. Na página **Visão geral** do **Srv-workload-01**, no painel à direita, na seção **Rede**, anote o **Endereço IP privado** (por exemplo, **10.0.1.4**).
 
-1. Na página **Visão geral** do **Srv-workload-02**, no painel à direita, na seção **Rede**, anote o **Endereço IP privado** (por exemplo, **10.1.0.4**).
+1. Na página **Visão geral** do **Srv-workload-02**, no painel à direita, na seção **Rede**, anote o **Endereço IP privado** (por exemplo, **10.1.1.4**).
 
 ## Tarefa 5: Criar uma política de firewall e proteger seu hub
 
@@ -288,31 +288,38 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 
 Nesta tarefa, você associará a política de firewall ao hub virtual.
 
-1. No portal, pesquise `firewall manager` e selecione **Gerenciador de Firewall com palavra-chave Segurança de Rede**.
+1. No portal, pesquise e selecione `Hub-01`.
 
-1. No **Gerenciador de Firewall**, em **Segurança**, selecione **Políticas de Firewall do Azure**.
+1. Na folha **Configurações**, selecione **Provedores de segurança**
 
-1. Marque a caixa de seleção para **Política-01**.
+1. Marque a caixa de seleção **Adicionar Política**.
 
-1. Selecione **Gerenciar associações&gt;Associar hubs**.
+1. Selecione **Política-01** e **Salvar**.
 
 1. Marque a caixa de seleção para **Hub-01**.
 
 1. Selecione **Adicionar**.
 
-1. Quando a política tiver sido anexada, selecione **Atualizar**. A associação deve ser exibida.
+1. Quando a política tiver sido associada, selecione **Atualizar**. A associação deve ser exibida.
 
 ## Tarefa 7: Rotear o tráfego para o hub
 
 Nesta tarefa, você deverá garantir que o tráfego de rede seja roteado por meio do firewall.
 
-1. No **Gerenciador de Firewall**, selecione **Hubs virtuais**.
-1. Selecione **Hub-01**.
-1. Em **Configurações**, escolha **Configuração de segurança**.
+1. No portal, pesquise e selecione **Vwan-01**.
+
+1. Na folha **Conectividade**, selecione **Hubs** e, em seguida, **Hub-01**.
+   
+1. Na folha **Segurança**, selecione **Firewall do Azure e Gerenciador de Firewall**, selecione **Hub-01** e, em seguida, **Configuração de segurança**.
+
 1. Em **Tráfego da Internet**, selecione **Firewall do Azure**.
+
 1. Em **Tráfego privado**, selecione **Enviar por meio do Firewall do Azure**.
-1. Selecione **Salvar**.
+
+1. Selecione **Salvar** e clique em **OK** para confirmar sua escolha.
+
 1. Essa ação levará alguns minutos para ser concluída.
+
 1. Após a conclusão da configuração, garanta que **TRÁFEGO DE INTERNET** e **TRÁFEGO PRIVADO** indica **Protegido pelo Firewall do Azure** para conexões hub-spoke.
 
 ## Tarefa 8: Testar a regra do aplicativo
@@ -341,7 +348,7 @@ Nesta tarefa, você testará a regra de aplicativo para confirmar que ela funcio
 
 1. Abra o Internet Explorer e selecione **OK** na caixa de diálogo **Configurar Internet Explorer 11**.
 
-1. Navegue para **https://** **<www.microsoft.com>**.
+1. Navegue até `https://www.microsoft.com`
 
 1. Na caixa de diálogo **Alerta de Segurança**, selecione **OK**.
 
