@@ -140,6 +140,8 @@ Nesta seção, você criará uma VM de teste na VNet para testar se pode acessar
     | ------------------------------------ | --------------------------------------------- | 
     | Permitir que "CoreServicesVnet" acesse "ManufacturingVnet" | Habilitado
     | Permitir que "CoreServicesVnet" receba tráfego encaminhado de "ManufacturingVnet" | Habilitado |
+
+1. Marque a caixa à esquerda de **CoreServicesVnet-to-ManufacturingVnet** e selecione **Sincronizar**
  
 1. Em Emparelhamentos \| CoreServicesVnet, verifique se o emparelhamento **CoreServicesVnet-to-ManufacturingVnet** está **Conectado**.
 
