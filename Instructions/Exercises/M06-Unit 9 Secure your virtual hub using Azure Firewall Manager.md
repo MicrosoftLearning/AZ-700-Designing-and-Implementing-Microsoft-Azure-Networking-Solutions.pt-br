@@ -270,7 +270,7 @@ Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma p
 
 1. Em **Protocolo**, selecione **TCP**.
 
-1. Para **Portas de Destino**, insira **3389**.
+1. Quanto às **Portas de destino**, insira **3389**.
 
 1. Para **Tipo de Destino**, selecione **Endereço IP**.
 
