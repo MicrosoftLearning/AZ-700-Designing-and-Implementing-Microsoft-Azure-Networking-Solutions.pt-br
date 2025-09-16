@@ -43,7 +43,7 @@ Nesta seção, você criará duas instâncias de um aplicativo Web implantado na
 
    | **Configuração**      | **Valor**                                                    |
    | ---------------- | ------------------------------------------------------------ |
-   | Subscription     | Selecione sua assinatura                                     |
+   | Assinatura     | Selecionar sua assinatura                                     |
    | Resource group   | Selecione **Criar novo**  Nome: **Contoso-RG-TM1**             |
    | Nome             | **ContosoWebAppEastUSxx** (em que xx são suas iniciais para tornar o nome exclusivo) |
    | Publicação          | **Código**                                                     |
@@ -96,11 +96,11 @@ Agora, você criará um perfil do Gerenciador de Tráfego que direciona o tráfe
    | ----------------------- | ------------------------ |
    | Nome                    | **Contoso-TMProfilexx** (em que xx são suas iniciais para tornar o nome exclusivo) |
    | Método de roteamento          | **Prioridade**             |
-   | Subscription            | Selecione sua assinatura |
+   | Subscription            | Selecionar sua assinatura |
    | Resource group          | **Contoso-RG-TM1**       |
    | Localização do grupo de recursos | **Leste dos EUA**              |
 
-1. Selecione **Criar**.
+1. Selecione **Examinar + criar** e depois **Criar**.
 
 ## Tarefa 3: adicionar pontos de extremidade de Gerenciador de Tráfego
 
@@ -160,13 +160,13 @@ Nesta seção, você verificará o nome DNS do seu perfil do Gerenciador de Trá
 
 1. Para testar se o ponto de extremidade de failover está funcionando corretamente, você precisa desabilitar o site primário.
 
-1. Na página **Contoso-TMProfile**, na tela Visão geral, selecione **myPrimaryEndpoint**.
+1. Na página **Contoso-TMProfile**, na tela de visão geral, selecione o número **2** à direita de **Pontos de extremidade:**.
 
-1. Na página **myPrimaryEndpoint**, em **Status**, selecione **Desabilitado** e selecione **Salvar**.
+1. Selecione o botão Editar (ícone de lápis) para **myPrimaryEndpoint**.
 
-   ![Figura 25](../media/disable-primary-endpoint-1.png)
+1. Na folha **myPrimaryEndpoint**, em **Status**, desmarque a caixa de seleção para **Habilitar Ponto de Extremidade** e selecione **Salvar**.
 
-1. Feche a página **myPrimaryEndpoint** (selecione o **X** no canto superior direito da página).
+1. Se necessário, feche a folha **myPrimaryEndpoint** (selecione o **X** no canto superior direito da página).
 
 1. Na página **Contoso-TMProfile**, o **Status do monitor** para **myPrimaryEndpoint** agora deve ser **Desabilitado**.
 

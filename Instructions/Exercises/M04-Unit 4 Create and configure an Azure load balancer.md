@@ -43,7 +43,7 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
    | **Configuração**    | **Valor**                                  |
    | -------------- | ------------------------------------------ |
-   | Subscription   | Selecione sua assinatura                   |
+   | Assinatura   | Selecionar sua assinatura                   |
    | Resource group | Selecione **Criar novo**  Nome: **IntLB-RG** |
    | Nome           | **IntLB-VNet**                             |
    | Região         | **(EUA) Leste dos EUA**                           |
@@ -59,19 +59,21 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
 7. Clique em **Avançar** (a guia de endereços IP abrirá).
 
-8. Na guia **Endereços IP**, na caixa **Espaço de endereço IPv4**, remova o padrão e digite **10.1.0.0/16**.
+8. Na guia **Endereços IP**, na caixa **Espaço de endereço IPv4**, substitua o espaço de endereço IPv4 pré-preenchido por: **10.1.0.0/16**.
 
-9. Na guia **Endereços IP**, clique em **+ Adicionar sub-rede**.
+9. Na guia **Endereços IP**, em **Sub-redes**, exclua a sub-rede **padrão**.
 
-10. No painel **Adicionar sub-rede**, forneça o nome de sub-rede **myBackendSubnet** e o intervalo de endereços de sub-rede **10.1.0.0/24**. Selecione **Adicionar**
+10. Na guia **Endereços IP**, clique em **+ Adicionar sub-rede**.
 
-11. Clique em **Adicionar sub-rede** novamente, forneça um nome de sub-rede de **myFrontEndSubnet** e um intervalo de endereços de sub-rede de **10.1.2.0/24**. Selecione **Adicionar**
+11. No painel **Adicionar sub-rede**, forneça o nome de sub-rede **myBackendSubnet** e um endereço inicial de: **10.1.0.0/24**. Selecione **Adicionar**
 
-12. Na notificação sobre o Azure Bastion, selecione **Adicionar sub-rede do Azure Bastion**
+12. Selecione **+ Adicionar uma sub-rede** novamente, forneça um nome de sub-rede de **myFrontEndSubnet** e um endereço inicial de: **10.1.2.0/24**. Selecione **Adicionar**
 
-13. Selecione **Examinar + criar**.
+13. Verifique se o **AzureBastionSubnet** existe e adicione se necessário.
 
-14. Selecione **Criar**.
+14. Selecione **Examinar + criar**.
+
+15. Selecione **Criar**.
 
 ## Tarefa 2: criar servidores de back-end
 
@@ -114,7 +116,7 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
 
    | **Configuração**           | **Valor**                |
    | --------------------- | ------------------------ |
-   | Subscription          | Selecione sua assinatura |
+   | Assinatura          | Selecionar sua assinatura |
    | Resource group        | **IntLB-RG**             |
    | Nome                  | **myIntLoadBalancer**    |
    | Região                | **(EUA) Leste dos EUA**         |
@@ -126,7 +128,7 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
    
 1. Selecione Adicionar um IP de front-end
 
-1. Na folha **Adicionar endereço IP de front-end**, insira as informações da tabela abaixo e selecione **Adicionar**.
+1. Na folha **Adicionar endereço IP de front-end**, insira as informações da tabela abaixo e selecione **Salvar**.
 
    | **Configuração**     | **Valor**                |
    | --------------- | ------------------------ |
@@ -158,7 +160,7 @@ O pool de endereços de back-end contém os endereços IP de NICs virtuais conec
    | Nome            | **myBackendPool**    |
    | Rede virtual | **IntLB-VNet**       |
 
-1. Em **Máquinas virtuais**, selecione **Adicionar**.
+1. Em **Máquinas virtuais**, selecione **Salvar**.
 
 1. Marque as caixas de seleção para todas as três VMs (**myVM1**, **myVM2** e **myVM3**) e selecione **Adicionar**.
 
@@ -221,7 +223,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**          | **Valor**                                    |
    | -------------------- | -------------------------------------------- |
-   | Subscription         | Selecione sua assinatura                     |
+   | Assinatura         | Selecionar sua assinatura                     |
    | Resource group       | **IntLB-RG**                                 |
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Leste dos EUA**                             |
