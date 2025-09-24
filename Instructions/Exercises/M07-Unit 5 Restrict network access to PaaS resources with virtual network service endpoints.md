@@ -46,7 +46,7 @@ Neste exercício, você vai:
 
    | **Configuração**    | **Valor**                                     |
    | -------------- | --------------------------------------------- |
-   | Subscription   | Selecione sua assinatura                      |
+   | Assinatura   | Selecionar sua assinatura                      |
    | Grupo de recursos | (Novo) myResourceGroup                         |
    | Nome           | CoreServicesVNet                              |
    | Localização       | Selecione **Leste dos EUA**                            |
@@ -103,7 +103,7 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
 
    | **Configuração**    | **Valor**                                                    |
    | -------------- | ------------------------------------------------------------ |
-   | Subscription   | Selecione sua assinatura                                     |
+   | Assinatura   | Selecionar sua assinatura                                     |
    | Grupo de recursos | myResourceGroup                                              |
    | Nome           | ContosoPrivateNSG                                            |
    | Localização       | Selecione **Leste dos EUA**                                           |
@@ -152,7 +152,7 @@ Crie outra regra de segurança de saída que nega a comunicação com a Internet
    | Serviço                 | Personalizado                    |
    | Intervalos de portas de destino | *                         |
    | Protocolo                | Qualquer                       |
-   | Ação                  | Deny                      |
+   | Ação                  | Negar                      |
    | Prioridade                | 110                       |
    | Nome                    | Deny-Internet-All         |
 
@@ -204,7 +204,7 @@ As etapas necessárias para restringir o acesso de rede a recursos criados por m
 
    | **Configuração**    | **Valor**                                                    |
    | -------------- | ------------------------------------------------------------ |
-   | Subscription   | Selecione sua assinatura                                     |
+   | Assinatura   | Selecionar sua assinatura                                     |
    | Grupo de recursos | myResourceGroup                                              |
    | Nome           | Insira contosostoragexx (em que xx são suas iniciais para torná-la exclusiva) |
    | Desempenho    | Standard StorageV2 (uso geral v2)                      |

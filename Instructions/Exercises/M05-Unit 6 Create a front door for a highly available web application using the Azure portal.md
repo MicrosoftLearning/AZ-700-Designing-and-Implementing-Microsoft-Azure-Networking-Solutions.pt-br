@@ -126,7 +126,7 @@ Depois de você criar um Front Door, a configuração leva alguns minutos para s
 
 1. Mude de volta para o navegador e selecione Atualizar. Você deverá ver a mesma página de informações.
 
-**Pode haver um atraso enquanto o aplicativo Web para. Se você vir uma página de erro em seu navegador, atualize a página**.
+    **Pode haver um atraso enquanto o aplicativo Web para. Se você vir uma página de erro em seu navegador, atualize a página**.
 
 1. Volte para o Portal do Azure, localize o outro aplicativo Web e pare-o.
 

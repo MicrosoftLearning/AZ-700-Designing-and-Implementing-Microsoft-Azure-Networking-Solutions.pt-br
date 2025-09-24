@@ -54,7 +54,7 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
    | **Configuração**    | **Valor**                                           |
    | -------------- | --------------------------------------------------- |
-   | Subscription   | Selecione sua assinatura                            |
+   | Assinatura   | Selecionar sua assinatura                            |
    | Resource group | Selecione **Criar**<br /><br />Nome: **IntLB-RG** |
    | Nome           | **IntLB-VNet**                                      |
    | Região         | **(EUA) Oeste dos EUA**                                    |
@@ -96,7 +96,7 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
    | **Configuração**           | **Valor**                |
    | --------------------- | ------------------------ |
    | Guia Básico            |                          |
-   | Assinatura          | Selecione sua assinatura |
+   | Assinatura          | Selecionar sua assinatura |
    | Resource group        | **IntLB-RG**             |
    | Nome                  | **myIntLoadBalancer**    |
    | Região                | **(EUA) Oeste dos EUA**         |
@@ -233,7 +233,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**          | **Valor**                                    |
    | -------------------- | -------------------------------------------- |
-   | Subscription         | Selecione sua assinatura                     |
+   | Assinatura         | Selecionar sua assinatura                     |
    | Resource group       | **IntLB-RG**                                 |
    | Nome da máquina virtual | **myTestVM**                                 |
    | Região               | **(EUA) Oeste dos EUA**                             |
@@ -307,7 +307,7 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
    | **Configuração**    | **Valor**                |
    | -------------- | ------------------------ |
-   | Subscription   | Selecione sua assinatura |
+   | Assinatura   | Selecionar sua assinatura |
    | Resource group | **IntLB-RG**             |
    | Nome           | **myLAworkspace**        |
    | Região         | **Oeste dos EUA**              |
@@ -434,5 +434,5 @@ Parabéns por concluir o laboratório. Aqui estão as principais lições desse 
 + As métricas são medidas quantitativas que mostram instantâneos do desempenho do aplicativo ou do recurso. Normalmente, as métricas são valores numéricos que você pode medir ao longo do tempo.
 + Os logs são registros textuais de eventos, ações e mensagens que ocorrem em um recurso ou aplicativo. 
 + Os Insights, visualizações e painéis do Azure Monitor podem consumir e transmitir informações de monitoramento sobre seus aplicativos.
-+ Alertas notificam você sobre condições críticas e podem executar ações corretivas. As regras de alerta podem ser baseadas em dados de métrica ou de log.+ 
++ Os alertas o notificam sobre condições críticas e podem executar ações corretivas. As regras de alerta podem ser baseadas em dados de métrica ou de log.+ 
     
