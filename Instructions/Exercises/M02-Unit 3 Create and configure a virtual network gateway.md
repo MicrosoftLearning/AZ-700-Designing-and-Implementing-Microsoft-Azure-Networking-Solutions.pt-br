@@ -202,7 +202,7 @@ Neste exercício, você vai:
    | Noções básicas          | Detalhes do projeto   | Subscription                                | Nenhuma alteração necessária          |
    |                 |                   | ResourceGroup                               | ContosoResourceGroup         |
    |                 | Detalhes da Instância  | Nome                                        | ManufacturingVnetGateway     |
-   |                 |                   | Region                                      | Norte da Europa                 |
+   |                 |                   | Região                                      | Europa Ocidental                  |
    |                 |                   | Tipo de gateway                                | VPN                          |
    |                 |                   | SKU                                         | VpnGw1                       |
    |                 |                   | Generation                                  | Geração1                  |
@@ -234,7 +234,7 @@ Neste exercício, você vai:
    | ------------------------------ | --------------------------------- |
    | Nome                           | CoreServicesGW-to-ManufacturingGW |
    | Tipo de conexão                | VNet a VNet                      |
-   | Região                         | Leste dos EUA                           |
+   | Region                         | Leste dos EUA                           |
    | Primeiro gateway de rede virtual  | CoreServicesVnetGateway           |
    | Segundo gateway de rede virtual | ManufacturingVnetGateway          |
    | Chave compartilhada (PSK)               | abc123                            |
