@@ -132,7 +132,7 @@ Nesta tarefa, você implantará o firewall na rede virtual com uma política de 
 
    | **Configuração**          | **Valor**                                                    |
    | -------------------- | ------------------------------------------------------------ |
-   | Subscription         | Selecione sua assinatura                                     |
+   | Assinatura         | Selecionar sua assinatura                                     |
    | Grupo de recursos       | **Test-FW-RG**                                               |
    | Nome do firewall        | **Test-FW01**                                                |
    | Region               | Sua região                                                  |
@@ -179,7 +179,7 @@ Para esta tarefa, na sub-rede Workload-SN, configure a rota de saída padrão pa
 
    | **Configuração**              | **Valor**                |
    | ------------------------ | ------------------------ |
-   | Subscription             | Selecione sua assinatura |
+   | Assinatura             | Selecionar sua assinatura |
    | Grupo de recursos           | **Test-FW-RG**           |
    | Region                   | Sua região              |
    | Nome                     | **Firewall-route**       |
