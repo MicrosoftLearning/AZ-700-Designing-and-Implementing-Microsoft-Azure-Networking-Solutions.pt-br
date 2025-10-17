@@ -36,7 +36,7 @@ Neste exercício, você vai:
 
 1. Na página **Criar ExpressRoute**, informe o **Grupo de recursos** como `ExpressRouteResourceGroup`. Em seguida, selecione **Resiliência Padrão** em **Resiliência**.
 
-1. Em ***Detalhes do circuito**, especifique a Região correta (**Leste dos EUA 2**), o Nome do circuito (**TestERCircuit**), o Local de emparelhamento (**Seattle**), o Provedor (**Equinix**), a Largura de banda (**50 Mbps**), o nível de SKU (**Padrão**) e o modelo de cobrança de medição de dados (**limitado**).
+1. Em **Detalhes do circuito**, especifique a Região correta (**Leste dos EUA 2**), o Nome do circuito (**TestERCircuit**), o Local de emparelhamento (**Seattle**), o Provedor (**Equinix**), a Largura de banda (**50Mbps**), o nível de SKU (**Padrão**) e o modelo de cobrança de medição de dados (**limitado**).
 
 1. Selecione **Examinar + criar**.
 
@@ -141,3 +141,4 @@ Parabéns por concluir o laboratório. Aqui estão as principais lições desse 
 + A Microsoft garante um mínimo de 99,95% de disponibilidade para conexões dedicadas do ExpressRoute. A conexão é privada e trafega por uma linha dedicada, terceiros não podem interceptar o tráfego.
 + Você pode criar uma conexão entre sua rede local e a nuvem da Microsoft de quatro maneiras diferentes, Colocalização do CloudExchange, Conexão de Ethernet Ponto a Ponto, Conexão de Qualquer para Qualquer (IPVPN) e ExpressRoute Direct.
 + Os recursos do ExpressRoute são determinados pelo SKU: Local, Standard e Premium. 
+

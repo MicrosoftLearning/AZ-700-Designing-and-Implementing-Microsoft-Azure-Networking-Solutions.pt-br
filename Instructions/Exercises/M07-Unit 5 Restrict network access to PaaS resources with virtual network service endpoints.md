@@ -38,7 +38,7 @@ Neste exercício, você vai:
 
 1. Faça logon no portal do Azure.
 
-1. Na página inicial do portal do Azure, procure a rede virtual e selecione **Redes virtuais** nos resultados da pesquisa.
+1. Na página inicial do portal do Azure, procure por `virtual network` e selecione **Redes virtuais** nos resultados.
 
 1. Selecione **+** **Criar**.
 
@@ -51,14 +51,6 @@ Neste exercício, você vai:
    | Nome           | CoreServicesVNet                              |
    | Localização       | Selecione **Leste dos EUA**                            |
 
-1. Selecione a guia **Endereços IP** e insira os seguintes valores (selecione **padrão** para alterar o nome da sub-rede): ![interface gráfica do usuário, texto, aplicativo, Descrição do email gerada automaticamente](../media/create-virtual-network-ip.png)
-
-   | **Configuração**          | **Valor**   |
-   | -------------------- | ----------- |
-   | Espaço de endereço        | 10.0.0.0/16 |
-   | Nome da sub-rede          | Público      |
-   | Intervalo de endereços da sub-rede | 10.0.0.0/24 |
-
 1. Selecione a guia **Segurança** e insira os seguintes valores: ![interface gráfica do usuário, texto, aplicativo, Descrição do email gerada automaticamente](../media/ create-virtual-network-security.png)
 
    | **Configuração**             | **Valor** |
@@ -66,6 +58,14 @@ Neste exercício, você vai:
    | BastionHost             | Desabilitado  |
    | Proteção de Rede DDoS | Desabilitado  |
    | Firewall                | Desabilitado  |
+
+1. Selecione a guia **Endereços IP** e insira os seguintes valores (selecione **padrão** para alterar o nome da sub-rede): ![interface gráfica do usuário, texto, aplicativo, Descrição do email gerada automaticamente](../media/create-virtual-network-ip.png)
+
+   | **Configuração**          | **Valor**   |
+   | -------------------- | ----------- |
+   | Espaço de endereço        | 10.0.0.0/16 |
+   | Nome da sub-rede          | Público      |
+   | Intervalo de endereços da sub-rede | 10.0.0.0/24 |
 
 1. Selecione **Examinar + criar**. Após a validação do recurso, selecione **Criar**.
 
@@ -85,7 +85,7 @@ Pontos de extremidade de serviço são habilitados por serviço, por sub-rede. C
    | Intervalo de endereços               | 10.0.1.0/24                  |
    | Pontos de extremidade de serviço: serviços | Selecione **Microsoft.Storage** |
 
-1. Selecione **Salvar**.
+1. Selecione **Adicionar**.
 
 Agora, você deve ter duas sub-redes configuradas:
 
@@ -130,7 +130,7 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
    | Protocolo                | Qualquer                       |
    | Ação                  | Permitir                     |
    | Prioridade                | 100                       |
-   | Nome                    | Allow-Storage-All         |
+   | Nome                    | `Allow-Storage-All`         |
 
 1. Escolha **Adicionar**:
 
@@ -154,7 +154,7 @@ Crie outra regra de segurança de saída que nega a comunicação com a Internet
    | Protocolo                | Qualquer                       |
    | Ação                  | Negar                      |
    | Prioridade                | 110                       |
-   | Nome                    | Deny-Internet-All         |
+   | Nome                    | `Deny-Internet-All`         |
 
 1. Selecione **Adicionar**.
 
@@ -172,13 +172,13 @@ Crie uma regra de segurança de entrada que permita o tráfego do protocolo RDP 
    | ----------------------- | ------------------------- |
    | Fonte                  | Qualquer                       |
    | Intervalos de portas de origem      | *                         |
-   | Destino             | Selecione **VirtualNetwork** |
+   | Destino             | Qualquer                       |
    | Serviço                 | Personalizado                    |
    | Intervalos de portas de destino | 3389                      |
    | Protocolo                | Qualquer                       |
    | Ação                  | Permitir                     |
    | Prioridade                | 120                       |
-   | Nome                    | Allow-RDP-All             |
+   | Nome                    | `Allow-RDP-All`            |
 
 1. Então selecione **Adicionar**.
 
@@ -196,9 +196,9 @@ Crie uma regra de segurança de entrada que permita o tráfego do protocolo RDP 
 
 As etapas necessárias para restringir o acesso de rede a recursos criados por meio de serviços do Azure habilitados para pontos de extremidade do serviço variam de acordo com os serviços. Confira a documentação de serviços individuais para obter as etapas específicas para cada serviço. O restante deste exercício inclui etapas para restringir o acesso de rede para uma conta de Armazenamento do Microsoft Azure, como exemplo.
 
-1. No portal do Azure, selecione Contas de armazenamento.
+1. No portal do Azure, pesquise e selecione `Storage accounts`.
 
-1. Escolha +Criar.
+1. Selecione **Criar**.
 
 1. Insira ou selecione as informações a seguir e aceite os padrões restantes:
 
@@ -207,20 +207,25 @@ As etapas necessárias para restringir o acesso de rede a recursos criados por m
    | Assinatura   | Selecionar sua assinatura                                     |
    | Grupo de recursos | myResourceGroup                                              |
    | Nome           | Insira contosostoragexx (em que xx são suas iniciais para torná-la exclusiva) |
+   | Serviço principal | Arquivos do Azure                                                |
    | Desempenho    | Standard StorageV2 (uso geral v2)                      |
    | Localização       | Selecione Leste dos EUA                                               |
    | Replicação    | Armazenamento com redundância local (LRS)                              |
 
-1. selecione **Revisar** e, em seguida, selecione **Criar**.
+1. Selecione **Examinar** e **Criar**.
+
+1. Após a implantação da conta de armazenamento, selecione **Acessar recurso**. 
 
 ## Tarefa 7: criar um compartilhamento de arquivos na conta de armazenamento
 
-1. Depois que a conta de armazenamento for criada, insira o nome dela na caixa **Pesquisar recursos, serviços e documentos**, na parte superior do portal. Quando o nome da conta de armazenamento for exibido nos resultados da pesquisa, selecione-o.
-1. Selecione **Compartilhamentos de arquivos**, conforme mostrado na imagem a seguir: ![interface gráfica do usuário, Descrição do aplicativo gerada automaticamente](../media/new-file-share-2.png)
-1. Selecione **+Compartilhamento de arquivos**.
-1. Insira marketing em **Nome** e, depois, selecione **Avançar: Backup**.
-   ![Interface gráfica do usuário; Descrição do aplicativo gerada automaticamente](../media/new-file-share-basics.png)
-1. Desmarque **Ativar backup**, conforme mostrado na imagem a seguir: ![interface gráfica do usuário, Descrição do aplicativo gerada automaticamente](../media/new-file-share-backup.png)
+1. No menu Conta de armazenamento, no painel **Armazenamento de dados**, selecione **Compartilhamentos de arquivos**.
+
+1. Selecione **+Compartilhamento de arquivos**. 
+
+1. Em **Nome**, insira **marketing** e selecione **Avançar: Backup**.
+
+1. Desmarque **Ativar backup**, conforme mostrado na imagem a seguir: 
+
 1. Selecione **Examinar + criar**. Após a validação do recurso, selecione **Criar**.
 
 ## Tarefa 8: restringir o acesso à rede para uma sub-rede
@@ -229,25 +234,23 @@ Por padrão, as contas de armazenamento aceitam conexões de clientes em qualque
 
 1. Em **Segurança + rede** da conta de armazenamento, escolha **Rede**.
 
-1. Selecione **Habilitado a partir das redes virtuais e endereços IP selecionados**.
+1. Selecione **Gerenciar** na seção **Acesso à rede pública**.
 
-1. Selecione **+Adicionar rede virtual existente**.
+1 Na seção **Escopo de acesso público**, selecione **Ativado nas redes selecionadas**.
 
-1. Em **Adicionar redes**, selecione os seguintes valores: ![interface gráfica do usuário, Descrição do aplicativo gerada automaticamente](../media/add-network-access.png)
+1. Selecione **+ Adicionar rede virtual existente** e, em seguida, **Adicionar rede virtual existente**. 
 
    | **Configuração**      | **Valor**                    |
    | ---------------- | ---------------------------- |
    | Subscription     | Selecione sua assinatura.    |
-   | Redes virtuais | Selecione CoreServicesVNet **.** |
-   | Sub-redes          | Selecionar **Privada**.          |
+   | Redes virtuais | **CoreServicesVNet** |
+   | Sub-redes          | **Particular**.          |
 
-1. Selecione **Adicionar**.
-
-1. Clique em **Salvar**.
+1. Selecione **Adicionar** e, em seguida, **Salvar**.
 
 1. Em **Segurança e Rede** da conta de armazenamento, escolha **Chaves de acesso**.
 
-1. Selecione **Mostrar chaves**. Anote o valor de **Chave**, pois você precisará inseri-lo manualmente em uma etapa posterior ao mapear o compartilhamento de arquivos para uma letra de unidade em uma VM.
+1. Use **Exibir** para o valor **Key1**. Copie esse valor, pois você precisará dele mais tarde. 
 
 ## Tarefa 9: criar máquinas virtuais
 
@@ -258,7 +261,7 @@ Para testar o acesso à rede para uma conta de armazenamento, implante uma VM pa
     + Selecione **Nenhuma Conta de Armazenamento necessária** e sua **Assinatura** e, em seguida, selecione **Aplicar**.
     + Aguarde até que o terminal seja criado e um prompt seja exibido. 
 
-1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **VMs.json** e **VMs.parameters.json**, um a um, da pasta de origem **F:\Allfiles\Exercises\M07** para o diretório base do Cloud Shell.
+1. Na barra de ferramentas do painel do Cloud Shell, clique no ícone **Gerenciar arquivos**. No menu suspenso, clique em **Upload** e faça upload dos seguintes arquivos **VMs.json** e **VMs.parameters.json** no diretório base do Cloud Shell. Este Módulo 07, Exercício 05. 
 
 1. Implante os seguintes modelos do ARM para criar as VMs necessárias para este exercício:
 
@@ -274,64 +277,38 @@ Para testar o acesso à rede para uma conta de armazenamento, implante uma VM pa
 
 ## Tarefa 10: confirmar o acesso à conta de armazenamento
 
-1. Após a criação da VM ContosoPrivate, abra o painel da VM selecionando Ir para o recurso. Selecione o botão Conectar e, depois, escolha RDP.
-   ![Interface gráfica do usuário; Descrição do aplicativo gerada automaticamente](../media/private-virtual-machine-connect.png)
-1. Depois de selecionar o botão Conectar e o RDP, selecione o botão Baixar arquivo RDP. Um arquivo .rdp (Remote Desktop Protocol) é criado e baixado para o computador.
-1. Abra o arquivo rdp baixado. Se solicitado, selecione Conectar. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar Mais escolhas e, em seguida, Usar uma conta diferente para especificar as credenciais inseridas durante a criação da VM.
-1. Selecione **OK**.
-1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione Sim ou Continuar para prosseguir com a conexão.
-1. Na VM ContosoPrivate, mapeie o compartilhamento de arquivos do Azure para a unidade Z usando o PowerShell. Antes de executar os comandos a seguir, substitua <storage-account-key> , <storage-account-name> (ou seja, contosostoragexx) e my-file-share (ou seja, Marketing) com os valores fornecidos e recuperados na tarefa criar uma conta de armazenamento.
+1. No portal, pesquise e selecione a máquina virtual **ContosoPrivate**.
 
-```azurecli
-$acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
+1. Selecione **Conectar**, **Conectar** e, em seguida, **Baixar arquivo RDP**. Se solicitado, confirme o download.
 
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
+1. Na pasta **Downloads**, abra o arquivo ContosoPrivate.rdp.
 
-New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\marketing" -Credential $credential
+1. Selecione **Conectar** e forneça a senha da máquina virtual. Selecione **Ok** e indique **Sim** para o aviso de certificado. 
 
-```
+1. Use o PowerShell para criar um compartilhamento de arquivos. Substitua <storage-account-key1-value>, <storage-account-name> (ou seja, contosostoragexx) pelos valores quando você criou a conta de armazenamento. 
+    ```powershell
+    $acctKey = ConvertTo-SecureString -String "<storage-account-key1-value>" -AsPlainText -Force
 
-O compartilhamento de arquivos do Azure foi mapeado com êxito para a unidade Z.
+    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
 
-1. Confirme que a VM não tem conectividade de saída com a Internet em um prompt de comando:
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\marketing" -Credential $credential
 
- ping bing.com
+    ```
+1. Confirme se a VM não tem conectividade de saída. Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado à sub-rede Privada não permite acesso de saída para a Internet.
 
-Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado à sub-rede Privada não permite acesso de saída para a Internet.
+    ```ping bing.com```
 
 1. Feche a sessão de área de trabalho remota da VM ContosoPrivate.
 
 ### Confirmar que o acesso é negado para a conta de armazenamento
 
-1. Insira ContosoPublic na caixa **Pesquisar recursos, serviços e documentos** na parte superior do portal.
+1. Retorne ao portal do Azure.
 
-1. Quando **ContosoPublic** aparecer nos resultados da pesquisa, selecione-a.
+1. Navegue até sua conta de armazenamento, selecione **Compartilhamentos de arquivos** e selecione o compartilhamento de arquivos de **marketing**. 
 
-1. Conclua as etapas de 1 a 6 na tarefa Confirmar acesso à conta de armazenamento da VM ContosoPublic.  
-
-   ‎Após uma breve espera, você receberá um erro de New-PSDrive: acesso negado. O acesso é negado porque a VM ContosoPublic está implantada na sub-rede Pública. A sub-rede Pública não tem um ponto de extremidade de serviço habilitado para Armazenamento do Azure. A conta de armazenamento só permite o acesso à rede a partir da sub-rede Privada, não da sub-rede Pública.
-
-1. Confirme que a VM pública tem conectividade de saída com a Internet em um prompt de comando:
-
- ping bing.com
-
-1. Feche a sessão de área de trabalho remota da VM ContosoPublic.
-
-1. No computador, vá para o portal do Azure.
-
-1. Insira o nome da conta de armazenamento que você criou na caixa **Pesquisar recursos, serviços e documentos**. Quando o nome da conta de armazenamento for exibido nos resultados da pesquisa, selecione-o.
-
-1. Selecione **Compartilhamentos de arquivo** e, em seguida, selecione o compartilhamento de arquivo **marketing**.
-
-1. Você recebe o erro mostrado na captura de tela a seguir:
+1. Selecione **Procurar** e observe o erro de acesso negado. Seu erro pode parecer diferente.  Acesso negado porque o computador não está na sub-rede Privada da rede virtual CoreServicesVNet.
 
     ![Interface gráfica do usuário, texto, aplicativo, Descrição do email gerada automaticamente](../media/no-access.png)
-
- Acesso negado porque o computador não está na sub-rede Privada da rede virtual CoreServicesVNet.
-
-   >**Aviso**: antes de continuar, remova todos os recursos usados para este laboratório. Para fazer isso, no portal do Azure, selecione Grupos de recursos. Selecione os grupos de recursos que você criou. No painel do grupo de recursos, clique em Excluir Grupo de Recursos, insira o nome do grupo de recursos e clique em Excluir. Repita o processo para todos os grupos de recursos adicionais que você possa ter criado. Se não fizer isso, poderá causar problemas com outros laboratórios.
-
-Resultados: você concluiu este laboratório.
 
 ## Limpar os recursos
 
