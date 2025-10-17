@@ -62,7 +62,7 @@ Neste exercício, você vai:
     | **Opção**                          | **Valor**                               |
     | ----------------------------------- | --------------------------------------- |
     | Nome do link                           | `CoreServicesVnetLink`                   |
-    | Assinatura                        | Nenhuma alteração necessária                     |
+    | Subscription                        | Nenhuma alteração necessária                     |
     | Rede Virtual                     | CoreServicesVnet (ContosoResourceGroup) |
     | Habilitar o registro automático            | Selecionadas                                |
     | Examine suas configurações e escolha OK. |                                         |

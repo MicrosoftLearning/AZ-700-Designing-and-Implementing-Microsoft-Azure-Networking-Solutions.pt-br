@@ -151,7 +151,7 @@ Nesta etapa, você criará uma máquina virtual, atribuirá um endereço IP púb
 
    | **Configuração**           | **Valor**                                                    |
    | --------------------- | ------------------------------------------------------------ |
-   | Subscription          | Selecione sua assinatura                                     |
+   | Assinatura          | Selecionar sua assinatura                                     |
    | Grupo de recursos        | **MyResourceGroup**                                          |
    | Nome da máquina virtual  | **MyVirtualMachine**                                         |
    | Region                | Sua região                                                  |
