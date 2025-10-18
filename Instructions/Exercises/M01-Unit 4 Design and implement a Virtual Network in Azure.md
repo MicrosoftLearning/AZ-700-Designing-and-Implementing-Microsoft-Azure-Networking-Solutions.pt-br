@@ -12,10 +12,6 @@ Você já pode implantar redes virtuais no portal do Azure.
 
 Considere a organização fictícia Contoso Ltd, que está em processo de migração da infraestrutura e de aplicativos para o Azure. Sua função de engenheiro de rede exige o planejamento e a implementação de três redes virtuais e sub-redes para dar suporte a recursos nessas redes virtuais.
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 20 minutos
 
 A rede virtual **CoreServicesVnet** é implantada na região **Leste dos EUA**. A rede virtual terá o maior número de recursos. Ele terá conectividade com redes locais por meio de uma conexão VPN. Essa rede terá serviços Web, bancos de dados e outros sistemas que são fundamentais para as operações do negócio. Serviços compartilhados, como controladores de domínio e DNS, também estarão localizados aqui. Uma grande quantidade de crescimento está prevista, portanto, um espaço de endereços grande é necessário para essa rede virtual.
