@@ -32,10 +32,6 @@ O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 + Tarefa 12: exibir a integridade do recurso
 + Tarefa 13: definir configurações de diagnóstico
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 55 minutos
 
 ## Tarefa 1: criar a rede virtual

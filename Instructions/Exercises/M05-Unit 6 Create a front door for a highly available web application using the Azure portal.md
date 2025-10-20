@@ -22,10 +22,6 @@ Neste exercício, você vai:
 + Tarefa 2: criar um Front Door para seu aplicativo
 + Tarefa 3: ver o Azure Front Door em ação
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 30 minutos
 
 ## Tarefa 1: criar duas instâncias de um aplicativo Web

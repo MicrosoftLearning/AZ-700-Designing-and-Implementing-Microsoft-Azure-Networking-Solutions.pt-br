@@ -9,10 +9,6 @@ Exercise:
 
 Neste exercício, você criará um circuito do ExpressRoute usando o portal do Azure e o modelo de implantação do Azure Resource Manager.
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 15 minutos
 
 ![Diagrama do layout do circuito do ExpressRoute para exercício](../media/5-exercise-provision-expressroute-circuit.png)
@@ -141,4 +137,5 @@ Parabéns por concluir o laboratório. Aqui estão as principais lições desse 
 + A Microsoft garante um mínimo de 99,95% de disponibilidade para conexões dedicadas do ExpressRoute. A conexão é privada e trafega por uma linha dedicada, terceiros não podem interceptar o tráfego.
 + Você pode criar uma conexão entre sua rede local e a nuvem da Microsoft de quatro maneiras diferentes, Colocalização do CloudExchange, Conexão de Ethernet Ponto a Ponto, Conexão de Qualquer para Qualquer (IPVPN) e ExpressRoute Direct.
 + Os recursos do ExpressRoute são determinados pelo SKU: Local, Standard e Premium. 
+
 

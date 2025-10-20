@@ -11,10 +11,6 @@ Exercise:
 
 Para conectar sua rede virtual do Azure e sua rede local por ExpressRoute, você deve primeiro criar um gateway de rede virtual. Um gateway de rede virtual tem duas finalidades: trocar rotas de IP entre as redes e rotear o tráfego da rede.
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
 
 **Tipos de gateway**
@@ -118,4 +114,5 @@ Parabéns por concluir o laboratório. Aqui estão as principais lições desse 
 + A Microsoft garante um mínimo de 99,95% de disponibilidade para conexões dedicadas do ExpressRoute. A conexão é privada e trafega por uma linha dedicada, terceiros não podem interceptar o tráfego.
 + Você pode criar uma conexão entre sua rede local e a nuvem da Microsoft de quatro maneiras diferentes, Colocalização do CloudExchange, Conexão de Ethernet Ponto a Ponto, Conexão de Qualquer para Qualquer (IPVPN) e ExpressRoute Direct.
 + Os recursos do ExpressRoute são determinados pelo SKU: Local, Standard e Premium. 
+
 

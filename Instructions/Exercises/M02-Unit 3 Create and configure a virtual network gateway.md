@@ -29,10 +29,6 @@ Neste exercício, você vai:
 + Tarefa 10: verificar se as conexões se conectam
 + Tarefa 11: testar a conexão entre as VMs
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 70 minutos (incluindo ~45 minutos de tempo de espera de implantação)
 
 ## Tarefa 1: criar CoreServicesVnet e ManufacturingVnet
