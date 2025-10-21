@@ -10,10 +10,6 @@ Exercise:
 
 Neste exercício, você criará um perfil do Gerenciador de Tráfego para fornecer alta disponibilidade para o aplicativo Web da organização fictícia Contoso Ltd.
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 35 minutos
 
 Você criará duas instâncias de um aplicativo Web implantado em duas regiões diferentes (Leste dos EUA e Oeste da Europa). A região Leste dos EUA atuará como um ponto de extremidade primário para o Gerenciador de Tráfego, e a região Oeste da Europa atuará como um ponto de extremidade de failover.
@@ -51,11 +47,11 @@ Nesta seção, você criará duas instâncias de um aplicativo Web implantado na
    | Sistema operacional | **Windows**                                                  |
    | Região           | **Leste dos EUA**                                                  |
    | Plano do Windows     | Selecione **Criar novo** Nome: **ContosoAppServicePlanEastUS** |
-   | Plano de preços     | **Standard S1, total de 100 ACUs, memória de 1,75 GB**               |
+   | Plano de preços     | **Premium V3 P1V3** (selecione outro plano se não estiver disponível)          |
 
-1. Selecione a guia **Monitoramento**.
+1. Selecione a guia **Monitorar + proteger**.
 
-1. Na guia **Monitoramento**, selecione a opção **Não** para **Habilitar o Application Insights**.
+1. Selecione a opção **Não** para **Habilitar o Application Insights**.
 
 1. Selecione **Examinar + criar**.
 
