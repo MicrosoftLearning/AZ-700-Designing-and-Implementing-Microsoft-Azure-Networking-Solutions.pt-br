@@ -32,10 +32,6 @@ O diagrama a seguir ilustra o ambiente que você vai implantar neste exercício.
 + Tarefa 12: exibir a integridade do recurso
 + Tarefa 13: definir configurações de diagnóstico
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 55 minutos
 
 ## Tarefa 1: criar a rede virtual
@@ -44,7 +40,7 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
 1. Faça logon no Portal do Azure.
 
-1. Na página inicial do portal do Azure, pesquise **Rede Virtual** e selecione as redes virtuais em Serviços.
+1. No portal do Azure, pesquise e selecione as **Redes Virtuais**.
 
 1. Selecione **+ Criar**.
 
@@ -59,16 +55,6 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
    | Nome           | **IntLB-VNet**                                      |
    | Região         | **(EUA) Oeste dos EUA**                                    |
 
-1. Selecione **Próximo: Endereços IP**.
-
-1. Na guia **Endereços IP**, na caixa **Espaço de endereço IPv4**, digite **10.1.0.0/16**.
-
-1. Em **Nome da sub-rede**, selecione **+ Adicionar sub-rede**.
-
-1. No painel **Adicionar sub-rede**, forneça o nome de sub-rede **myBackendSubnet** e o intervalo de endereços de sub-rede de **10.1.0.0/24**.
-
-1. Selecione **Adicionar**.
-
 1. Selecione **Avançar: Segurança**.
 
 1. Em **BastionHost**, selecione **Habilitar** e insira as informações da tabela a seguir.
@@ -76,8 +62,17 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
     | **Configuração**                       | **Valor**                                              |
     | --------------------------------- | ------------------------------------------------------ |
     | Nome do bastion                      | **myBastionHost**                                      |
-    | Espaço de endereço da AzureBastionSubnet  | **10.1.1.0/24**                                        |
     | Endereço IP público                 | Selecione **Criar**<br /><br />Nome: **myBastionIP** |
+
+1. Selecione **Próximo: Endereços IP**.
+
+1. **Exclua o endereço IP** e, em seguida, o **espaço de endereços IPv4**. Insira **10.1.0.0/16.**
+
+1. Edite o **AzureBastionSubnet** e altere o **Endereço inicial** para **10.1.1.0**. **Salvar** a alteração. 
+
+1. Selecione **+ Adicionar sub-rede**, o nome da sub-rede é `myBackendSubnet` e o intervalo de endereços da sub-rede é `10.1.0.0/24`. Selecione **Adicionar**.
+
+1. Agora você deve ter uma rede virtual com duas sub-redes. 
 
 1. Selecione **Examinar + criar**.
 
@@ -87,9 +82,9 @@ Nesta seção, você vai criar uma rede virtual e uma sub-rede.
 
 Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. O motivo pelo qual estamos criando um balanceador de carga de SKU Standard aqui no exercício, em vez de um balanceamento de carga de SKU Básico, é que exercícios posteriores exigem uma versão de SKU Standard do balanceador de carga.
 
-1. Na home page do Azure, na barra de pesquisa, insira **Balanceador de Carga**
+1. No portal do Azure, pesquise e selecione o **Balanceadores de Carga**
 
-1. Selecione **Criar Balanceador de Carga**.
+1. Selecione **Criar** e, em seguida **, Standard Load Balancer**.
 
 1. Na guia **Noções básicas**, use as informações na tabela abaixo para criar o balanceador de carga.
 
@@ -102,21 +97,24 @@ Nesta seção, você vai criar um balanceador de carga de SKU Standard interno. 
    | Região                | **(EUA) Oeste dos EUA**         |
    | SKU                   | **Standard**             |
    | Tipo                  | **Interna**             |
-   | Guia Configuração do IP de front-end | + Adicionar uma configuração de IP de front-end |
-   | Nome                  | **LoadBalancerFrontEnd** |
+
+1. Mova para a **Guia de configuração de IP de front-end** e selecione **+ Adicionar uma configuração de IP de front-end**.
+
+   | **Configuração**            | **Valor**            |
+   | Nome                  | `LoadBalancerFrontEnd` |
    | Rede virtual       | **IntLB-VNet**           |
    | Sub-rede                | **myBackendSubnet**      |
-   | Atribuição de endereço IP | **Dinâmico**              |
+   | Atribuição de endereço IP | **Dinâmica**              |
 
-1. Selecione **Examinar + criar**.
+1. **Salve** as alterações e, em seguida, selecione **Examinar + criar**.
 
-1. Selecione **Criar**.
+1. Após uma validação bem-sucedida, selecione **Criar**.
 
 ## Tarefa 3: criar um pool de back-end
 
 O pool de endereços de back-end contém os endereços IP de NICs virtuais conectados ao balanceador de carga.
 
-1. Na página inicial do portal do Azure, selecione **Todos os recursos** e selecione **myIntLoadBalancer** na lista de recursos.
+1. No portal do Azure, pesquise e selecione o recurso **myIntLoadBalancer**.
 
 1. Em **Configurações**, selecione **Pools de back-end** e, em seguida, **Adicionar**.
 
@@ -125,10 +123,10 @@ O pool de endereços de back-end contém os endereços IP de NICs virtuais conec
    | **Configuração**     | **Valor**            |
    | --------------- | -------------------- |
    | Nome            | **myBackendPool**    |
-   | Rede virtual | **IntLB-VNet**       |
+   | Rede virtual | IntLB-VNet    |
    | Configuração do pool de back-end   | **NIC** |
 
-1. Selecione **Adicionar**.
+1. Selecione **Salvar**.
 
    ![Mostrar pool de back-end criado no balanceador de carga](../media/create-backendpool.png)
 
@@ -136,19 +134,19 @@ O pool de endereços de back-end contém os endereços IP de NICs virtuais conec
 
 O balanceador de carga monitora o status do seu aplicativo com uma investigação de integridade. A investigação de integridade adiciona ou remove VMs do balanceador de carga com base na resposta às verificações de integridade. Aqui você vai criar uma investigação de integridade e monitorar a integridade das VMs.
 
-1. Na página **Pools de back-end** do balanceador de carga, em **Configurações**, selecione **Investigações de integridade** e **Adicionar**.
+1. Para o recurso do balanceador de carga, selecione **Configurações**, **Investigações de integridade** e, em seguida, **Adicionar**.
 
 1. Na página **Adicionar investigação de integridade**, insira as informações da tabela a seguir.
 
    | **Configuração**         | **Valor**         |
    | ------------------- | ----------------- |
-   | Nome                | **myHealthProbe** |
+   | Nome                | `myHealthProbe` |
    | Protocolo            | **HTTP**          |
    | Porta                | **80**            |
    | Caminho                | **/**             |
    | Intervalo            | **15**            |
 
-1. Selecione **Adicionar**.
+1. Selecione **Salvar**.
 
    ![Mostrar investigação de integridade criada no balanceador de carga](../media/create-healthprobe.png)
 
@@ -156,25 +154,21 @@ O balanceador de carga monitora o status do seu aplicativo com uma investigaçã
 
 Uma regra de balanceador de carga é usada para definir como o tráfego é distribuído para as VMs. Você define a configuração de IP de front-end para o tráfego de entrada e o pool de IPs de back-end para receber o tráfego. A porta de origem e de destino são definidas na regra. Aqui, você vai criar uma regra de balanceador de carga.
 
-1. Na página **Pools de back-end** do balanceador de carga, em **Configurações**, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-
-1. Na página **Adicionar regra de balanceamento de carga**, insira as informações da tabela a seguir.
+1. Para o recurso do balanceador de carga, selecione **Configurações**, **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
 
    | **Configuração**            | **Valor**                |
    | ---------------------- | ------------------------ |
    | Nome                   | **myHTTPRule**           |
    | Versão IP             | **IPv4**                 |
    | Endereço IP de front-end    | **LoadBalancerFrontEnd** |
+   | Pool de back-end           | **myBackendPool**        |
    | Protocolo               | **TCP**                  |
    | Porta                   | **80**                   |
    | Porta de back-end           | **80**                   |
-   | Pool de back-end           | **myBackendPool**        |
    | Investigação de integridade           | **myHealthProbe**        |
    | Persistência de sessão    | **Nenhuma**                 |
    | Tempo limite de ociosidade (minutos) | **15**                   |
-   | IP flutuante            | **Desabilitado**             |
-
-1. Selecione **Adicionar**.
+   | IP flutuante            | **Desabilitada**             |
 
    ![Mostrar regra de balanceamento de carga criada no balanceador de carga](../media/create-loadbalancerrule.png)
 
@@ -191,90 +185,41 @@ Nesta seção, você criará três VMs para o pool de back-end do balanceador de
 
     > **Observação:** se você estiver trabalhando em sua própria assinatura, os [arquivos de modelo](https://github.com/MicrosoftLearning/AZ-700-Designing-and-Implementing-Microsoft-Azure-Networking-Solutions/tree/master/Allfiles/Exercises) estarão disponíveis no repositório do GitHub Lab.
 
-1. Implante os seguintes modelos do ARM para criar a rede virtual, as sub-redes e as VMs necessárias para este exercício:
-
-   >**Observação**: você será solicitado a fornecer uma senha de Administrador.
+1. Implante os seguintes modelos do ARM para criar a rede virtual, as sub-redes e as VMs necessárias para este exercício. T**Observação**: Você será solicitado a fornecer uma senha de Administrador.
 
    ```powershell
    $RGName = "IntLB-RG"
-
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
    ```
-  
-    > **Observação:** isso levará alguns minutos para implantar.
+1. A implantação pode levar vários minutos. Você pode verificar o progresso no portal atualizando a página de recursos da máquina virtual.   
 
 ## Tarefa 7: Adicionar VMs ao pool de back-end
 
-1. Na página inicial do portal do Azure, selecione **Todos os recursos** e selecione **myIntLoadBalancer** na lista de recursos.
+1. No portal do Azure, pesquise e selecione o recurso **myIntLoadBalancer**.
 
 1. Em **Configurações**, selecione **Pools de back-end** e selecione **myBackendPool**.
 
-1. Na caixa **Associado a**, selecione **Máquinas virtuais**.
+1. Na seção **Configurações de IP**, selecione **Adicionar**.
 
-1. Em **Máquinas virtuais**, selecione **Adicionar**.
+1. Selecione todas as máquinas virtuais exibidas e, em seguida, **Adicionar**.
 
-1. Marque as caixas de seleção para todas as três VMs (**myVM1**, **myVM2** e **myVM3**) e selecione **Adicionar**.
+1. Marque as caixas de seleção para **myVM1** e **myVM2** e, em seguida, selecione **Adicionar**.
 
 1. Na página **myBackendPool**, selecione **Salvar**.
-
-   ![Mostrar VMs adicionadas ao pool de back-end no balanceador de carga](../media/add-vms-backendpool.png)
 
 ## Tarefa 8: testar o balanceador de carga
 
 Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
-### Criar VM de teste
+### Conexão à VM de teste (VM3) para testar o balanceador de carga
 
-   >**Observação**: você pode encontrar pequenas diferenças entre as instruções e a interface do portal do Azure, mas o conceito principal é o mesmo.
-
-1. Na página inicial do Azure, usando a pesquisa global, digite **Máquinas Virtuais** e selecione máquinas virtuais em Serviços.
-
-1. Selecione **+ Criar, + Máquina virtual**, na guia **Noções básicas**, use as informações na tabela abaixo para criar a primeira VM.
-
-   | **Configuração**          | **Valor**                                    |
-   | -------------------- | -------------------------------------------- |
-   | Assinatura         | Selecionar sua assinatura                     |
-   | Resource group       | **IntLB-RG**                                 |
-   | Nome da máquina virtual | **myTestVM**                                 |
-   | Região               | **(EUA) Oeste dos EUA**                             |
-   | Opções de disponibilidade | **Nenhuma redundância de infraestrutura necessária**    |
-   | Tipo de segurança        | **Standard**                                 |
-   | Imagem                | **Ver todas as imagens** --> **Datacenter para Windows Server 2019**  |
-   | Tamanho                 | **Standard_DS2_v3 – 2 vCPU, 8 GiB de memória** |
-   | Nome de Usuário             | **TestUser**                                 |
-   | Senha             | **Forneça uma senha segura**                |
-   | Confirmar senha     | **Forneça uma senha segura**                |
-
-1. Selecione **Avançar: Discos** e **Avançar: Rede**.
-
-1. Na guia **Rede**, use as informações na tabela abaixo para definir as configurações de rede.
-
-   | **Configuração**                                                  | **Valor**                     |
-   | ------------------------------------------------------------ | ----------------------------- |
-   | Rede virtual                                              | **IntLB-VNet**                |
-   | Sub-rede                                                       | **myBackendSubnet**           |
-   | IP público                                                    | Alterar para **Nenhum**            |
-   | Grupo de segurança de rede da NIC                                   | **Avançado**                  |
-   | Configurar um grupo de segurança de rede                             | Selecione o **myNSG** existente |
-   | Balanceamento de carga                                               | **Nenhum** (ou desmarcado)       |
-
-1. Selecione **Examinar + criar**.
-
-1. Selecione **Criar**.
-
-1. Aguarde até que essa última VM seja implantada antes de prosseguir com a próxima tarefa.
-
-### Conexão à VM de teste para testar o balanceador de carga
-
-1. Na página inicial do portal do Azure, selecione **Todos os recursos** e selecione **myIntLoadBalancer** na lista de recursos.
+1. No portal do Azure, pesquise e selecione o recurso **myIntLoadBalancer**.
 
 1. Na página **Visão geral**, anote o **Endereço IP Privado** ou copie-o para a área de transferência. Observação: talvez seja necessário selecionar **Ver mais** para ver o **Endereço IP privado**.
 
-1. Clique em **Página Inicial** e, na página inicial do portal do Azure, selecione **Todos os recursos** e clique na máquina virtual **myTestVM** que você acabou de criar.
+1. Pesquise e selecione **myVM3**. 
 
-1. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
-
-1. Selecione **Usar Bastion**.
+1. Selecione **Conectar** e, em seguida, **Conectar via Bastion**.
 
 1. Na caixa **Nome de usuário**, digite **TestUser** e, na caixa **Senha**, digite a senha fornecida durante a implantação e selecione **Conectar**.
 
@@ -286,21 +231,14 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
 1. Selecione **OK** na caixa de diálogo **Configurar o Internet Explorer 11**.
 
-1. Insira (ou cole) o **Endereço IP privado** (por exemplo, 10.1.0.4) da etapa anterior na barra de endereços do navegador e pressione Enter.
+1. Insira (ou cole) o endereço IP do balanceador de carga (por exemplo, 10.1.0.4).
 
-1. A home page da Web padrão do servidor Web do IIS é exibida na janela do navegador. Uma das três máquinas virtuais no pool de back-end responderá.
-    ![Janela do navegador mostrando a resposta Olá, Mundo da VM1](../media/load-balancer-web-test-1.png)
-
-1. Se você selecionar o botão Atualizar no navegador algumas vezes, verá que a resposta vem aleatoriamente das diferentes VMs no pool de back-end do balanceador de carga interno.
-
-    ![Janela do navegador mostrando a resposta Olá, Mundo da VM3](../media/load-balancer-web-test-2.png)
+1. Uma das duas máquinas virtuais de servidores de back-end (myVM1 ou myVM2) responderá. Continue atualizando a página e observe que a resposta vem aleatoriamente dos servidores de back-end. 
 
 ## Tarefa 9: criar um workspace do Log Analytics
 
-1. Na página inicial do portal do Azure, selecione **Todos os serviços**, depois, na caixa de pesquisa na parte superior da página, insira **Log Analytics** e selecione **Workspaces do Log Analytics** na lista filtrada.
-
-   ![Como acessar workspaces do Log Analytics na home page do portal do Azure](../media/log-analytics-workspace-1.png)
-
+1. No portal do Azure, pesquise e selecione o recurso **Workspaces do Log Analytics**.
+   
 1. Selecione **Criar**.
 
 1. Na página **Criar workspace do Log Analytics**, na guia **Noções básicas**, use as informações na tabela abaixo para criar o workspace.
@@ -314,30 +252,13 @@ Nesta seção, você criará uma VM de teste e testará o balanceador de carga.
 
 1. Selecione **Examinar + Criar** e **Criar**.
 
-   ![Lista de workspaces do Log Analytics](../media/log-analytics-workspace-2.png)
-
 ## Tarefa 10: usar a exibição de dependência funcional
 
-1. Na página inicial do portal do Azure, selecione **Todos os recursos** e, na lista recursos, selecione **myIntLoadBalancer**.
+1. No portal do Azure, pesquise e selecione o recurso **myIntLoadBalancer**. 
 
    ![Lista Todos os recursos no portal do Azure](../media/network-insights-functional-dependency-view-1.png)
 
 1. Em **Monitoramento**, selecione **Insights**.
-
-1. No canto superior direito da página, selecione **X** para fechar o painel de **Métricas** por enquanto. Você vai abri-lo novamente em breve.
-
-1. Essa exibição de página é conhecida como exibição de dependência funcional e, nela, você obtém um diagrama interativo útil que ilustra a topologia do recurso de rede selecionado, neste caso, um balanceador de carga. Para Standard Load Balancers, os recursos do conjunto de back-end são codificados por cores com o status de investigação de integridade, indicando a disponibilidade atual do conjunto de back-end para atender ao tráfego.
-
-1. Use os botões **Ampliar (+)** e **Reduzir (-)** no canto inferior direito da página para ampliar e reduzir o diagrama de topologia (como alternativa, você pode usar a roda do mouse se tiver uma). Você também pode arrastar o diagrama de topologia pela página para movê-lo.
-
-1. Focalize o componente **LoadBalancerFrontEnd** com o cursor do mouse no diagrama e focalize o componente **myBackendPool**.
-
-1. Observe que você pode usar os links nessas janelas pop-up para exibir informações sobre esses componentes do balanceador de carga e abrir as respectivas folhas do portal do Azure.
-
-1. Para baixar uma cópia do arquivo .SVG do diagrama de topologia, selecione **Baixar topologia** e salve o arquivo na pasta **Downloads**.
-
-1. No canto superior direito, selecione **Exibir métricas** para reabrir o painel de métricas no lado direito da tela.
-    ![Exibição de dependência funcional de Insights de Rede do Azure Monitor –botão Exibir métricas realçado](../media/network-insights-functional-dependency-view-3.png)
 
 1. O painel Métricas apresenta uma exibição rápida de algumas das principais métricas para esse recurso de balanceador de carga na forma de gráficos de barras e de linhas.
 

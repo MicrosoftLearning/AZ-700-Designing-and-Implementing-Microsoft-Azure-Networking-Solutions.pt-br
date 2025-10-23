@@ -9,10 +9,6 @@ Exercise:
 
 Neste exercício, você vai criar um balanceador de carga interno para a organização fictícia Contoso Ltd.
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 60 minutos (inclui ~45 minutos de tempo de espera de implantação)
 
 As etapas para criar um balanceador de carga interno são muito semelhantes às que você já aprendeu neste módulo para criar um balanceador de carga público. A principal diferença é que, com um balanceador de carga público, o front-end é acessado por meio de um endereço IP público e você testa a conectividade a partir de um host que está localizado fora de sua rede virtual; ao passo que, com um balanceador de carga interno, o front-end é um endereço IP privado dentro de sua rede virtual e você testa a conectividade a partir de um host dentro da mesma rede.

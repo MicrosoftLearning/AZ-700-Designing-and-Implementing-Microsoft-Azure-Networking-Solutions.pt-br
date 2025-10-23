@@ -24,9 +24,6 @@ Neste exercício, você vai:
 + Tarefa 6: Configurar alertas de DDoS
 + Tarefa 7: testar com parceiros de simulação
   
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
 ### Tempo estimado: 40 minutos
 
 ## Tarefa 1: criar um grupo de recursos

@@ -22,10 +22,6 @@ Neste exercício, você vai:
 + Tarefa 4: criar emparelhamentos de VNet entre a CoreServicesVnet e a ManufacturingVnet
 + Tarefa 5: testar a conexão entre as VMs
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 20 minutos
 
 ## Tarefa 1: criar uma máquina virtual para testar a configuração

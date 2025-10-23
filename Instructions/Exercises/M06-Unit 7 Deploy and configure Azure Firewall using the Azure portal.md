@@ -27,10 +27,6 @@ Neste exercício, você vai:
 + Tarefa 9: Alterar os endereços DNS primário e secundário para a interface de rede do servidor
 + Tarefa 10: Testar o firewall
 
-### Simulações interativas de laboratório
-
->**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
 ### Tempo estimado: 60 minutos
 
 ## Tarefa 1: criar um grupo de recursos
@@ -69,11 +65,11 @@ Nesta tarefa, você criará uma única rede virtual com duas sub-redes.
 
 1. Selecione **Avançar: Endereços IP**. Digite o espaço de endereço IPv4 10.0.0.0/16 se ainda não estiver lá por padrão.
 
-1. Em **Nome da sub-rede**, selecione a palavra **padrão**.
+1. Clique no ícone **Editar** ao lado da sub-rede **Padrão**.
 
-1. Na caixa de diálogo **Editar sub-rede**, altere o nome para **AzureFirewallSubnet**.
+1. No menu suspenso **Finalidade da sub-rede**, selecione **Firewall do Azure**. 
 
-1. Altere o **Intervalo de endereços de sub-rede** para **10.0.1.0/26**.
+1. Altere o **Endereço inicial** para **10.0.1.0/26**.
 
 1. Selecione **Salvar**.
 

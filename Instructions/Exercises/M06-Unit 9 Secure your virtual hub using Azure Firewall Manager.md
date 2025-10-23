@@ -13,11 +13,6 @@ Neste exercício, você criará a rede virtual spoke, criará um hub virtual seg
 
 ![Diagrama da arquitetura de rede virtual com um hub seguro.](../media/9-exercise-secure-your-virtual-hub-using-azure-firewall-manager.png)
 
-### Simulações interativas de laboratório
-
-**Observação**: as simulações de laboratório fornecidas anteriormente foram desativadas.
-
-
 ## Criar uma arquitetura de hub e spoke
 
 Nesta parte do exercício, você criará as redes virtuais spoke e sub-redes em que colocará os servidores da carga de trabalho. Você criará o hub virtual seguro e conectará as redes virtuais hub e spoke.
@@ -180,105 +175,96 @@ Nesta tarefa, você conectará as redes virtuais hub e spoke. Isso é normalment
 
 Nesta tarefa, você criará a política de firewall para proteger seu hub. Uma política de firewall define coleções de regras para direcionar o tráfego em um ou mais Hubs virtuais seguros.
 
-1. No portal, pesquise `firewall manager` e selecione **Gerenciador de Firewall com palavra-chave Segurança de Rede**.
-
-1. Na folha **Gerenciador de Firewall**, selecione **Políticas de Firewall do Azure**.
+1. No portal, pesquise e selecione `Firewall Policies`.
 
 1. Selecione **Criar**.
 
-1. Em **Grupo de recursos**, selecione **fw-manager-rg**.
-
-5. Em **Detalhes da política**, para o **Nome**, insira `Policy-01`.
-
-1. Em **Região**, selecione sua região.
-
-1. Em **Camada da política**, selecione **Standard**.
+    | **Configuração**    | **Valor** |
+    | ---------- | --------------|
+    | Resource group | **fw-manager-rg** |
+    | Nome    | `Policy-01` |
+    | Region     | Selecione sua região |
+    | Nível de política | **Standard** |
 
 1. Selecione **Próximo: Configurações de DNS**. Examine, mas não faça nenhuma alteração. 
 
 1. Selecione **Avançar: Inspeção TLS**. Examine, mas não faça nenhuma alteração. 
 
-1. Selecione **Avançar: Regras**.
+**Adicionar uma coleção de regras e uma regra para permitir o domínio da Microsoft**
 
-1. Na guia **Regras**, selecione **Adicionar a coleção de regras**.
+1. Selecione **Avançar: Regras** e, em seguida, **Adicionar uma coleção de regras**.
 
-1. Na página **Adicionar uma coleção de regras**, em **Nome**, insira `App-RC-01`.
+   | **Configuração** | **Valor** |
+   | ---------- | --------------|
+   | Nome        |  `App-RC-01` |
+   | Tipo de coleção de regras | **Aplicativo** |
+   | Prioridade    | `100` |
+   | Ação da coleção de regras | **Permitir** |
 
-1. Para **Tipo de coleção de regras**, selecione **Aplicativo**.
+1. Na seção **Regras**.
 
-1. Para **Prioridade**, insira **100**.
+   | **Configuração** | **Valor** |
+   | ---------- | --------------|
+   | Nome |  `Allow-msft` |
+   | Tipo de origem | **Endereço IP** |
+   | Origem | `*` |
+   | Protocolo | `http,https` |
+   | Tipo de destino | **FQDN** |
+   | Destino | `*.microsoft.com` |
 
-1. Verifique se a **Ação de coleção de regras** é **Permitir**.
+**Adicione uma coleção de regras e uma regra para permitir uma conexão de área de trabalho remota com a máquina virtual Srv-workload-01.**
 
-1. Em **Regras**, em **Nome**, insira `Allow-msft`.
+1. Selecione **Adicionar uma coleção de regras**.
 
-1. Para o **Tipo de origem**, selecione **Endereço IP**.
+   | **Configuração** | **Valor** |
+   | ---------- | --------------|
+   | Nome        |  `dnat-rdp` |
+   | Tipo de coleção de regras | **DNAT** |
+   | Prioridade    | `100` |
+   | Ação da coleção de regras | **Permitir** |
 
-1. Em **Origem**, insira *.
+1. Na seção **Regras**.
 
-1. Para **Protocolo**, insira `http,https`.
+   | **Configuração** | **Valor** |
+   | ---------- | --------------|
+   | Nome |  `Allow-rdp` |
+   | Tipo de origem | **Endereço IP** |
+   | Origem | `*` |
+   | Protocolo | **TCP** |
+   | Portas de Destino | `3389` |
+   | Destino (endereço IP do firewall) | Insira o endereço IP público do hub virtual do firewall |
+   | Tipo após a conversão | **Endereço IP** |
+   | Endereço traduzido ou FQDN | Anotar o endereço IP privado da máquina virtual Srv-workload-01 |
+   | Porta traduzida | `3389` |
+   
+**Adicione uma coleção de regras e uma regra para permitir uma conexão de área de trabalho remota com a máquina virtual Srv-workload-02.**
 
-1. Verifique se o **Tipo de destino** é **FQDN**.
+1. Selecione **Adicionar uma coleção de regras**.
 
-1. Para **Destino**, insira `*.microsoft.com`.
+   | **Configuração** | **Valor** |
+   | ---------- | --------------|
+   | Nome        |  `vnet-rdp` |
+   | Tipo de coleção de regras | **Rede** |
+   | Prioridade    | `100` |
+   | Ação da coleção de regras | **Permitir** |
 
-1. Selecione **Adicionar**.
+1. Na seção **Regras**.
 
-1. Para adicionar uma regra DNAT para que você possa conectar uma área de trabalho remota à VM Srv-workload-01, selecione **Adicionar uma coleção de regras**.
-
-1. Para **Nome**, insira `dnat-rdp`.
-
-1. Em **Tipo de coleção de regras**, selecione **DNAT**.
-
-1. Para **Prioridade**, insira **100**.
-
-1. Em **Regras**, em **Nome**, insira `Allow-rdp`.
-
-1. Para o **Tipo de origem**, selecione **Endereço IP**.
-
-1. Em **Origem**, insira *.
-
-1. Em **Protocolo**, selecione **TCP**.
-
-1. Para **Portas de Destino**, insira `3389`.
-
-1. Para **IP de destino**, insira o endereço IP do hub virtual do firewall que você anotou anteriormente (por exemplo, **51.143.226.18**).
-
-1. Em **Tipo convertido**, selecione **Endereço IP**.
-
-1. Para **Endereço traduzido**, insira o endereço IP privado para **Srv-workload-01** que você anotou anteriormente (por exemplo, **10.0.1.4**).
-
-1. Para **Porta traduzida**, insira **3389**.
-
-1. Selecione **Adicionar**.
-
-1. Para adicionar uma Regra de rede para que você possa conectar uma área de trabalho remota de Srv-workload-01 à VM Srv-workload-02, selecione **Adicionar uma coleção de regras**.
-
-1. Para **Nome**, insira `vnet-rdp`.
-
-1. Para **Tipo de coleção de regras**, selecione **Rede**.
-
-1. Para **Prioridade**, insira **100**.
-
-1. Em **Ação de coleção de regras**, selecione **Permitir**.
-
-1. Em **Regras**, em **Nome**, insira `Allow-vnet`.
-
-1. Para o **Tipo de origem**, selecione **Endereço IP**.
-
-1. Em **Origem**, insira *.
-
-1. Em **Protocolo**, selecione **TCP**.
-
-1. Quanto às **Portas de destino**, insira **3389**.
-
-1. Para **Tipo de Destino**, selecione **Endereço IP**.
-
-1. Para **Destino**, insira o endereço IP privado para **Srv-workload-02** que você anotou anteriormente (por exemplo, **10.1.0.4**).
+   | **Configuração** | **Valor** |
+   | ---------- | --------------|
+   | Nome |  `Allow-vnet` |
+   | Tipo de origem | **Endereço IP** |
+   | Origem | `*` |
+   | Protocolo | **TCP** |
+   | Portas de Destino | `3389` |
+   | Destino (endereço IP do firewall) | Insira o endereço IP público do hub virtual do firewall |
+   | Tipo após a conversão | **Endereço IP** |
+   | Endereço traduzido ou FQDN | Anotar o endereço IP privado da máquina virtual Srv-workload-02 |
+   | Porta traduzida | `3389` |
 
 1. Selecione **Adicionar**.
 
-1. Agora você deve ter três coleções de regras listadas.
+1. Verifique se você tem três coleções de regras.
 
 1. Selecione **Examinar + criar**.
 
